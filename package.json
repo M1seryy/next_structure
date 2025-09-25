@@ -1,0 +1,69 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "RubyLabs CMS template",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss}\"",
+    "type-check": "tsc --noEmit",
+    "format": "yarn type-check && yarn lint && yarn prettier",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@heroui/card": "^2.2.24",
+    "@heroui/divider": "^2.2.19",
+    "@heroui/react": "^2.8.4",
+    "@svgr/webpack": "^8.1.0",
+    "@t3-oss/env-nextjs": "^0.13.8",
+    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "framer-motion": "^12.23.7",
+    "ky": "^1.10.0",
+    "lucide-react": "^0.525.0",
+    "next": "15.4.3",
+    "next-intl": "^4.3.4",
+    "next-themes": "^0.4.6",
+    "qs-esm": "^7.0.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.63.0",
+    "react-scan": "^0.4.3",
+    "rtl-detect": "^1.1.2",
+    "usehooks-ts": "^3.1.1",
+    "zod": "^4.1.11",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^22.15.30",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "babel-plugin-react-compiler": "^19.1.0-rc.3",
+    "eslint": "^9.31.0",
+    "eslint-config-next": "15.4.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.11",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "yarn@1.22.22",
+  "volta": {
+    "node": "22.17.1",
+    "yarn": "1.22.22"
+  }
+}
