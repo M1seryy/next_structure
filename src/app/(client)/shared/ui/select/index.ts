@@ -1,1 +1,0 @@
-export { SelectThemeComponent } from './theme'
