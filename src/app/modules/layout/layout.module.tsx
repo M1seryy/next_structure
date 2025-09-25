@@ -1,8 +1,9 @@
 import { type FC, type ReactNode } from 'react'
 
 import { HeaderComponent } from '@/app/widgets/header'
+import { FooterComponent } from '@/app/widgets/footer'
 import { ContainerComponent } from '@/app/shared/ui/container'
-
+import { Banner } from '@/app/shared/ui/banner'
 // interface
 interface IProps {
   children: ReactNode
@@ -14,10 +15,12 @@ const LayoutModule: FC<Readonly<IProps>> = (props) => {
 
   // return
   return (
-    <>
+    <ContainerComponent variant='main'>
       <HeaderComponent />
-      <ContainerComponent variant='main'>{children}</ContainerComponent>
-    </>
+      <Banner />
+      {children}
+      <FooterComponent />
+    </ContainerComponent>
   )
 }
 

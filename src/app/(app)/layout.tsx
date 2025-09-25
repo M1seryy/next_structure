@@ -1,6 +1,7 @@
 import { type FC, type ReactNode } from 'react'
 import '@/config/styles/global.css'
 import { LayoutModule } from '../modules/layout'
+import { RestApiProvider } from '@/pkg/libraries/rest-api'
 
 // interface
 interface IProps {
@@ -13,7 +14,9 @@ const RootLayout: FC<Readonly<IProps>> = ({ children }) => {
   return (
     <html lang='en'>
       <body>
-        <LayoutModule>{children}</LayoutModule>
+        <RestApiProvider>
+          <LayoutModule>{children}</LayoutModule>
+        </RestApiProvider>
       </body>
     </html>
   )
