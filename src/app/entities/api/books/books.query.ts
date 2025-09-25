@@ -26,4 +26,8 @@ export const useBookByWorkId = (workId: string) => {
     })
 }
 
+export const useSearchBooks = (query: string) => {
+    return useQuery(booksListQueryOptions(query))
+}
+
 

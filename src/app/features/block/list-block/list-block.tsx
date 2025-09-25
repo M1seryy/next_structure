@@ -1,3 +1,4 @@
+import { CardComponent } from '@/app/shared/ui/card'
 import { type FC } from 'react'
 
 // interface
@@ -20,9 +21,14 @@ const ListBlockComponent: FC<Readonly<IProps>> = (props) => {
           <div>Завантаження...</div>
         ) : (
           items.map((item, index) => (
-            <div key={index} className='rounded-lg border p-4'>
-              <p>Елемент {index + 1}</p>
-            </div>
+            <CardComponent
+              key={index}
+              id={item.id}
+              title={item.title}
+              author={item.author}
+              coverUrl={item.coverUrl}
+              year={item.year}
+            />
           ))
         )}
       </div>
