@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
-import { fetchBookByWorkId } from '@/app/entities/api/books'
+import { fetchBookByWorkId, fetchPopularBooks } from '@/app/entities/api/books'
 import { type OpenLibraryBook } from '@/app/entities/models'
 import { DetailsBlockComponent } from '@/app/features/block/details-block'
 
@@ -35,6 +35,19 @@ const BookPage: FC<Readonly<IProps>> = async (props) => {
       </div>
     </HydrationBoundary>
   )
+}
+
+export async function generateStaticParams() {
+  try {
+    const popularBooks = await fetchPopularBooks()
+
+    return popularBooks.slice(0, 20).map((book) => ({
+      id: book.id,
+    }))
+  } catch (error) {
+    console.error('Error generating static params for book pages:', error)
+    return []
+  }
 }
 
 // revalidate every 30 seconds
