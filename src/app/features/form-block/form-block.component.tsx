@@ -18,7 +18,7 @@ interface SearchFormData {
 }
 
 // component
-const SearchComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) => {
+const FormBlockComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) => {
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
 
   const onSubmit = (data: SearchFormData) => {
@@ -77,4 +77,4 @@ const SearchComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) 
   )
 }
 
-export default SearchComponent
+export default FormBlockComponent

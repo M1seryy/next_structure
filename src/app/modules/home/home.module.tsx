@@ -2,7 +2,7 @@
 
 import { type FC, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { SearchComponent } from '@/app/shared/ui/search-form'
+import { FormBlockComponent } from '@/app/features/form-block'
 import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
@@ -57,7 +57,7 @@ const HomeModule: FC<Readonly<IProps>> = () => {
         <p>Welcome to our book store!</p>
       </div>
 
-      <SearchComponent onSearch={handleSearch} isLoading={isLoading} />
+      <FormBlockComponent onSearch={handleSearch} isLoading={isLoading} />
 
       <div className='flex gap-2'>
         <button
