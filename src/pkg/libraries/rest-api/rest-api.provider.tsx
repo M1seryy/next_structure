@@ -1,6 +1,7 @@
 'use client'
 
 import type { FC, ReactNode } from 'react'
+import { useState } from 'react'
 
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -16,7 +17,7 @@ interface IProps {
 const RestApiProvider: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
-  const queryClient = getQueryClient()
+  const [queryClient] = useState(() => getQueryClient())
 
   // return
   return (

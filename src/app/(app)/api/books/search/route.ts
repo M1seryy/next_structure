@@ -3,17 +3,17 @@ import { NextRequest, NextResponse } from 'next/server'
 // constants
 const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
 
-// GET /api/books/search?q=harry+potter
+// GET /api/books/search?q=
 export async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url)
-        const q = searchParams.get('q') || 'harry potter'
+        const q = searchParams.get('q') || 'popular books'
 
-        // Fetch from Open Library API
         const openLibraryUrl = `${OPEN_LIBRARY_BASE_URL}/search.json?q=${encodeURIComponent(q)}&limit=20`
 
         const response = await fetch(openLibraryUrl, {
-            next: { revalidate: 30 },
+            next: { revalidate: 3600 },
+
         })
 
         if (!response.ok) {
@@ -22,20 +22,31 @@ export async function GET(request: NextRequest) {
 
         const data = await response.json()
 
-        // Transform Open Library data to our format
-        const items = (data.docs || []).map((doc: any, index: number) => ({
-            id: doc.key || `book-${index}`,
-            title: doc.title || 'Без назви',
-            author: doc.author_name?.[0] || 'Невідомий автор',
-            coverUrl: doc.cover_i
-                ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
-                : undefined,
-            year: doc.first_publish_year || undefined,
-        }))
+        const items = (data.docs || []).map((doc: any, index: number) => {
+            const workId = doc.key ? doc.key.replace('/works/', '') : `book-${index}`
 
-        return NextResponse.json({ items })
+
+            return {
+                id: workId,
+                title: doc.title || 'No Title',
+                author: doc.author_name?.[0] || 'Unknown Author',
+                coverUrl: doc.cover_i
+                    ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
+                    : undefined,
+                year: doc.first_publish_year || undefined,
+            }
+        })
+
+        // return response with caching headers
+        return NextResponse.json(
+            { items },
+            {
+                status: 200,
+            }
+        )
     } catch (error) {
         console.error('Books search error:', error)
         return NextResponse.json({ items: [] }, { status: 200 })
     }
 }
+

@@ -3,7 +3,7 @@ import { memo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// interface
+// interface for book card props
 interface IProps {
   id?: string
   title: string
@@ -12,7 +12,7 @@ interface IProps {
   year?: number
 }
 
-// component
+// book card component with optional link
 const CardComponent: FC<Readonly<IProps>> = ({ id, title, author, coverUrl, year }) => {
   const content = (
     <div className='group rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-lg'>
@@ -39,7 +39,7 @@ const CardComponent: FC<Readonly<IProps>> = ({ id, title, author, coverUrl, year
     </div>
   )
 
-  // return
+  // return card with or without link based on id
   return id ? (
     <Link href={`/book/${id}`} className='block' aria-label={`Open ${title}`}>
       {content}

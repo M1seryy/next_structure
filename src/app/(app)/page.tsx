@@ -1,21 +1,27 @@
 import { type FC } from 'react'
-
-import { BookListModule } from '@/app/modules/book-list'
+import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
+import { getQueryClient } from '@/pkg/libraries/rest-api/service'
+import { HomeModule } from '@/app/modules/home'
+import { fetchPopularBooks } from '../entities'
 
 // component
-const HomePage: FC = () => {
+const HomePage: FC = async () => {
+  const queryClient = getQueryClient()
+
+  // prefetch books data
+  await queryClient.prefetchQuery({
+    queryKey: ['books'],
+    queryFn: () => fetchPopularBooks(),
+  })
+
   // return
   return (
-    <>
-      <h1 className='text-2xl font-bold'>Книжковий магазин</h1>
-      <p>Ласкаво просимо до нашого книжкового магазину!</p>
-
-      <BookListModule searchQuery='harry potter' />
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <HomeModule />
+    </HydrationBoundary>
   )
 }
 
-// revalidate every 30 seconds
 export const revalidate = 30
 
 export default HomePage

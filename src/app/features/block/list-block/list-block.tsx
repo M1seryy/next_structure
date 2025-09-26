@@ -1,16 +1,17 @@
 import { CardComponent } from '@/app/shared/ui/card'
 import { type FC } from 'react'
+import { BooksListItem } from '@/app/entities/models'
 
 // interface
 interface IProps {
   title?: string
-  items?: any[]
+  items?: BooksListItem[]
   isLoading?: boolean
 }
 
 // component
 const ListBlockComponent: FC<Readonly<IProps>> = (props) => {
-  const { title = 'Список', items = [], isLoading = false } = props
+  const { title = 'List', items = [], isLoading = false } = props
 
   // return
   return (
@@ -18,7 +19,7 @@ const ListBlockComponent: FC<Readonly<IProps>> = (props) => {
       <h2 className='mb-4 text-2xl font-bold'>{title}</h2>
       <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3'>
         {isLoading ? (
-          <div>Завантаження...</div>
+          <div>Loading...</div>
         ) : (
           items.map((item, index) => (
             <CardComponent

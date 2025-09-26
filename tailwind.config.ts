@@ -1,8 +1,13 @@
 import type { Config } from 'tailwindcss'
+import { heroui } from '@heroui/react'
 
 // tailwind config
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}', './src/*.html'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './src/*.html',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     screens: { sm: '768px', md: '1024px', lg: '1360px' },
     extend: {
@@ -29,7 +34,7 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [],
+  plugins: [heroui()],
 }
 
 export default config

@@ -1,24 +1,39 @@
 import { type FC } from 'react'
+import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
+import { getQueryClient } from '@/pkg/libraries/rest-api/service'
+import { fetchBookByWorkId } from '@/app/entities/api/books'
+import { type OpenLibraryBook } from '@/app/entities/models'
+import { DetailsBlockComponent } from '@/app/features/block/details-block'
 
-// interface
+// interface for page props
 interface IProps {
   params: Promise<{ id: string }>
 }
 
-// component
+// book detail page component
 const BookPage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
   const { id } = await params
 
+  const queryClient = getQueryClient()
+
+  // prefetch book data
+  await queryClient.prefetchQuery({
+    queryKey: ['book', id],
+    queryFn: () => fetchBookByWorkId(id),
+  })
+
+  // get book data
+  const bookData: OpenLibraryBook = await fetchBookByWorkId(id)
+
   // return
   return (
-    <div className='space-y-6'>
-      <h1 className='text-3xl font-bold'>Деталі книги</h1>
-      <p>ID книги: {id}</p>
-      <div className='rounded-lg border p-6'>
-        <p>Тут буде детальна інформація про книгу</p>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <div className='space-y-6'>
+        <h1 className='text-3xl font-bold'>Book Details</h1>
+        <DetailsBlockComponent book={bookData} />
       </div>
-    </div>
+    </HydrationBoundary>
   )
 }
 

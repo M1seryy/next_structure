@@ -4,21 +4,25 @@ import { HeaderComponent } from '@/app/widgets/header'
 import { FooterComponent } from '@/app/widgets/footer'
 import { ContainerComponent } from '@/app/shared/ui/container'
 import { Banner } from '@/app/shared/ui/banner'
-// interface
+
+// interface for layout props
 interface IProps {
   children: ReactNode
 }
 
-// component
+// main layout component that wraps all pages
 const LayoutModule: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
-  // return
+  // return layout with header, banner, content and footer
   return (
     <ContainerComponent variant='main'>
       <HeaderComponent />
+
       <Banner />
+
       {children}
+
       <FooterComponent />
     </ContainerComponent>
   )
