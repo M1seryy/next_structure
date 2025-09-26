@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC, useState } from 'react'
+import { type FC, useState, useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
@@ -33,16 +33,18 @@ const HomeModule: FC<Readonly<IProps>> = () => {
     staleTime: 30000,
   })
 
-  const data = rawData
-    ? (() => {
-        if (sortOrder === 'newest') {
-          return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
-        } else if (sortOrder === 'oldest') {
-          return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
-        }
-        return rawData
-      })()
-    : undefined
+  // Sort books based on sortOrder (клієнтське сортування)
+  const data = useMemo(() => {
+    if (!rawData) return undefined
+
+    if (sortOrder === 'newest') {
+      return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
+    } else if (sortOrder === 'oldest') {
+      return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
+    }
+
+    return rawData
+  }, [rawData, sortOrder])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)

@@ -14,7 +14,6 @@ interface IProps {
 const BookModule: FC<Readonly<IProps>> = (props) => {
   const { bookId } = props
 
-  // fetch book data with Tanstack Query
   const {
     data: book,
     isLoading,
