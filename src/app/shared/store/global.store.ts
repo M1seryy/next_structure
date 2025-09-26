@@ -1,24 +1,22 @@
-import { create } from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { type IBooksSortStore } from '@/app/entities/models'
 
-// interface for global state
-interface IState {
-  menu: boolean
-}
-
-// interface for store with actions
-interface IStore extends IState {
-  handleGlobalStore: (value: Partial<IState>) => void
-}
-
-// global store for app-wide state management
-export const useGlobalStore = create<IStore>()(
-  devtools(
+// Books sort store - only for sorting functionality
+export const useBooksSortStore = create<IBooksSortStore>()(
+  persist(
     (set) => ({
-      menu: false,
-      // generic handler for updating any state property
-      handleGlobalStore: (value: Partial<IState>) => set((state: IState) => ({ ...state, ...value })),
+      // State
+      sortOrder: 'default',
+
+      // Actions
+      setSortOrder: (order: 'newest' | 'oldest' | 'default') => set({ sortOrder: order }),
     }),
-    { enabled: process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' },
-  ),
-)
+    {
+      name: "books-sort-store",
+      partialize: (state) => ({
+        sortOrder: state.sortOrder
+      })
+    }
+  )
+);
