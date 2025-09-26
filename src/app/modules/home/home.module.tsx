@@ -1,11 +1,9 @@
 'use client'
 
-import { type FC, useState, useMemo } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { ListBlockComponent } from '@/app/features/block/list-block'
-import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
-import { useBooksSortStore } from '@/app/shared/store/global.store'
-import { FormBlockComponent } from '@/app/features/block/form-block'
+import { type FC, useState } from 'react'
+import { SearchBlockComponent } from '@/app/features/block/search-block'
+import { SortBlockComponent } from '@/app/features/block/sort-block'
+import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
 
 // interface
 interface IProps {}
@@ -13,48 +11,9 @@ interface IProps {}
 // component
 const HomeModule: FC<Readonly<IProps>> = () => {
   const [searchQuery, setSearchQuery] = useState('')
-  const { sortOrder, setSortOrder } = useBooksSortStore()
-
-  const {
-    data: rawData,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ['books', searchQuery],
-    queryFn: async () => {
-      let books = []
-      if (searchQuery) {
-        books = await searchBooksByTitle(searchQuery)
-      } else {
-        books = await fetchPopularBooks()
-      }
-      return books
-    },
-    staleTime: 30000,
-  })
-
-  // Sort books based on sortOrder (клієнтське сортування)
-  const data = useMemo(() => {
-    if (!rawData) return undefined
-
-    if (sortOrder === 'newest') {
-      return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
-    } else if (sortOrder === 'oldest') {
-      return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
-    }
-
-    return rawData
-  }, [rawData, sortOrder])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
-  }
-
-  const getTitle = () => {
-    if (searchQuery) {
-      return `Search Results for "${searchQuery}"`
-    }
-    return 'Popular Books'
   }
 
   // return
@@ -65,36 +24,11 @@ const HomeModule: FC<Readonly<IProps>> = () => {
         <p>Welcome to our book store!</p>
       </div>
 
-      <FormBlockComponent onSearch={handleSearch} isLoading={isLoading} />
+      <SearchBlockComponent onSearch={handleSearch} />
 
-      <div className='flex gap-2'>
-        <button
-          onClick={() => setSortOrder('default')}
-          className={`rounded-lg px-4 py-2 ${
-            sortOrder === 'default' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-        >
-          Default
-        </button>
-        <button
-          onClick={() => setSortOrder('newest')}
-          className={`rounded-lg px-4 py-2 ${
-            sortOrder === 'newest' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-        >
-          Newest First
-        </button>
-        <button
-          onClick={() => setSortOrder('oldest')}
-          className={`rounded-lg px-4 py-2 ${
-            sortOrder === 'oldest' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-        >
-          Oldest First
-        </button>
-      </div>
+      <SortBlockComponent />
 
-      <ListBlockComponent title={getTitle()} items={data || []} isLoading={isLoading} />
+      <BooksDataBlockComponent searchQuery={searchQuery} />
     </div>
   )
 }
