@@ -39,9 +39,7 @@ export async function fetchPopularBooks(): Promise<BooksListItem[]> {
 
 // search books by title using internal API endpoint
 export async function searchBooksByTitle(title: string): Promise<BooksListItem[]> {
-    const baseUrl = 'http://localhost:3000'
-
-    const url = new URL(`${baseUrl}/api/books/search`)
+    const url = new URL('/api/books/search', window.location.origin)
     url.searchParams.set('q', (title && title.trim()) || 'popular books')
 
     const res = await fetch(url.toString(), { next: { revalidate: 30 } })

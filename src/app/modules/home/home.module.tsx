@@ -2,8 +2,9 @@
 
 import { type FC, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { SearchComponent } from '@/app/shared/ui/search-from'
+import { SearchComponent } from '@/app/shared/ui/search-form'
 import { ListBlockComponent } from '@/app/features/block/list-block'
+import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 
 // interface
 interface IProps {}
@@ -12,14 +13,14 @@ interface IProps {}
 const HomeModule: FC<Readonly<IProps>> = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
-  // fetch books with Tanstack Query
+  // fetch books with Tanstack Query using existing API functions
   const { data, isLoading, error } = useQuery({
     queryKey: ['books', searchQuery],
     queryFn: async () => {
-      const url = searchQuery ? `/api/books/search?q=${encodeURIComponent(searchQuery)}` : '/api/books/search'
-      const response = await fetch(url)
-      const data = await response.json()
-      return data.items || []
+      if (searchQuery) {
+        return await searchBooksByTitle(searchQuery)
+      }
+      return await fetchPopularBooks()
     },
     staleTime: 30000, // 30 seconds
   })
