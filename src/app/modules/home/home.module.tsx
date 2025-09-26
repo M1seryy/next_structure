@@ -4,6 +4,7 @@ import { type FC, useState } from 'react'
 import { SearchBlockComponent } from '@/app/features/block/search-block'
 import { SortBlockComponent } from '@/app/features/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
+import { Banner } from '@/app/shared/ui/banner'
 
 // interface
 interface IProps {}
@@ -20,6 +21,7 @@ const HomeModule: FC<Readonly<IProps>> = () => {
   return (
     <div className='space-y-6'>
       <div>
+        <Banner />
         <h1 className='text-2xl font-bold'>Book Store</h1>
         <p>Welcome to our book store!</p>
       </div>

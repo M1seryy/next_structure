@@ -3,14 +3,13 @@ import { type FC, type ReactNode } from 'react'
 import { HeaderComponent } from '@/app/widgets/header'
 import { FooterComponent } from '@/app/widgets/footer'
 import { ContainerComponent } from '@/app/shared/ui/container'
-import { Banner } from '@/app/shared/ui/banner'
 
-// interface for layout props
+// interface
 interface IProps {
   children: ReactNode
 }
 
-// main layout component that wraps all pages
+//component
 const LayoutModule: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
@@ -18,8 +17,6 @@ const LayoutModule: FC<Readonly<IProps>> = (props) => {
   return (
     <ContainerComponent variant='main'>
       <HeaderComponent />
-
-      <Banner />
 
       {children}
 
