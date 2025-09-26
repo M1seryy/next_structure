@@ -7,7 +7,6 @@ import { fetchPopularBooks } from '../entities'
 // component
 const HomePage: FC = async () => {
   const queryClient = getQueryClient()
-
   // prefetch books data
   await queryClient.prefetchQuery({
     queryKey: ['books'],
