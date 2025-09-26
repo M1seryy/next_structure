@@ -54,6 +54,7 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
               fill
               className='object-cover'
               sizes='(max-width: 768px) 100vw, 33vw'
+              style={{ width: 'auto', height: 'auto' }}
             />
           </div>
         </div>

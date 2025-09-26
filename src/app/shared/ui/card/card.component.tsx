@@ -34,6 +34,7 @@ const CardComponent: FC<Readonly<IProps>> = ({ id, title, author, coverUrl, year
           src={coverUrl || 'https://placehold.co/270x360/jpg?text=Book'}
           width={270}
           height={360}
+          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
     </div>
