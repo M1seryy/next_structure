@@ -15,9 +15,12 @@ const HomeModule: FC<Readonly<IProps>> = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const { sortOrder, setSortOrder } = useBooksSortStore()
 
-  // fetch books with Tanstack Query using existing API functions
-  const { data, isLoading, error } = useQuery({
-    queryKey: ['books', searchQuery, sortOrder],
+  const {
+    data: rawData,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['books', searchQuery],
     queryFn: async () => {
       let books = []
       if (searchQuery) {
@@ -25,18 +28,21 @@ const HomeModule: FC<Readonly<IProps>> = () => {
       } else {
         books = await fetchPopularBooks()
       }
-
-      // Sort books based on sortOrder
-      if (sortOrder === 'newest') {
-        return books.sort((a, b) => (b.year || 0) - (a.year || 0))
-      } else if (sortOrder === 'oldest') {
-        return books.sort((a, b) => (a.year || 0) - (b.year || 0))
-      }
-
       return books
     },
-    staleTime: 30000, // 30 seconds
+    staleTime: 30000,
   })
+
+  const data = rawData
+    ? (() => {
+        if (sortOrder === 'newest') {
+          return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
+        } else if (sortOrder === 'oldest') {
+          return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
+        }
+        return rawData
+      })()
+    : undefined
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)

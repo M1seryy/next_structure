@@ -10,6 +10,7 @@ export async function fetchBookByWorkId(workId: string): Promise<OpenLibraryBook
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
     const res = await fetch(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`, {
+        cache: 'force-cache',
         next: { revalidate: 30 },
     })
 
@@ -22,7 +23,7 @@ export async function fetchBookByWorkId(workId: string): Promise<OpenLibraryBook
 
 // fetch popular books using search endpoint (defaults to popular books)
 export async function fetchPopularBooks(): Promise<BooksListItem[]> {
-    const res = await fetch('/api/books/search', { next: { revalidate: 30 } })
+    const res = await fetch('/api/books/search', { next: { revalidate: 30 }, cache: 'force-cache' })
     if (!res.ok) return [] as BooksListItem[]
     const data = await res.json()
 
@@ -42,7 +43,7 @@ export async function searchBooksByTitle(title: string): Promise<BooksListItem[]
     const url = new URL('/api/books/search', window.location.origin)
     url.searchParams.set('q', (title && title.trim()) || 'popular books')
 
-    const res = await fetch(url.toString(), { next: { revalidate: 30 } })
+    const res = await fetch(url.toString(), { next: { revalidate: 30 }, cache: 'force-cache' })
     if (!res.ok) return [] as BooksListItem[]
     const data = await res.json()
 

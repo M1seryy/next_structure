@@ -1,9 +1,6 @@
 import { type FC } from 'react'
-import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
-import { getQueryClient } from '@/pkg/libraries/rest-api/service'
-import { fetchBookByWorkId, fetchPopularBooks } from '@/app/entities/api/books'
-import { type OpenLibraryBook } from '@/app/entities/models'
-import { DetailsBlockComponent } from '@/app/features/block/details-block'
+import { fetchPopularBooks } from '@/app/entities/api/books'
+import { BookModule } from '@/app/modules/book'
 
 // interface for page props
 interface IProps {
@@ -15,26 +12,8 @@ const BookPage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
   const { id } = await params
 
-  const queryClient = getQueryClient()
-
-  // prefetch book data
-  await queryClient.prefetchQuery({
-    queryKey: ['book', id],
-    queryFn: () => fetchBookByWorkId(id),
-  })
-
-  // get book data
-  const bookData: OpenLibraryBook = await fetchBookByWorkId(id)
-
   // return
-  return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className='space-y-6'>
-        <h1 className='text-3xl font-bold'>Book Details</h1>
-        <DetailsBlockComponent book={bookData} />
-      </div>
-    </HydrationBoundary>
-  )
+  return <BookModule bookId={id} />
 }
 
 export async function generateStaticParams() {
@@ -50,7 +29,6 @@ export async function generateStaticParams() {
   }
 }
 
-// revalidate every 30 seconds
 export const revalidate = 30
 
 export default BookPage
