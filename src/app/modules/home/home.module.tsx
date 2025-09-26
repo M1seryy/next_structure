@@ -59,7 +59,6 @@ const HomeModule: FC<Readonly<IProps>> = () => {
 
       <SearchComponent onSearch={handleSearch} isLoading={isLoading} />
 
-      {/* Sort controls */}
       <div className='flex gap-2'>
         <button
           onClick={() => setSortOrder('default')}

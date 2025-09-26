@@ -6,7 +6,7 @@ import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
 
-// interface for search form props
+// interface
 interface IProps {
   onSearch: (query: string) => void
   isLoading?: boolean
@@ -17,7 +17,7 @@ interface SearchFormData {
   query: string
 }
 
-// search form component
+// component
 const SearchComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) => {
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
 
@@ -30,6 +30,7 @@ const SearchComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) 
     onSearch('')
   }
 
+  // return
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='mb-6 flex gap-3'>
       <Input

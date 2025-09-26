@@ -1,11 +1,11 @@
 import { type FC } from 'react'
 
-// interface for footer props (no props needed)
+// interface
 interface IProps {}
 
-// footer component with company info, contacts and links
+// component
 const FooterComponent: FC<Readonly<IProps>> = () => {
-  // return footer with three columns: info, contacts, links
+  // return
   return (
     <footer className='mt-auto bg-gray-100 py-8'>
       <div className='mx-auto flex w-full max-w-[1200px] flex-col gap-4 px-4 md:px-6'>

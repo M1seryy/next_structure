@@ -9,11 +9,10 @@ interface IProps {
   searchQuery?: string
 }
 
-// component using Tanstack Query
+// component
 const BookListModule: FC<Readonly<IProps>> = (props) => {
   const { searchQuery } = props
 
-  // fetch books with Tanstack Query
   const { data, isLoading, error } = useQuery({
     queryKey: ['books', searchQuery],
     queryFn: async () => {

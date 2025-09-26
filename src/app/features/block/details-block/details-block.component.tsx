@@ -2,13 +2,13 @@ import { type FC } from 'react'
 import Image from 'next/image'
 import { type OpenLibraryBook } from '@/app/entities/models'
 
-// interface for details block props
+// interface
 interface IProps {
   book: OpenLibraryBook
   isLoading?: boolean
 }
 
-// details block component
+// component
 const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }) => {
   if (isLoading) {
     return (
@@ -42,10 +42,10 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
   // get subjects as tags
   const subjects = book.subjects?.slice(0, 5) || []
 
+  // return
   return (
     <div className='rounded-lg border bg-white p-6 shadow-sm'>
       <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
-        {/* Book Cover */}
         <div className='md:col-span-1'>
           <div className='relative aspect-[2/3] w-full overflow-hidden rounded-lg'>
             <Image
@@ -54,13 +54,11 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
               fill
               className='object-cover'
               sizes='(max-width: 768px) 100vw, 33vw'
-              style={{ width: 'auto', height: 'auto' }}
             />
           </div>
         </div>
 
-        {/* Book Information */}
-        <div className='space-y-4 md:col-span-2'>
+        <div className='space-y-6 md:col-span-2'>
           <div>
             <h2 className='mb-2 text-3xl font-bold text-gray-900'>{book.title}</h2>
             <p className='text-lg text-gray-600'>by {authors}</p>
@@ -69,7 +67,6 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
             )}
           </div>
 
-          {/* Description */}
           {book.description && (
             <div>
               <h3 className='mb-2 text-lg font-semibold text-gray-900'>Description</h3>
@@ -77,7 +74,6 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
             </div>
           )}
 
-          {/* Subjects/Tags */}
           {subjects.length > 0 && (
             <div>
               <h3 className='mb-2 text-lg font-semibold text-gray-900'>Subjects</h3>
@@ -91,7 +87,6 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }
             </div>
           )}
 
-          {/* Book Key */}
           <div className='border-t border-gray-200 pt-4'>
             <p className='text-xs text-gray-500'>Open Library Key: {book.key}</p>
           </div>
