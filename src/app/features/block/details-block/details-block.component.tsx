@@ -9,7 +9,9 @@ interface IProps {
 }
 
 // component
-const DetailsBlockComponent: FC<Readonly<IProps>> = ({ book, isLoading = false }) => {
+const DetailsBlockComponent: FC<Readonly<IProps>> = (props) => {
+  const book = props.book
+  const isLoading = props.isLoading || false
   if (isLoading) {
     return (
       <div className='rounded-lg border bg-white p-6 shadow-sm'>

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import Image from 'next/image'
 
-// interface for banner props
+// interface for banner component props
 interface IProps {}
 
 // banner component

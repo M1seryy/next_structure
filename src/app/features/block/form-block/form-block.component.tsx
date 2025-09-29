@@ -6,19 +6,21 @@ import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
 
-// interface
+// interface for form block component props
 interface IProps {
   onSearch: (query: string) => void
   isLoading?: boolean
 }
 
-// interface for form data
+// interface for search form data
 interface SearchFormData {
   query: string
 }
 
 // component
-const FormBlockComponent: FC<Readonly<IProps>> = ({ onSearch, isLoading = false }) => {
+const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
+  const onSearch = props.onSearch
+  const isLoading = props.isLoading || false
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
 
   const onSubmit = (data: SearchFormData) => {

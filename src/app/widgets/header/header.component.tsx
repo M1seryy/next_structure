@@ -1,11 +1,11 @@
 import { type FC } from 'react'
 import Link from 'next/link'
 
-// interface
+// interface for header component props
 interface IProps {}
 
 // component
-const HeaderComponent: FC<Readonly<IProps>> = () => {
+const HeaderComponent: FC<Readonly<IProps>> = (props) => {
   // return
   return (
     <div className='mt-3.5 flex flex-col'>

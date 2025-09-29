@@ -10,7 +10,7 @@ import { Banner } from '@/app/shared/ui/banner'
 interface IProps {}
 
 // component
-const HomeModule: FC<Readonly<IProps>> = () => {
+const HomeModule: FC<Readonly<IProps>> = (props) => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleSearch = (query: string) => {

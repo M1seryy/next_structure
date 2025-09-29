@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-// interface
+// interface for footer component props
 interface IProps {}
 
 // component

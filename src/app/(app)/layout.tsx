@@ -9,7 +9,8 @@ interface IProps {
 }
 
 // component
-const RootLayout: FC<Readonly<IProps>> = ({ children }) => {
+const RootLayout: FC<Readonly<IProps>> = (props) => {
+  const children = props.children
   // return
   return (
     <html lang='en'>

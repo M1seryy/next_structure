@@ -3,7 +3,7 @@ import { memo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// interface
+// interface for card component props
 interface IProps {
   id?: string
   title: string
@@ -13,7 +13,8 @@ interface IProps {
 }
 
 // component
-const CardComponent: FC<Readonly<IProps>> = ({ id, title, author, coverUrl, year }) => {
+const CardComponent: FC<Readonly<IProps>> = (props) => {
+  const { id, title, author, coverUrl, year } = props
   const content = (
     <div className='group rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-lg'>
       <div className='flex flex-col items-start'>

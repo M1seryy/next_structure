@@ -2,7 +2,7 @@ import { CardComponent } from '@/app/shared/ui/card'
 import { type FC } from 'react'
 import { BooksListItem } from '@/app/entities/models'
 
-// interface
+// interface for list block component props
 interface IProps {
   title?: string
   items?: BooksListItem[]

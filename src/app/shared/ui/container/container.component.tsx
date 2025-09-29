@@ -2,7 +2,7 @@ import { type FC, type ReactNode } from 'react'
 
 import { cn } from '@heroui/react'
 
-// interface
+// interface for container component props
 interface IProps {
   children: ReactNode
   className?: string
