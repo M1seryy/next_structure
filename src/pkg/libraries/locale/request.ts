@@ -1,17 +1,16 @@
+import { Formats, hasLocale } from 'next-intl'
 import { getRequestConfig } from 'next-intl/server'
+
 import { routing } from './routing'
 
+// request
 export default getRequestConfig(async ({ requestLocale }) => {
-    // This typically corresponds to the `[locale]` segment
-    let locale = await requestLocale
-
-    // Ensure that a valid locale is used
-    if (!locale || !routing.locales.includes(locale as any)) {
-        locale = routing.defaultLocale
-    }
+    const requested = await requestLocale
+    const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale
 
     return {
         locale,
+        formats,
         messages: (await import(`../../../../translations/${locale}.json`)).default,
     }
 })
@@ -21,18 +20,18 @@ export const formats = {
         short: {
             day: 'numeric',
             month: 'short',
-            year: 'numeric'
-        }
+            year: 'numeric',
+        },
     },
     number: {
         precise: {
-            maximumFractionDigits: 5
-        }
+            maximumFractionDigits: 5,
+        },
     },
     list: {
         enumeration: {
             style: 'long',
-            type: 'conjunction'
-        }
-    }
-}
+            type: 'conjunction',
+        },
+    },
+} satisfies Formats
