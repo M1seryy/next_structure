@@ -7,6 +7,7 @@ import '@/config/styles/global.css'
 import { LayoutModule } from '../../modules/layout'
 import { RestApiProvider } from '@/pkg/libraries/rest-api'
 import { UiProvider } from '@/pkg/libraries/ui'
+import { SentryProvider } from '@/pkg/libraries/sentry'
 import { routing } from '@/pkg/libraries/locale'
 
 // interface
@@ -30,13 +31,15 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <UiProvider locale={locale}>
-            <RestApiProvider>
-              <LayoutModule>{children}</LayoutModule>
-            </RestApiProvider>
-          </UiProvider>
-        </NextIntlClientProvider>
+        <SentryProvider>
+          <NextIntlClientProvider messages={messages}>
+            <UiProvider locale={locale}>
+              <RestApiProvider>
+                <LayoutModule>{children}</LayoutModule>
+              </RestApiProvider>
+            </UiProvider>
+          </NextIntlClientProvider>
+        </SentryProvider>
       </body>
     </html>
   )

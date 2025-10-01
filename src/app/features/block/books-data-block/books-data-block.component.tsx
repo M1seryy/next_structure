@@ -7,7 +7,7 @@ import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
 
-// interface for books data block component props
+// interface
 interface IProps {
   searchQuery: string
 }

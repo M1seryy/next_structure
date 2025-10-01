@@ -1,1 +1,1 @@
-export { useGlobalStore } from './global.store'
+export { useBooksSortStore } from './global.store'

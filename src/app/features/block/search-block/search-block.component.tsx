@@ -3,7 +3,7 @@
 import { type FC, useState } from 'react'
 import { FormBlockComponent } from '@/app/features/block/form-block'
 
-// interface for search block component props
+// interface
 interface IProps {
   onSearch: (query: string) => void
   isLoading?: boolean

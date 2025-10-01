@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import { withSentryConfig } from '@sentry/nextjs';
 
 const withNextIntl = createNextIntlPlugin('./src/pkg/libraries/locale/request.ts');
 
@@ -41,4 +42,11 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withNextIntl(nextConfig);
+// Sentry configuration
+const sentryWebpackPluginOptions = {
+  org: process.env.SENTRY_ORG || "your-org",
+  project: process.env.SENTRY_PROJECT || "your-project",
+  silent: !process.env.CI,
+};
+
+export default withSentryConfig(withNextIntl(nextConfig), sentryWebpackPluginOptions);

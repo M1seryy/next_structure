@@ -7,7 +7,7 @@ import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
 
-// interface for form block component props
+// interface
 interface IProps {
   onSearch: (query: string) => void
   isLoading?: boolean
