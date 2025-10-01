@@ -1,6 +1,7 @@
 'use client'
 
-import { type FC, type ReactNode } from 'react'
+import { type FC, type ReactNode, useEffect } from 'react'
+import * as Sentry from '@sentry/nextjs'
 
 // interface
 interface IProps {
@@ -11,7 +12,14 @@ interface IProps {
 const SentryProvider: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
-  // Sentry is initialized via instrumentation files
+  useEffect(() => {
+    Sentry.init({
+      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+      tracesSampleRate: 1,
+      debug: true,
+    })
+  }, [])
+
   return <>{children}</>
 }
 
