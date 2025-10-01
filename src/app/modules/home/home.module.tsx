@@ -2,7 +2,7 @@
 
 import { type FC, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { SearchBlockComponent } from '@/app/features/block/search-block'
+import { FormBlockComponent } from '@/app/features/block/form-block'
 import { SortBlockComponent } from '@/app/features/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
 import { Banner } from '@/app/shared/ui/banner'
@@ -28,7 +28,7 @@ const HomeModule: FC<Readonly<IProps>> = (props) => {
         <p>{t('home.subtitle')}</p>
       </div>
 
-      <SearchBlockComponent onSearch={handleSearch} />
+      <FormBlockComponent onSearch={handleSearch} />
 
       <SortBlockComponent />
 

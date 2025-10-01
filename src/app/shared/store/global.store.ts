@@ -1,21 +1,22 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { type IBooksSortStore } from '@/app/entities/models'
+import { type IBooksSortStore, type IBooksSortState, SortOrder } from '@/app/entities/models'
 
-// Books sort store - only for sorting functionality
 export const useBooksSortStore = create<IBooksSortStore>()(
   persist(
     (set) => ({
       // State
-      sortOrder: 'default',
+      sortOrder: SortOrder.DEFAULT,
+      filters: {},
 
-      // Actions
-      setSortOrder: (order: 'newest' | 'oldest' | 'default') => set({ sortOrder: order }),
+      // Universal handler 
+      updateState: (updates: Partial<IBooksSortState>) => set((state) => ({ ...state, ...updates })),
     }),
     {
       name: "books-sort-store",
       partialize: (state) => ({
-        sortOrder: state.sortOrder
+        sortOrder: state.sortOrder,
+        filters: state.filters
       })
     }
   )
