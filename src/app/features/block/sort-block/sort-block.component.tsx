@@ -1,6 +1,7 @@
 'use client'
 
 import { type FC } from 'react'
+import { useTranslations } from 'next-intl'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
 
 // interface
@@ -9,6 +10,7 @@ interface IProps {}
 // component
 const SortBlockComponent: FC<Readonly<IProps>> = () => {
   const { sortOrder, setSortOrder } = useBooksSortStore()
+  const t = useTranslations()
 
   // return
   return (
@@ -19,7 +21,7 @@ const SortBlockComponent: FC<Readonly<IProps>> = () => {
           sortOrder === 'default' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
         }`}
       >
-        Default
+        {t('sort.default')}
       </button>
       <button
         onClick={() => setSortOrder('newest')}
@@ -27,7 +29,7 @@ const SortBlockComponent: FC<Readonly<IProps>> = () => {
           sortOrder === 'newest' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
         }`}
       >
-        Newest First
+        {t('sort.newest')}
       </button>
       <button
         onClick={() => setSortOrder('oldest')}
@@ -35,7 +37,7 @@ const SortBlockComponent: FC<Readonly<IProps>> = () => {
           sortOrder === 'oldest' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
         }`}
       >
-        Oldest First
+        {t('sort.oldest')}
       </button>
     </div>
   )

@@ -15,9 +15,15 @@ const HeaderComponent: FC<Readonly<IProps>> = (props) => {
         </Link>
         <nav>
           <ul className='flex gap-5'>
-            <li className='text-xl'>Home</li>
-            <li className='text-xl'>Categories</li>
-            <li className='text-xl'>About</li>
+            <li className='text-xl'>
+              <Link href={'/'}>Home</Link>
+            </li>
+            <li className='text-xl'>
+              <Link href={'/books'}>Books</Link>
+            </li>
+            <li className='text-xl'>
+              <Link href={'/about'}>About</Link>
+            </li>
           </ul>
         </nav>
       </div>

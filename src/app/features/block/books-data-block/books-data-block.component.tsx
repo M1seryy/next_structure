@@ -2,6 +2,7 @@
 
 import { type FC, useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
@@ -15,6 +16,7 @@ interface IProps {
 const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
   const { searchQuery } = props
   const { sortOrder } = useBooksSortStore()
+  const t = useTranslations()
 
   const {
     data: rawData,
@@ -34,7 +36,6 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
     staleTime: 30000,
   })
 
-  // Sort books based on sortOrder (клієнтське сортування)
   const data = useMemo(() => {
     if (!rawData) return undefined
 
@@ -49,9 +50,9 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
 
   const getTitle = () => {
     if (searchQuery) {
-      return `Search Results for "${searchQuery}"`
+      return t('books.searchResults', { query: searchQuery })
     }
-    return 'Popular Books'
+    return t('books.popular')
   }
 
   // return

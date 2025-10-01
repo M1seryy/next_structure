@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "Welcome to Our Book Store",
+    "subtitle": "Discover thousands of books from around the world"
+  },
+  "books": {
+    "popular": "Popular Books",
+    "searchResults": "Search Results for \"{query}\""
+  },
+  "search": {
+    "searchIn": "Search in",
+    "placeholder": "Search books..."
+  },
+  "ui": {
+    "loading": "Loading..."
+  },
+  "actions": {
+    "search": "Search",
+    "cancel": "Cancel"
+  },
+  "sort": {
+    "default": "Default",
+    "newest": "Newest First",
+    "oldest": "Oldest First"
+  }
+}

@@ -1,4 +1,7 @@
 import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/pkg/libraries/locale/request.ts');
 
 // next config
 const nextConfig: NextConfig = {
@@ -30,6 +33,7 @@ const nextConfig: NextConfig = {
       '@heroui/system',
       'zustand',
       'framer-motion',
+      'next-intl',
     ],
     staticGenerationRetryCount: 1,
     staticGenerationMaxConcurrency: 2,
@@ -37,4 +41,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

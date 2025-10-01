@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import { memo } from 'react'
-import Link from 'next/link'
+import { Link } from '@/pkg/libraries/locale'
 import Image from 'next/image'
 
 // interface for card component props
@@ -42,7 +42,7 @@ const CardComponent: FC<Readonly<IProps>> = (props) => {
 
   // return
   return id ? (
-    <Link href={`/book/${id}`} className='block' aria-label={`Open ${title}`}>
+    <Link href={{ pathname: '/book/[id]', params: { id } }} className='block' aria-label={`Open ${title}`}>
       {content}
     </Link>
   ) : (

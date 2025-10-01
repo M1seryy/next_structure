@@ -11,12 +11,15 @@ const FooterComponent: FC<Readonly<IProps>> = () => {
       <div className='mx-auto flex w-full max-w-[1200px] flex-col gap-4 px-4 md:px-6'>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
           <div>
-            <h3 className='mb-4 text-lg font-semibold'>Book Store</h3>
-            <p className='text-sm text-gray-600'>Best books for all tastes and ages</p>
+            <h3 className='mb-4 text-lg font-semibold'>About</h3>
+            <p className='text-sm text-gray-600'>
+              We are passionate about books and reading. Our mission is to provide access to quality literature for
+              everyone.
+            </p>
           </div>
 
           <div>
-            <h3 className='mb-4 text-lg font-semibold'>Contacts</h3>
+            <h3 className='mb-4 text-lg font-semibold'>Contact</h3>
             <ul className='space-y-2 text-sm text-gray-600'>
               <li>📧 info@bookstore.com</li>
               <li>📞 +380 50 123 4567</li>
@@ -25,21 +28,21 @@ const FooterComponent: FC<Readonly<IProps>> = () => {
           </div>
 
           <div>
-            <h3 className='mb-4 text-lg font-semibold'>Links</h3>
+            <h3 className='mb-4 text-lg font-semibold'>Quick Links</h3>
             <ul className='space-y-2 text-sm text-gray-600'>
               <li>
                 <a href='#' className='hover:text-gray-900'>
-                  About us
+                  About
                 </a>
               </li>
               <li>
                 <a href='#' className='hover:text-gray-900'>
-                  Delivery
+                  Books
                 </a>
               </li>
               <li>
                 <a href='#' className='hover:text-gray-900'>
-                  Contacts
+                  Contact
                 </a>
               </li>
             </ul>
@@ -47,7 +50,7 @@ const FooterComponent: FC<Readonly<IProps>> = () => {
         </div>
 
         <div className='mt-8 border-t border-gray-300 pt-6 text-center text-sm text-gray-600'>
-          <p>&copy; 2024 Book Store. All rights reserved.</p>
+          <p>© 2024 Book Store. All rights reserved.</p>
         </div>
       </div>
     </footer>

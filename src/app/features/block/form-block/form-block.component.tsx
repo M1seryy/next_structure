@@ -2,6 +2,7 @@
 
 import { type FC } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
 import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
@@ -22,6 +23,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const onSearch = props.onSearch
   const isLoading = props.isLoading || false
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
+  const t = useTranslations()
 
   const onSubmit = (data: SearchFormData) => {
     onSearch(data.query)
@@ -37,8 +39,8 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
     <form onSubmit={handleSubmit(onSubmit)} className='mb-6 flex gap-3'>
       <Input
         type='text'
-        label='Search Books'
-        placeholder='Enter book title, author, or subject...'
+        label={t('search.searchIn')}
+        placeholder={t('search.placeholder')}
         variant='bordered'
         size='lg'
         radius='lg'
@@ -61,7 +63,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
         isLoading={isLoading}
         startContent={!isLoading && <Search className='h-4 w-4' />}
       >
-        {isLoading ? 'Searching...' : 'Search'}
+        {isLoading ? t('ui.loading') : t('actions.search')}
       </Button>
 
       <Button
@@ -73,7 +75,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
         onClick={handleClear}
         isDisabled={isLoading}
       >
-        Clear
+        {t('actions.cancel')}
       </Button>
     </form>
   )

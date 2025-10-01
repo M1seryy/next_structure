@@ -19,19 +19,17 @@ const UiProvider: FC<Readonly<IProps>> = (props) => {
   // return
   return (
     <HeroUIProvider locale={locale}>
-      <NextThemesProvider attribute='class' forcedTheme='light' defaultTheme='system' disableTransitionOnChange>
-        {children}
+      {children}
 
-        <ToastProvider
-          maxVisibleToasts={3}
-          placement='top-right'
-          toastProps={{
-            radius: 'md',
-            timeout: 3500,
-            classNames: { title: 'first-letter:uppercase', description: 'first-letter:uppercase' },
-          }}
-        />
-      </NextThemesProvider>
+      <ToastProvider
+        maxVisibleToasts={3}
+        placement='top-right'
+        toastProps={{
+          radius: 'md',
+          timeout: 3500,
+          classNames: { title: 'first-letter:uppercase', description: 'first-letter:uppercase' },
+        }}
+      />
     </HeroUIProvider>
   )
 }
