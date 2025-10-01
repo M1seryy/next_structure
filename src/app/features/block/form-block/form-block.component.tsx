@@ -26,8 +26,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
   const t = useTranslations()
 
-  // GrowthBook test search buttons
-  const searchButtonColor = useFeatureFlag('search-button-color', 'secondary')
+  const searchButtonColor = useFeatureFlag('search-button-color', 'primary')
   const cancelButtonColor = useFeatureFlag('cancel-button-color', 'danger')
 
   const onSubmit = (data: SearchFormData) => {

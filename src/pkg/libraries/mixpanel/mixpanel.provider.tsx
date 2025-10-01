@@ -14,6 +14,7 @@ const MixpanelProvider: FC<Readonly<IProps>> = (props) => {
       mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN, {
         debug: process.env.NODE_ENV === 'development',
         track_pageview: true,
+        api_host: 'https://api-eu.mixpanel.com',
         persistence: 'localStorage',
       })
     }

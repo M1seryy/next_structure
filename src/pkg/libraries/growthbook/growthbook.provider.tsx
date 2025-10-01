@@ -3,6 +3,7 @@
 import { type FC, type ReactNode, useEffect, createContext, useContext } from 'react'
 import { GrowthBook } from '@growthbook/growthbook'
 
+// interface
 interface IProps {
   children: ReactNode
 }
@@ -16,6 +17,7 @@ const growthbook = new GrowthBook({
   },
 })
 
+// component
 const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
@@ -29,15 +31,15 @@ const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
 
       growthbook.setFeatures({
         'search-button-color': {
-          defaultValue: 'primary',
+          defaultValue: 'danger',
           rules: [
+            {
+              condition: { browser: 'chrome' },
+              force: 'danger',
+            },
             {
               condition: { country: 'UA' },
               force: 'success',
-            },
-            {
-              condition: { browser: 'chrome' },
-              force: 'warning',
             },
           ],
         },
