@@ -2,6 +2,7 @@
 export const env = {
     // API Configuration
     API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000',
+    CLIENT_API_URL: process.env.NEXT_PUBLIC_CLIENT_API_URL || 'http://localhost:3000',
     OPEN_LIBRARY_BASE_URL: process.env.OPEN_LIBRARY_BASE_URL || 'https://openlibrary.org',
 
     // Cache Configuration

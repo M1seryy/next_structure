@@ -1,59 +1,62 @@
 
+import ky from 'ky'
 import { BooksListItem, type OpenLibraryBook } from '../../models/book.model'
+import { restApiFetcher } from '@/pkg/libraries/rest-api'
 
 // constants
 const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
 
-// fetch single book by work ID from Open Library API
+// fetch single book 
 export async function fetchBookByWorkId(workId: string): Promise<OpenLibraryBook> {
-    // Ensure workId doesn't already contain /works/ prefix
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
-    const res = await fetch(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`, {
-        cache: 'force-cache',
-        next: { revalidate: 30 },
-    })
-
-    if (!res.ok) {
-        throw new Error(`Failed to fetch book: ${res.status}`)
+    try {
+        const data = await ky.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
+        return data as OpenLibraryBook
+    } catch (error) {
+        throw new Error(`Failed to fetch book: ${error}`)
     }
-
-    return res.json()
 }
 
-// fetch popular books using search endpoint (defaults to popular books)
+// fetch popular books 
 export async function fetchPopularBooks(): Promise<BooksListItem[]> {
-    const res = await fetch('/api/books/search', { next: { revalidate: 30 }, cache: 'force-cache' })
-    if (!res.ok) return [] as BooksListItem[]
-    const data = await res.json()
+    try {
+        const data = await restApiFetcher.get('api/books/search').json() as { items: BooksListItem[] }
 
-    // transform and validate response data
-    const items = Array.isArray(data.items) ? (data.items as BooksListItem[]) : []
-    return items.map((item) => ({
-        id: item.id,
-        title: item.title,
-        author: item.author,
-        coverUrl: item.coverUrl,
-        year: item.year,
-    }))
+
+        const items = Array.isArray(data.items) ? data.items : []
+        return items.map((item) => ({
+            id: item.id,
+            title: item.title,
+            author: item.author,
+            coverUrl: item.coverUrl,
+            year: item.year,
+        }))
+    } catch (error) {
+        console.error('Failed to fetch popular books:', error)
+        return []
+    }
 }
 
-// search books by title using internal API endpoint
+// search books by title
 export async function searchBooksByTitle(title: string): Promise<BooksListItem[]> {
-    const url = new URL('/api/books/search', typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000')
-    url.searchParams.set('q', (title && title.trim()) || 'popular books')
+    try {
+        const searchQuery = (title && title.trim()) || 'popular books'
+        const data = await restApiFetcher.get('api/books/search', {
+            searchParams: { q: searchQuery }
+        }).json() as { items: BooksListItem[] }
 
-    const res = await fetch(url.toString(), { next: { revalidate: 30 }, cache: 'force-cache' })
-    if (!res.ok) return [] as BooksListItem[]
-    const data = await res.json()
 
-    // transform and validate response data
-    const items = Array.isArray(data.items) ? (data.items as BooksListItem[]) : []
-    return items.map((item) => ({
-        id: item.id,
-        title: item.title,
-        author: item.author,
-        coverUrl: item.coverUrl,
-        year: item.year,
-    }))
+        const items = Array.isArray(data.items) ? data.items : []
+        return items.map((item) => ({
+            id: item.id,
+            title: item.title,
+            author: item.author,
+            coverUrl: item.coverUrl,
+            year: item.year,
+        }))
+    } catch (error) {
+        console.error('Failed to search books:', error)
+        return []
+    }
 }
