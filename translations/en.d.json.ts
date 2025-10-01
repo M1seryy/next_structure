@@ -23,6 +23,12 @@ export interface Translations {
         newest: string
         oldest: string
     }
+    navigation: {
+        home: string
+        books: string
+        about: string
+        contact: string
+    }
 }
 
 export default Translations

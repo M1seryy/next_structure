@@ -22,5 +22,11 @@
     "default": "Default",
     "newest": "Newest First",
     "oldest": "Oldest First"
+  },
+  "navigation": {
+    "home": "Home",
+    "books": "Books",
+    "about": "About",
+    "contact": "Contact"
   }
 }
