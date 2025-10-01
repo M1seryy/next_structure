@@ -8,6 +8,7 @@ import { LayoutModule } from '../../modules/layout'
 import { RestApiProvider } from '@/pkg/libraries/rest-api'
 import { UiProvider } from '@/pkg/libraries/ui'
 import { SentryProvider } from '@/pkg/libraries/sentry'
+import { MixpanelProvider } from '@/pkg/libraries/mixpanel'
 import { routing } from '@/pkg/libraries/locale'
 
 // interface
@@ -32,13 +33,15 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
     <html lang={locale}>
       <body>
         <SentryProvider>
-          <NextIntlClientProvider messages={messages}>
-            <UiProvider locale={locale}>
-              <RestApiProvider>
-                <LayoutModule>{children}</LayoutModule>
-              </RestApiProvider>
-            </UiProvider>
-          </NextIntlClientProvider>
+          <MixpanelProvider>
+            <NextIntlClientProvider messages={messages}>
+              <UiProvider locale={locale}>
+                <RestApiProvider>
+                  <LayoutModule>{children}</LayoutModule>
+                </RestApiProvider>
+              </UiProvider>
+            </NextIntlClientProvider>
+          </MixpanelProvider>
         </SentryProvider>
       </body>
     </html>

@@ -2,8 +2,9 @@ import { type FC } from 'react'
 import { memo } from 'react'
 import { Link } from '@/pkg/libraries/locale'
 import Image from 'next/image'
+import { mixpanelUtils } from '@/pkg/libraries/mixpanel'
 
-// interface for card component props
+// interface
 interface IProps {
   id?: string
   title: string
@@ -15,6 +16,17 @@ interface IProps {
 // component
 const CardComponent: FC<Readonly<IProps>> = (props) => {
   const { id, title, author, coverUrl, year } = props
+
+  // Handle book click with tracking
+  const handleBookClick = () => {
+    if (id) {
+      mixpanelUtils.trackBookClick(id, title, {
+        author,
+        year,
+        has_cover: !!coverUrl,
+      })
+    }
+  }
   const content = (
     <div className='group rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-lg'>
       <div className='flex flex-col items-start'>
@@ -42,7 +54,12 @@ const CardComponent: FC<Readonly<IProps>> = (props) => {
 
   // return
   return id ? (
-    <Link href={{ pathname: '/book/[id]', params: { id } }} className='block' aria-label={`Open ${title}`}>
+    <Link
+      href={{ pathname: '/book/[id]', params: { id } }}
+      className='block'
+      aria-label={`Open ${title}`}
+      onClick={handleBookClick}
+    >
       {content}
     </Link>
   ) : (
