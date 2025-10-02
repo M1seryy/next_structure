@@ -11,7 +11,7 @@ export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBoo
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
     try {
-        const data = await restApiFetcher.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
+        const data = await ky.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
         return data as IOpenLibraryBook
     } catch (error) {
         sentryUtils.captureError(error as Error, {
