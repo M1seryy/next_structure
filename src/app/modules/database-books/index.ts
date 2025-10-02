@@ -1,1 +1,1 @@
-export { default as DatabaseBooksModule } from './books.module'
+export { default as DatabaseBooksModule } from './database-books.module'

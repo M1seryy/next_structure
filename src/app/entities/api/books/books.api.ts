@@ -7,7 +7,6 @@ import { sentryUtils } from '@/pkg/libraries/sentry'
 // constants
 const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
 
-// fetch single book 
 export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBook> {
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
@@ -23,7 +22,6 @@ export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBoo
     }
 }
 
-// fetch popular books 
 export async function fetchPopularBooks(): Promise<BooksListItem[]> {
     try {
         const data = await restApiFetcher.get('api/books/search').json() as { items: BooksListItem[] }
@@ -44,7 +42,6 @@ export async function fetchPopularBooks(): Promise<BooksListItem[]> {
     }
 }
 
-// search books by title
 export async function searchBooksByTitle(title: string): Promise<BooksListItem[]> {
     try {
         const searchQuery = (title && title.trim()) || 'popular books'
