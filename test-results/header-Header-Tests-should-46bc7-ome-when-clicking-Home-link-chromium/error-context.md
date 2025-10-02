@@ -2,232 +2,241 @@
 
 ```yaml
 - generic [ref=e1]:
-  - generic [ref=e2]:
-    - main [ref=e3]:
-      - generic [ref=e5]:
-        - link "Book Store" [active] [ref=e6] [cursor=pointer]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+      - img [ref=e8] [cursor=pointer]
+    - generic [ref=e11] [cursor=pointer]:
+      - button "Open issues overlay" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13] [cursor=pointer]:
+          - generic [ref=e14] [cursor=pointer]: "0"
+          - generic [ref=e15] [cursor=pointer]: "1"
+        - generic [ref=e16] [cursor=pointer]: Issue
+      - button "Collapse issues badge" [ref=e17] [cursor=pointer]:
+        - img [ref=e18] [cursor=pointer]
+  - generic [ref=e20]:
+    - main [ref=e21]:
+      - generic [ref=e23]:
+        - link "Book Store" [active] [ref=e24] [cursor=pointer]:
           - /url: /
-          - heading "Book Store" [level=1] [ref=e7] [cursor=pointer]
-        - navigation [ref=e8]:
-          - list [ref=e9]:
-            - listitem [ref=e10]:
-              - link "Home" [ref=e11] [cursor=pointer]:
+          - heading "Book Store" [level=1] [ref=e25] [cursor=pointer]
+        - navigation [ref=e26]:
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Home" [ref=e29] [cursor=pointer]:
                 - /url: /
-            - listitem [ref=e12]:
-              - link "Books" [ref=e13] [cursor=pointer]:
+            - listitem [ref=e30]:
+              - link "Books" [ref=e31] [cursor=pointer]:
                 - /url: /book-list
-            - listitem [ref=e14]:
-              - link "About" [ref=e15] [cursor=pointer]:
+            - listitem [ref=e32]:
+              - link "About" [ref=e33] [cursor=pointer]:
                 - /url: /about
-      - generic [ref=e16]:
-        - generic [ref=e17]:
-          - img "Banner" [ref=e19]
-          - heading "Welcome to Our Book Store" [level=1] [ref=e20]
-          - paragraph [ref=e21]: Discover thousands of books from around the world
-        - generic [ref=e22]:
-          - generic [ref=e24]:
-            - generic [ref=e25]: Search in
-            - textbox "Search in" [ref=e27]
-          - button "Search" [ref=e28] [cursor=pointer]:
-            - img [ref=e29] [cursor=pointer]
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - img "Banner" [ref=e37]
+          - heading "Welcome to Our Book Store" [level=1] [ref=e38]
+          - paragraph [ref=e39]: Discover thousands of books from around the world
+        - generic [ref=e40]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: Search in
+            - textbox "Search in" [ref=e45]
+          - button "Search" [ref=e46] [cursor=pointer]:
+            - img [ref=e47] [cursor=pointer]
             - text: Search
-          - button "Cancel" [ref=e32] [cursor=pointer]
-        - generic [ref=e33]:
-          - button "Default" [ref=e34]
-          - button "Newest First" [ref=e35]
-          - button "Oldest First" [ref=e36]
-        - generic [ref=e37]:
-          - heading "Popular Books" [level=2] [ref=e38]
-          - generic [ref=e39]:
-            - link "Open Über die spezielle und die allgemeine Relativitätstheorie" [ref=e40] [cursor=pointer]:
+          - button "Cancel" [ref=e50] [cursor=pointer]
+        - generic [ref=e51]:
+          - button "Default" [ref=e52]
+          - button "Newest First" [ref=e53]
+          - button "Oldest First" [ref=e54]
+        - generic [ref=e55]:
+          - heading "Popular Books" [level=2] [ref=e56]
+          - generic [ref=e57]:
+            - link "Open Über die spezielle und die allgemeine Relativitätstheorie" [ref=e58] [cursor=pointer]:
               - /url: /en/book/OL1214190W
-              - generic [ref=e41] [cursor=pointer]:
-                - generic [ref=e42] [cursor=pointer]:
-                  - paragraph [ref=e43] [cursor=pointer]: Book
-                  - generic [ref=e44] [cursor=pointer]: by Albert Einstein • 1917
-                  - heading "Über die spezielle und die allgemeine Relativitätstheorie" [level=4] [ref=e45] [cursor=pointer]
-                - img "Über die spezielle und die allgemeine Relativitätstheorie" [ref=e47] [cursor=pointer]
-            - link "Open Mere Christianity" [ref=e48] [cursor=pointer]:
+              - generic [ref=e59] [cursor=pointer]:
+                - generic [ref=e60] [cursor=pointer]:
+                  - paragraph [ref=e61] [cursor=pointer]: Book
+                  - generic [ref=e62] [cursor=pointer]: by Albert Einstein • 1917
+                  - heading "Über die spezielle und die allgemeine Relativitätstheorie" [level=4] [ref=e63] [cursor=pointer]
+                - img "Über die spezielle und die allgemeine Relativitätstheorie" [ref=e65] [cursor=pointer]
+            - link "Open Mere Christianity" [ref=e66] [cursor=pointer]:
               - /url: /en/book/OL71056W
-              - generic [ref=e49] [cursor=pointer]:
-                - generic [ref=e50] [cursor=pointer]:
-                  - paragraph [ref=e51] [cursor=pointer]: Book
-                  - generic [ref=e52] [cursor=pointer]: by C.S. Lewis • 1943
-                  - heading "Mere Christianity" [level=4] [ref=e53] [cursor=pointer]
-                - img "Mere Christianity" [ref=e55] [cursor=pointer]
-            - link "Open Middlemarch" [ref=e56] [cursor=pointer]:
+              - generic [ref=e67] [cursor=pointer]:
+                - generic [ref=e68] [cursor=pointer]:
+                  - paragraph [ref=e69] [cursor=pointer]: Book
+                  - generic [ref=e70] [cursor=pointer]: by C.S. Lewis • 1943
+                  - heading "Mere Christianity" [level=4] [ref=e71] [cursor=pointer]
+                - img "Mere Christianity" [ref=e73] [cursor=pointer]
+            - link "Open Middlemarch" [ref=e74] [cursor=pointer]:
               - /url: /en/book/OL20867W
-              - generic [ref=e57] [cursor=pointer]:
-                - generic [ref=e58] [cursor=pointer]:
-                  - paragraph [ref=e59] [cursor=pointer]: Book
-                  - generic [ref=e60] [cursor=pointer]: by George Eliot • 1871
-                  - heading "Middlemarch" [level=4] [ref=e61] [cursor=pointer]
-                - img "Middlemarch" [ref=e63] [cursor=pointer]
-            - link "Open Kinder- und Hausmärchen" [ref=e64] [cursor=pointer]:
+              - generic [ref=e75] [cursor=pointer]:
+                - generic [ref=e76] [cursor=pointer]:
+                  - paragraph [ref=e77] [cursor=pointer]: Book
+                  - generic [ref=e78] [cursor=pointer]: by George Eliot • 1871
+                  - heading "Middlemarch" [level=4] [ref=e79] [cursor=pointer]
+                - img "Middlemarch" [ref=e81] [cursor=pointer]
+            - link "Open Kinder- und Hausmärchen" [ref=e82] [cursor=pointer]:
               - /url: /en/book/OL45361W
-              - generic [ref=e65] [cursor=pointer]:
-                - generic [ref=e66] [cursor=pointer]:
-                  - paragraph [ref=e67] [cursor=pointer]: Book
-                  - generic [ref=e68] [cursor=pointer]: by Gebrüder Grimm [Brothers Grimm] • 1812
-                  - heading "Kinder- und Hausmärchen" [level=4] [ref=e69] [cursor=pointer]
-                - img "Kinder- und Hausmärchen" [ref=e71] [cursor=pointer]
-            - link "Open The Railway Children" [ref=e72] [cursor=pointer]:
+              - generic [ref=e83] [cursor=pointer]:
+                - generic [ref=e84] [cursor=pointer]:
+                  - paragraph [ref=e85] [cursor=pointer]: Book
+                  - generic [ref=e86] [cursor=pointer]: by Gebrüder Grimm [Brothers Grimm] • 1812
+                  - heading "Kinder- und Hausmärchen" [level=4] [ref=e87] [cursor=pointer]
+                - img "Kinder- und Hausmärchen" [ref=e89] [cursor=pointer]
+            - link "Open The Railway Children" [ref=e90] [cursor=pointer]:
               - /url: /en/book/OL99509W
-              - generic [ref=e73] [cursor=pointer]:
-                - generic [ref=e74] [cursor=pointer]:
-                  - paragraph [ref=e75] [cursor=pointer]: Book
-                  - generic [ref=e76] [cursor=pointer]: by Edith Nesbit • 1900
-                  - heading "The Railway Children" [level=4] [ref=e77] [cursor=pointer]
-                - img "The Railway Children" [ref=e79] [cursor=pointer]
-            - link "Open Villette, a novel" [ref=e80] [cursor=pointer]:
+              - generic [ref=e91] [cursor=pointer]:
+                - generic [ref=e92] [cursor=pointer]:
+                  - paragraph [ref=e93] [cursor=pointer]: Book
+                  - generic [ref=e94] [cursor=pointer]: by Edith Nesbit • 1900
+                  - heading "The Railway Children" [level=4] [ref=e95] [cursor=pointer]
+                - img "The Railway Children" [ref=e97] [cursor=pointer]
+            - link "Open Villette, a novel" [ref=e98] [cursor=pointer]:
               - /url: /en/book/OL1095403W
-              - generic [ref=e81] [cursor=pointer]:
-                - generic [ref=e82] [cursor=pointer]:
-                  - paragraph [ref=e83] [cursor=pointer]: Book
-                  - generic [ref=e84] [cursor=pointer]: by Charlotte Brontë • 1853
-                  - heading "Villette, a novel" [level=4] [ref=e85] [cursor=pointer]
-                - img "Villette, a novel" [ref=e87] [cursor=pointer]
-            - link "Open A Little Princess" [ref=e88] [cursor=pointer]:
+              - generic [ref=e99] [cursor=pointer]:
+                - generic [ref=e100] [cursor=pointer]:
+                  - paragraph [ref=e101] [cursor=pointer]: Book
+                  - generic [ref=e102] [cursor=pointer]: by Charlotte Brontë • 1853
+                  - heading "Villette, a novel" [level=4] [ref=e103] [cursor=pointer]
+                - img "Villette, a novel" [ref=e105] [cursor=pointer]
+            - link "Open A Little Princess" [ref=e106] [cursor=pointer]:
               - /url: /en/book/OL69630W
-              - generic [ref=e89] [cursor=pointer]:
-                - generic [ref=e90] [cursor=pointer]:
-                  - paragraph [ref=e91] [cursor=pointer]: Book
-                  - generic [ref=e92] [cursor=pointer]: by Frances Hodgson Burnett • 1905
-                  - heading "A Little Princess" [level=4] [ref=e93] [cursor=pointer]
-                - img "A Little Princess" [ref=e95] [cursor=pointer]
-            - link "Open The Night Before Christmas" [ref=e96] [cursor=pointer]:
+              - generic [ref=e107] [cursor=pointer]:
+                - generic [ref=e108] [cursor=pointer]:
+                  - paragraph [ref=e109] [cursor=pointer]: Book
+                  - generic [ref=e110] [cursor=pointer]: by Frances Hodgson Burnett • 1905
+                  - heading "A Little Princess" [level=4] [ref=e111] [cursor=pointer]
+                - img "A Little Princess" [ref=e113] [cursor=pointer]
+            - link "Open The Night Before Christmas" [ref=e114] [cursor=pointer]:
               - /url: /en/book/OL655908W
-              - generic [ref=e97] [cursor=pointer]:
-                - generic [ref=e98] [cursor=pointer]:
-                  - paragraph [ref=e99] [cursor=pointer]: Book
-                  - generic [ref=e100] [cursor=pointer]: by Clement Clarke Moore • 1857
-                  - heading "The Night Before Christmas" [level=4] [ref=e101] [cursor=pointer]
-                - img "The Night Before Christmas" [ref=e103] [cursor=pointer]
-            - link "Open The Secret Adversary" [ref=e104] [cursor=pointer]:
+              - generic [ref=e115] [cursor=pointer]:
+                - generic [ref=e116] [cursor=pointer]:
+                  - paragraph [ref=e117] [cursor=pointer]: Book
+                  - generic [ref=e118] [cursor=pointer]: by Clement Clarke Moore • 1857
+                  - heading "The Night Before Christmas" [level=4] [ref=e119] [cursor=pointer]
+                - img "The Night Before Christmas" [ref=e121] [cursor=pointer]
+            - link "Open The Secret Adversary" [ref=e122] [cursor=pointer]:
               - /url: /en/book/OL471789W
-              - generic [ref=e105] [cursor=pointer]:
-                - generic [ref=e106] [cursor=pointer]:
-                  - paragraph [ref=e107] [cursor=pointer]: Book
-                  - generic [ref=e108] [cursor=pointer]: by Agatha Christie • 1922
-                  - heading "The Secret Adversary" [level=4] [ref=e109] [cursor=pointer]
-                - img "The Secret Adversary" [ref=e111] [cursor=pointer]
-            - link "Open Bleak House" [ref=e112] [cursor=pointer]:
+              - generic [ref=e123] [cursor=pointer]:
+                - generic [ref=e124] [cursor=pointer]:
+                  - paragraph [ref=e125] [cursor=pointer]: Book
+                  - generic [ref=e126] [cursor=pointer]: by Agatha Christie • 1922
+                  - heading "The Secret Adversary" [level=4] [ref=e127] [cursor=pointer]
+                - img "The Secret Adversary" [ref=e129] [cursor=pointer]
+            - link "Open Bleak House" [ref=e130] [cursor=pointer]:
               - /url: /en/book/OL14868510W
-              - generic [ref=e113] [cursor=pointer]:
-                - generic [ref=e114] [cursor=pointer]:
-                  - paragraph [ref=e115] [cursor=pointer]: Book
-                  - generic [ref=e116] [cursor=pointer]: by Charles Dickens • 1850
-                  - heading "Bleak House" [level=4] [ref=e117] [cursor=pointer]
-                - img "Bleak House" [ref=e119] [cursor=pointer]
-            - link "Open Five Children and It" [ref=e120] [cursor=pointer]:
+              - generic [ref=e131] [cursor=pointer]:
+                - generic [ref=e132] [cursor=pointer]:
+                  - paragraph [ref=e133] [cursor=pointer]: Book
+                  - generic [ref=e134] [cursor=pointer]: by Charles Dickens • 1850
+                  - heading "Bleak House" [level=4] [ref=e135] [cursor=pointer]
+                - img "Bleak House" [ref=e137] [cursor=pointer]
+            - link "Open Five Children and It" [ref=e138] [cursor=pointer]:
               - /url: /en/book/OL99499W
-              - generic [ref=e121] [cursor=pointer]:
-                - generic [ref=e122] [cursor=pointer]:
-                  - paragraph [ref=e123] [cursor=pointer]: Book
-                  - generic [ref=e124] [cursor=pointer]: by Edith Nesbit • 1905
-                  - heading "Five Children and It" [level=4] [ref=e125] [cursor=pointer]
-                - img "Five Children and It" [ref=e127] [cursor=pointer]
-            - link "Open Vanity Fair" [ref=e128] [cursor=pointer]:
+              - generic [ref=e139] [cursor=pointer]:
+                - generic [ref=e140] [cursor=pointer]:
+                  - paragraph [ref=e141] [cursor=pointer]: Book
+                  - generic [ref=e142] [cursor=pointer]: by Edith Nesbit • 1905
+                  - heading "Five Children and It" [level=4] [ref=e143] [cursor=pointer]
+                - img "Five Children and It" [ref=e145] [cursor=pointer]
+            - link "Open Vanity Fair" [ref=e146] [cursor=pointer]:
               - /url: /en/book/OL16313W
-              - generic [ref=e129] [cursor=pointer]:
-                - generic [ref=e130] [cursor=pointer]:
-                  - paragraph [ref=e131] [cursor=pointer]: Book
-                  - generic [ref=e132] [cursor=pointer]: by William Makepeace Thackeray • 1800
-                  - heading "Vanity Fair" [level=4] [ref=e133] [cursor=pointer]
-                - img "Vanity Fair" [ref=e135] [cursor=pointer]
-            - link "Open War and Peace" [ref=e136] [cursor=pointer]:
+              - generic [ref=e147] [cursor=pointer]:
+                - generic [ref=e148] [cursor=pointer]:
+                  - paragraph [ref=e149] [cursor=pointer]: Book
+                  - generic [ref=e150] [cursor=pointer]: by William Makepeace Thackeray • 1800
+                  - heading "Vanity Fair" [level=4] [ref=e151] [cursor=pointer]
+                - img "Vanity Fair" [ref=e153] [cursor=pointer]
+            - link "Open War and Peace" [ref=e154] [cursor=pointer]:
               - /url: /en/book/OL267171W
-              - generic [ref=e137] [cursor=pointer]:
-                - generic [ref=e138] [cursor=pointer]:
-                  - paragraph [ref=e139] [cursor=pointer]: Book
-                  - generic [ref=e140] [cursor=pointer]: by Лев Толстой • 1864
-                  - heading "War and Peace" [level=4] [ref=e141] [cursor=pointer]
-                - img "War and Peace" [ref=e143] [cursor=pointer]
-            - link "Open The Great God Pan" [ref=e144] [cursor=pointer]:
+              - generic [ref=e155] [cursor=pointer]:
+                - generic [ref=e156] [cursor=pointer]:
+                  - paragraph [ref=e157] [cursor=pointer]: Book
+                  - generic [ref=e158] [cursor=pointer]: by Лев Толстой • 1864
+                  - heading "War and Peace" [level=4] [ref=e159] [cursor=pointer]
+                - img "War and Peace" [ref=e161] [cursor=pointer]
+            - link "Open The Great God Pan" [ref=e162] [cursor=pointer]:
               - /url: /en/book/OL3388961W
-              - generic [ref=e145] [cursor=pointer]:
-                - generic [ref=e146] [cursor=pointer]:
-                  - paragraph [ref=e147] [cursor=pointer]: Book
-                  - generic [ref=e148] [cursor=pointer]: by Arthur Machen • 1894
-                  - heading "The Great God Pan" [level=4] [ref=e149] [cursor=pointer]
-                - img "The Great God Pan" [ref=e151] [cursor=pointer]
-            - link "Open Shirley" [ref=e152] [cursor=pointer]:
+              - generic [ref=e163] [cursor=pointer]:
+                - generic [ref=e164] [cursor=pointer]:
+                  - paragraph [ref=e165] [cursor=pointer]: Book
+                  - generic [ref=e166] [cursor=pointer]: by Arthur Machen • 1894
+                  - heading "The Great God Pan" [level=4] [ref=e167] [cursor=pointer]
+                - img "The Great God Pan" [ref=e169] [cursor=pointer]
+            - link "Open Shirley" [ref=e170] [cursor=pointer]:
               - /url: /en/book/OL1095397W
-              - generic [ref=e153] [cursor=pointer]:
-                - generic [ref=e154] [cursor=pointer]:
-                  - paragraph [ref=e155] [cursor=pointer]: Book
-                  - generic [ref=e156] [cursor=pointer]: by Charlotte Brontë • 1800
-                  - heading "Shirley" [level=4] [ref=e157] [cursor=pointer]
-                - img "Shirley" [ref=e159] [cursor=pointer]
-            - link "Open Kim" [ref=e160] [cursor=pointer]:
+              - generic [ref=e171] [cursor=pointer]:
+                - generic [ref=e172] [cursor=pointer]:
+                  - paragraph [ref=e173] [cursor=pointer]: Book
+                  - generic [ref=e174] [cursor=pointer]: by Charlotte Brontë • 1800
+                  - heading "Shirley" [level=4] [ref=e175] [cursor=pointer]
+                - img "Shirley" [ref=e177] [cursor=pointer]
+            - link "Open Kim" [ref=e178] [cursor=pointer]:
               - /url: /en/book/OL19908W
-              - generic [ref=e161] [cursor=pointer]:
-                - generic [ref=e162] [cursor=pointer]:
-                  - paragraph [ref=e163] [cursor=pointer]: Book
-                  - generic [ref=e164] [cursor=pointer]: by Rudyard Kipling • 1901
-                  - heading "Kim" [level=4] [ref=e165] [cursor=pointer]
-                - img "Kim" [ref=e167] [cursor=pointer]
-            - link "Open How to write a sentence" [ref=e168] [cursor=pointer]:
+              - generic [ref=e179] [cursor=pointer]:
+                - generic [ref=e180] [cursor=pointer]:
+                  - paragraph [ref=e181] [cursor=pointer]: Book
+                  - generic [ref=e182] [cursor=pointer]: by Rudyard Kipling • 1901
+                  - heading "Kim" [level=4] [ref=e183] [cursor=pointer]
+                - img "Kim" [ref=e185] [cursor=pointer]
+            - link "Open How to write a sentence" [ref=e186] [cursor=pointer]:
               - /url: /en/book/OL276370W
-              - generic [ref=e169] [cursor=pointer]:
-                - generic [ref=e170] [cursor=pointer]:
-                  - paragraph [ref=e171] [cursor=pointer]: Book
-                  - generic [ref=e172] [cursor=pointer]: by Henry James • 1881
-                  - heading "How to write a sentence" [level=4] [ref=e173] [cursor=pointer]
-                - img "How to write a sentence" [ref=e175] [cursor=pointer]
-            - link "Open Tao te Ching" [ref=e176] [cursor=pointer]:
+              - generic [ref=e187] [cursor=pointer]:
+                - generic [ref=e188] [cursor=pointer]:
+                  - paragraph [ref=e189] [cursor=pointer]: Book
+                  - generic [ref=e190] [cursor=pointer]: by Henry James • 1881
+                  - heading "How to write a sentence" [level=4] [ref=e191] [cursor=pointer]
+                - img "How to write a sentence" [ref=e193] [cursor=pointer]
+            - link "Open Tao te Ching" [ref=e194] [cursor=pointer]:
               - /url: /en/book/OL45499W
-              - generic [ref=e177] [cursor=pointer]:
-                - generic [ref=e178] [cursor=pointer]:
-                  - paragraph [ref=e179] [cursor=pointer]: Book
-                  - generic [ref=e180] [cursor=pointer]: by 老子 • 1842
-                  - heading "Tao te Ching" [level=4] [ref=e181] [cursor=pointer]
-                - img "Tao te Ching" [ref=e183] [cursor=pointer]
-            - link "Open A Study in Scarlet" [ref=e184] [cursor=pointer]:
+              - generic [ref=e195] [cursor=pointer]:
+                - generic [ref=e196] [cursor=pointer]:
+                  - paragraph [ref=e197] [cursor=pointer]: Book
+                  - generic [ref=e198] [cursor=pointer]: by 老子 • 1842
+                  - heading "Tao te Ching" [level=4] [ref=e199] [cursor=pointer]
+                - img "Tao te Ching" [ref=e201] [cursor=pointer]
+            - link "Open A Study in Scarlet" [ref=e202] [cursor=pointer]:
               - /url: /en/book/OL262496W
-              - generic [ref=e185] [cursor=pointer]:
-                - generic [ref=e186] [cursor=pointer]:
-                  - paragraph [ref=e187] [cursor=pointer]: Book
-                  - generic [ref=e188] [cursor=pointer]: by Arthur Conan Doyle • 1887
-                  - heading "A Study in Scarlet" [level=4] [ref=e189] [cursor=pointer]
-                - img "A Study in Scarlet" [ref=e191] [cursor=pointer]
-            - link "Open The Return of the Native" [ref=e192] [cursor=pointer]:
+              - generic [ref=e203] [cursor=pointer]:
+                - generic [ref=e204] [cursor=pointer]:
+                  - paragraph [ref=e205] [cursor=pointer]: Book
+                  - generic [ref=e206] [cursor=pointer]: by Arthur Conan Doyle • 1887
+                  - heading "A Study in Scarlet" [level=4] [ref=e207] [cursor=pointer]
+                - img "A Study in Scarlet" [ref=e209] [cursor=pointer]
+            - link "Open The Return of the Native" [ref=e210] [cursor=pointer]:
               - /url: /en/book/OL44994W
-              - generic [ref=e193] [cursor=pointer]:
-                - generic [ref=e194] [cursor=pointer]:
-                  - paragraph [ref=e195] [cursor=pointer]: Book
-                  - generic [ref=e196] [cursor=pointer]: by Thomas Hardy • 1878
-                  - heading "The Return of the Native" [level=4] [ref=e197] [cursor=pointer]
-                - img "The Return of the Native" [ref=e199] [cursor=pointer]
-      - generic [ref=e201]:
-        - generic [ref=e202]:
-          - generic [ref=e203]:
-            - heading "About" [level=3] [ref=e204]
-            - paragraph [ref=e205]: We are passionate about books and reading. Our mission is to provide access to quality literature for everyone.
-          - generic [ref=e206]:
-            - heading "Contact" [level=3] [ref=e207]
-            - list [ref=e208]:
-              - listitem [ref=e209]: 📧 info@bookstore.com
-              - listitem [ref=e210]: 📞 +380 50 123 4567
-              - listitem [ref=e211]: 📍 Kyiv, Ukraine
-          - generic [ref=e212]:
-            - heading "Quick Links" [level=3] [ref=e213]
-            - list [ref=e214]:
-              - listitem [ref=e215]:
-                - link "About" [ref=e216] [cursor=pointer]:
+              - generic [ref=e211] [cursor=pointer]:
+                - generic [ref=e212] [cursor=pointer]:
+                  - paragraph [ref=e213] [cursor=pointer]: Book
+                  - generic [ref=e214] [cursor=pointer]: by Thomas Hardy • 1878
+                  - heading "The Return of the Native" [level=4] [ref=e215] [cursor=pointer]
+                - img "The Return of the Native" [ref=e217] [cursor=pointer]
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - heading "About" [level=3] [ref=e222]
+            - paragraph [ref=e223]: We are passionate about books and reading. Our mission is to provide access to quality literature for everyone.
+          - generic [ref=e224]:
+            - heading "Contact" [level=3] [ref=e225]
+            - list [ref=e226]:
+              - listitem [ref=e227]: 📧 info@bookstore.com
+              - listitem [ref=e228]: 📞 +380 50 123 4567
+              - listitem [ref=e229]: 📍 Kyiv, Ukraine
+          - generic [ref=e230]:
+            - heading "Quick Links" [level=3] [ref=e231]
+            - list [ref=e232]:
+              - listitem [ref=e233]:
+                - link "About" [ref=e234] [cursor=pointer]:
                   - /url: "#"
-              - listitem [ref=e217]:
-                - link "Books" [ref=e218] [cursor=pointer]:
+              - listitem [ref=e235]:
+                - link "Books" [ref=e236] [cursor=pointer]:
                   - /url: "#"
-              - listitem [ref=e219]:
-                - link "Contact" [ref=e220] [cursor=pointer]:
+              - listitem [ref=e237]:
+                - link "Contact" [ref=e238] [cursor=pointer]:
                   - /url: "#"
-        - paragraph [ref=e222]: © 2024 Book Store. All rights reserved.
-    - generic [ref=e223]:
-      - img [ref=e225]
-      - button "Open Tanstack query devtools" [ref=e273] [cursor=pointer]:
-        - img [ref=e274] [cursor=pointer]
-  - button "Open Next.js Dev Tools" [ref=e327] [cursor=pointer]:
-    - img [ref=e328] [cursor=pointer]
-  - alert [ref=e331]
+        - paragraph [ref=e240]: © 2024 Book Store. All rights reserved.
+    - generic [ref=e241]:
+      - img [ref=e243]
+      - button "Open Tanstack query devtools" [ref=e291] [cursor=pointer]:
+        - img [ref=e292] [cursor=pointer]
+  - alert [ref=e340]
 ```

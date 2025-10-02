@@ -99,3 +99,7 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Test results
+test-results/
+playwright-report/
