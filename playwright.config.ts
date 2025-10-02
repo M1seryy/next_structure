@@ -1,4 +1,3 @@
-import { defineConfig, devices } from '@playwright/test'
 
 // playwright config
 export default defineConfig({
@@ -18,12 +17,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'Mobile Chrome',
       use: {
-        ...devices['iPhone SE'],
       },
     },
   ],

@@ -1,4 +1,4 @@
-export interface Translations {
+export interface ITranslations {
     home: {
         title: string
         subtitle: string
@@ -31,4 +31,4 @@ export interface Translations {
     }
 }
 
-export default Translations
+export default ITranslations

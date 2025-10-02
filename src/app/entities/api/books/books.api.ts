@@ -1,6 +1,6 @@
 
 import ky from 'ky'
-import { BooksListItem, type OpenLibraryBook } from '../../models/book.model'
+import { type BooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
 import { sentryUtils } from '@/pkg/libraries/sentry'
 
@@ -8,12 +8,12 @@ import { sentryUtils } from '@/pkg/libraries/sentry'
 const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
 
 // fetch single book 
-export async function fetchBookByWorkId(workId: string): Promise<OpenLibraryBook> {
+export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBook> {
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
     try {
-        const data = await ky.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
-        return data as OpenLibraryBook
+        const data = await restApiFetcher.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
+        return data as IOpenLibraryBook
     } catch (error) {
         sentryUtils.captureError(error as Error, {
             function: 'fetchBookByWorkId',
@@ -27,7 +27,6 @@ export async function fetchBookByWorkId(workId: string): Promise<OpenLibraryBook
 export async function fetchPopularBooks(): Promise<BooksListItem[]> {
     try {
         const data = await restApiFetcher.get('api/books/search').json() as { items: BooksListItem[] }
-
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({
@@ -52,7 +51,6 @@ export async function searchBooksByTitle(title: string): Promise<BooksListItem[]
         const data = await restApiFetcher.get('api/books/search', {
             searchParams: { q: searchQuery }
         }).json() as { items: BooksListItem[] }
-
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({

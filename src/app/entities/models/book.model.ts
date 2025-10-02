@@ -15,7 +15,7 @@ export type Doc = {
 };
 
 // Open Library API interfaces
-export interface OpenLibraryAuthor {
+export interface IOpenLibraryAuthor {
     author: {
         key: string;
     };
@@ -24,16 +24,16 @@ export interface OpenLibraryAuthor {
     };
 }
 
-export interface OpenLibraryDescription {
+export interface IOpenLibraryDescription {
     type: string;
     value: string;
 }
 
-export interface OpenLibraryBook {
+export interface IOpenLibraryBook {
     key: string;
     title: string;
-    authors?: OpenLibraryAuthor[];
-    description?: OpenLibraryDescription;
+    authors?: IOpenLibraryAuthor[];
+    description?: IOpenLibraryDescription;
     subjects?: string[];
     first_publish_date?: string;
     covers?: number[];
