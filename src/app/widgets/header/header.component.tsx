@@ -2,7 +2,7 @@
 
 import { type FC } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/pkg/libraries/locale'
+import Link from 'next/link'
 //interface
 interface IProps {}
 //component

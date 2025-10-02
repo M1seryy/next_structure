@@ -19,7 +19,6 @@ const BooksPage: FC<Readonly<IProps>> = async (props) => {
 
   const queryClient = getQueryClient()
 
-  // Prefetch books from database
   await queryClient.prefetchQuery({
     queryKey: ['books', 'database'],
     queryFn: () => fetchBooksFromDatabase(),
