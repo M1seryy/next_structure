@@ -9,7 +9,7 @@ export const routing = defineRouting({
     pathnames: {
 
         '/': '/',
-        '/books': '/books',
+        '/book-list': '/book-list',
         '/book/[id]': '/book/[id]',
         '/about': '/about',
         '/contact': '/contact'

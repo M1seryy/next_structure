@@ -21,7 +21,7 @@ const HeaderComponent: FC<Readonly<IProps>> = () => {
               <Link href={'/'}>{t('navigation.home')}</Link>
             </li>
             <li className='text-xl'>
-              <Link href={'/books'}>{t('navigation.books')}</Link>
+              <Link href={'/book-list'}>{t('navigation.books')}</Link>
             </li>
             <li className='text-xl'>
               <Link href={'/about'}>{t('navigation.about')}</Link>
