@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Header Tests', () => {
-    test('should display header with navigation links', async ({ page }) => {
+    test('header nav links should be visible', async ({ page }) => {
         await page.goto('/')
 
         await page.waitForLoadState('networkidle')
@@ -20,7 +20,7 @@ test.describe('Header Tests', () => {
         await expect(booksLink).toContainText('Books')
     })
 
-    test('should navigate to book-list page when clicking Books link', async ({ page }) => {
+    test('book-list page should navigate', async ({ page }) => {
         await page.goto('/')
 
         await page.waitForLoadState('networkidle')
