@@ -35,7 +35,7 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
       <body>
         <SentryProvider>
           <MixpanelProvider>
-            <GrowthBookProvider>
+            <GrowthBookProvider locale={locale}>
               <NextIntlClientProvider messages={messages}>
                 <UiProvider locale={locale}>
                   <RestApiProvider>

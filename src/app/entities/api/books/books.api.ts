@@ -41,7 +41,6 @@ export async function fetchPopularBooks(): Promise<BooksListItem[]> {
         sentryUtils.captureError(error as Error, {
             function: 'fetchPopularBooks'
         })
-        console.error('Failed to fetch popular books:', error)
         return []
     }
 }
@@ -68,7 +67,6 @@ export async function searchBooksByTitle(title: string): Promise<BooksListItem[]
             function: 'searchBooksByTitle',
             searchQuery: title
         })
-        console.error('Failed to search books:', error)
         return []
     }
 }

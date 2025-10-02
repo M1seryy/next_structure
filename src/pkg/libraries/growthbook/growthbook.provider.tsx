@@ -1,44 +1,44 @@
 'use client'
 
-import { type FC, type ReactNode, useEffect, createContext, useContext } from 'react'
+import { type FC, type ReactNode, useEffect, createContext, useContext, useState } from 'react'
 import { GrowthBook } from '@growthbook/growthbook'
 
 // interface
 interface IProps {
   children: ReactNode
+  locale?: string
 }
 
 const GrowthBookContext = createContext<GrowthBook | null>(null)
 
-const growthbook = new GrowthBook({
-  enableDevMode: true,
-  trackingCallback: (experiment, result) => {
-    console.log('GrowthBook experiment:', experiment.key, result.variationId)
-  },
-})
-
 // component
 const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
-  const { children } = props
+  const { children, locale = 'en' } = props
+  const [growthbookInstance, setGrowthbookInstance] = useState<GrowthBook | null>(null)
 
   useEffect(() => {
+    const growthbook = new GrowthBook({
+      enableDevMode: true,
+    })
+
     try {
       growthbook.setAttributes({
         id: 'user-123',
-        country: 'UA',
+        country: 'UK',
         browser: 'chrome',
+        locale: locale,
       })
 
       growthbook.setFeatures({
         'search-button-color': {
-          defaultValue: 'danger',
+          defaultValue: 'primary',
           rules: [
             {
-              condition: { browser: 'chrome' },
-              force: 'danger',
+              condition: { locale: 'en' },
+              force: 'primary',
             },
             {
-              condition: { country: 'UA' },
+              condition: { locale: 'uk' },
               force: 'success',
             },
           ],
@@ -47,24 +47,24 @@ const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
           defaultValue: 'default',
           rules: [
             {
-              condition: { country: 'UA' },
-              force: 'danger',
+              condition: { locale: 'en' },
+              force: 'secondary',
             },
             {
-              condition: { browser: 'chrome' },
-              force: 'secondary',
+              condition: { locale: 'uk' },
+              force: 'danger',
             },
           ],
         },
       })
 
-      console.log('GrowthBook initialized with features:', growthbook.getFeatures())
+      setGrowthbookInstance(growthbook)
     } catch (error) {
-      console.warn('GrowthBook initialization failed:', error)
+      // GrowthBook initialization failed
     }
-  }, [])
+  }, [locale])
 
-  return <GrowthBookContext.Provider value={growthbook}>{children}</GrowthBookContext.Provider>
+  return <GrowthBookContext.Provider value={growthbookInstance}>{children}</GrowthBookContext.Provider>
 }
 
 export const useGrowthBook = () => useContext(GrowthBookContext)

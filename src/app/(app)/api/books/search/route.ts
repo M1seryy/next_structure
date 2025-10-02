@@ -45,7 +45,6 @@ export async function GET(request: NextRequest) {
             }
         )
     } catch (error) {
-        console.error('Books search error:', error)
         return NextResponse.json({ items: [] }, { status: 200 })
     }
 }
