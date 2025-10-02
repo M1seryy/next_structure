@@ -12,9 +12,7 @@ export const sentryUtils = {
         Sentry.captureMessage(message, level)
     },
 
-    setUser: (user: { id: string; email?: string; username?: string }) => {
-        Sentry.setUser(user)
-    },
+
 
     setContext: (key: string, context: Record<string, any>) => {
         Sentry.setContext(key, context)
