@@ -5,7 +5,7 @@ export enum SortOrder {
     OLDEST = 'oldest'
 }
 
-// Books sort store state interface
+// Books sort store state 
 export interface IBooksSortState {
     sortOrder: SortOrder
     filters: Record<string, any>

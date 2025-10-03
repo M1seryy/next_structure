@@ -1,6 +1,6 @@
 
 import ky from 'ky'
-import { type BooksListItem, type IOpenLibraryBook } from '../../models/book.model'
+import { type IBooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
 import { sentryUtils } from '@/pkg/integrations/sentry'
 
@@ -22,9 +22,9 @@ export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBoo
     }
 }
 
-export async function fetchPopularBooks(): Promise<BooksListItem[]> {
+export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
     try {
-        const data = await restApiFetcher.get('api/books/search').json() as { items: BooksListItem[] }
+        const data = await restApiFetcher.get('api/books/search').json() as { items: IBooksListItem[] }
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({
@@ -42,12 +42,12 @@ export async function fetchPopularBooks(): Promise<BooksListItem[]> {
     }
 }
 
-export async function searchBooksByTitle(title: string): Promise<BooksListItem[]> {
+export async function searchBooksByTitle(title: string): Promise<IBooksListItem[]> {
     try {
         const searchQuery = (title && title.trim()) || 'popular books'
         const data = await restApiFetcher.get('api/books/search', {
             searchParams: { q: searchQuery }
-        }).json() as { items: BooksListItem[] }
+        }).json() as { items: IBooksListItem[] }
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({
