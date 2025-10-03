@@ -12,6 +12,10 @@ interface IProps {
 export const revalidate = 30
 export const dynamic = 'force-static'
 
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'uk' }]
+}
+
 // component
 const BooksPage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
