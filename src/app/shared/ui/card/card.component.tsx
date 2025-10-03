@@ -54,12 +54,7 @@ const CardComponent: FC<Readonly<IProps>> = (props) => {
 
   // return
   return id ? (
-    <Link
-      href={{ pathname: '/book/[id]', params: { id } }}
-      className='block'
-      aria-label={`Open ${title}`}
-      onClick={handleBookClick}
-    >
+    <Link href={`/book/${id}`} className='block' aria-label={`Open ${title}`} onClick={handleBookClick}>
       {content}
     </Link>
   ) : (
