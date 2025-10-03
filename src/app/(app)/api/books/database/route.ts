@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import SupabaseManager from '@/pkg/integrations/supabase/supabase.manager'
 
-// GET /api/books/database - Get books from Supabase database
 export async function GET(request: NextRequest) {
     try {
         const supabase = SupabaseManager.getClient()
 
-        // Fetch books from Supabase
         const { data: books, error } = await supabase
             .from('books')
             .select('*')
