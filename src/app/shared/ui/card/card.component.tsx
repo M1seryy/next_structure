@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import { memo } from 'react'
 import { Link } from '@/pkg/libraries/locale'
 import Image from 'next/image'
-import { mixpanelUtils } from '@/pkg/libraries/mixpanel'
+import { mixpanelUtils } from '@/pkg/integrations/mixpanel'
 
 // interface
 interface IProps {

@@ -7,9 +7,9 @@ import '@/config/styles/global.css'
 import { LayoutModule } from '../../modules/layout'
 import { RestApiProvider } from '@/pkg/libraries/rest-api'
 import { UiProvider } from '@/pkg/libraries/ui'
-import { SentryProvider } from '@/pkg/libraries/sentry'
-import { MixpanelProvider } from '@/pkg/libraries/mixpanel'
-import { GrowthBookProvider } from '@/pkg/libraries/growthbook'
+import { SentryProvider } from '@/pkg/integrations/sentry'
+import { MixpanelProvider } from '@/pkg/integrations/mixpanel'
+import { GrowthBookProvider } from '@/pkg/integrations/growthbook'
 import { routing } from '@/pkg/libraries/locale'
 
 // interface

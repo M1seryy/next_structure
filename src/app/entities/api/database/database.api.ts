@@ -1,4 +1,4 @@
-import { supabase } from '@/pkg/libraries/supabase'
+import { supabase } from '@/pkg/integrations/supabase'
 
 export interface IDatabaseBook {
     id: string

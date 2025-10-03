@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/pkg/libraries/supabase'
+import SupabaseManager from '@/pkg/integrations/supabase/supabase.manager'
 
 // GET /api/books/database - Get books from Supabase database
 export async function GET(request: NextRequest) {
     try {
-        const supabase = createServerClient()
+        const supabase = SupabaseManager.getClient()
 
         // Fetch books from Supabase
         const { data: books, error } = await supabase
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
             )
         }
 
-        const supabase = createServerClient()
+        const supabase = SupabaseManager.getClient()
 
         // Insert new book into Supabase
         const { data: book, error } = await supabase

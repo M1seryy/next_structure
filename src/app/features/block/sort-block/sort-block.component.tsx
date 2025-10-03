@@ -4,7 +4,7 @@ import { type FC } from 'react'
 import { useTranslations } from 'next-intl'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
 import { SortOrder } from '@/app/entities/models'
-import { mixpanelUtils } from '@/pkg/libraries/mixpanel'
+import { mixpanelUtils } from '@/pkg/integrations/mixpanel'
 
 // interface
 interface IProps {}

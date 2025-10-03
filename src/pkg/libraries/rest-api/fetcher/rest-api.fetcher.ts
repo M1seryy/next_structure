@@ -1,5 +1,5 @@
 import ky, { type KyInstance } from 'ky'
-import { env } from '@/config/env'
+import { env } from '@/config/env/index'
 
 // fetcher
 export const restApiFetcher: KyInstance = ky.create({

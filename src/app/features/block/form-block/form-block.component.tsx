@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
-import { useFeatureFlag } from '@/pkg/libraries/growthbook'
+import { useFeatureFlag } from '@/pkg/integrations/growthbook'
 
 // interface
 interface IProps {

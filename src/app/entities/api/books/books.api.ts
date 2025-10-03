@@ -2,7 +2,7 @@
 import ky from 'ky'
 import { type BooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
-import { sentryUtils } from '@/pkg/libraries/sentry'
+import { sentryUtils } from '@/pkg/integrations/sentry'
 
 // constants
 const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
