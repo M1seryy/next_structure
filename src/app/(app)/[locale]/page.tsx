@@ -12,38 +12,14 @@ interface IProps {
 export const revalidate = 30
 export const dynamic = 'force-static'
 
-// generate static params
+// generate static params for locales only
 export async function generateStaticParams() {
-  try {
-    const popularBooks = await fetchPopularBooks()
-
-    const params = []
-    for (const book of popularBooks.slice(0, 10)) {
-      if (book.id) {
-        params.push({ locale: 'en', id: book.id })
-        params.push({ locale: 'uk', id: book.id })
-      }
-    }
-
-    return params
-  } catch (error) {
-    console.error('Error generating static params for books:', error)
-    const fallbackIds = ['OL82565W', 'OL71056W', 'OL20867W', 'OL45361W']
-
-    const params = []
-    for (const id of fallbackIds) {
-      params.push({ locale: 'en', id })
-      params.push({ locale: 'uk', id })
-    }
-
-    return params
-  }
+  return [{ locale: 'en' }, { locale: 'uk' }]
 }
 
 // component
 const HomePage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
-  const { locale } = await params
 
   const queryClient = getQueryClient()
 
