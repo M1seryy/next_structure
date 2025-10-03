@@ -38,7 +38,7 @@ export async function generateStaticParams() {
 // component
 const BookPage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
-  const { locale, id } = await params
+  const { id } = await params
 
   const queryClient = getQueryClient()
 
@@ -50,7 +50,7 @@ const BookPage: FC<Readonly<IProps>> = async (props) => {
   // return
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <BookModule bookId={id} locale={locale} />
+      <BookModule bookId={id} />
     </HydrationBoundary>
   )
 }
