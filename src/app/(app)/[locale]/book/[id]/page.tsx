@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { BookModule } from '@/app/modules/book'
-import { fetchBookByWorkId } from '@/app/entities/api'
+import { fetchBookByWorkId, fetchPopularBooks } from '@/app/entities/api'
 
 // interface for page props
 interface IProps {
