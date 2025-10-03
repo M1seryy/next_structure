@@ -8,6 +8,7 @@ import { DetailsBlockComponent } from '@/app/features/block/details-block'
 // interface
 interface IProps {
   bookId: string
+  locale: string
 }
 
 // component
