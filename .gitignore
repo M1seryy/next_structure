@@ -75,7 +75,6 @@ dist
 
 # Gatsby files
 .cache/
-public
 
 # Storybook build outputs
 .out
@@ -100,3 +99,7 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Test results
+test-results/
+playwright-report/

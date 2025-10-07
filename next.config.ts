@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import { withSentryConfig } from '@sentry/nextjs';
 
+// i18n
 const withNextIntl = createNextIntlPlugin('./src/pkg/libraries/locale/request.ts');
 
 // next config
@@ -21,6 +22,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/b/id/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 
@@ -28,13 +35,18 @@ const nextConfig: NextConfig = {
     reactCompiler: true,
     optimizeServerReact: true,
     optimizePackageImports: [
-      'zod',
-      'react-hook-form',
       '@heroui/react',
       '@heroui/system',
-      'zustand',
-      'framer-motion',
+      '@heroui/button',
+      '@heroui/card',
+      '@heroui/input',
+      '@heroui/toast',
+      '@tanstack/react-query',
+      '@tanstack/react-query-devtools',
       'next-intl',
+      'zustand',
+      'react-hook-form',
+      '@growthbook/growthbook',
     ],
     staticGenerationRetryCount: 1,
     staticGenerationMaxConcurrency: 2,
