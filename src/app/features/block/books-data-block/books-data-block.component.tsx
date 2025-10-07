@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
+import { SortOrder } from '@/app/entities/models'
 
 // interface
 interface IProps {
@@ -39,9 +40,9 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
   const data = useMemo(() => {
     if (!rawData) return undefined
 
-    if (sortOrder === 'newest') {
+    if (sortOrder === SortOrder.NEWEST) {
       return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
-    } else if (sortOrder === 'oldest') {
+    } else if (sortOrder === SortOrder.OLDEST) {
       return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
     }
 

@@ -1,12 +1,14 @@
+'use client'
+
 import { type FC } from 'react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-
-// interface for header component props
+//interface
 interface IProps {}
-
-// component
-const HeaderComponent: FC<Readonly<IProps>> = (props) => {
-  // return
+//component
+const HeaderComponent: FC<Readonly<IProps>> = () => {
+  const t = useTranslations()
+  //return
   return (
     <div className='mt-3.5 flex flex-col'>
       <div className='mx-auto flex w-full items-center justify-between px-4 md:px-6'>
@@ -16,13 +18,13 @@ const HeaderComponent: FC<Readonly<IProps>> = (props) => {
         <nav>
           <ul className='flex gap-5'>
             <li className='text-xl'>
-              <Link href={'/'}>Home</Link>
+              <Link href={'/'}>{t('navigation.home')}</Link>
             </li>
             <li className='text-xl'>
-              <Link href={'/books'}>Books</Link>
+              <Link href={'/book-list'}>{t('navigation.books')}</Link>
             </li>
             <li className='text-xl'>
-              <Link href={'/about'}>About</Link>
+              <Link href={'/about'}>{t('navigation.about')}</Link>
             </li>
           </ul>
         </nav>

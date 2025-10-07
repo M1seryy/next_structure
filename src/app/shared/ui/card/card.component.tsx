@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import { memo } from 'react'
 import { Link } from '@/pkg/libraries/locale'
 import Image from 'next/image'
-import { mixpanelUtils } from '@/pkg/libraries/mixpanel'
+import { mixpanelUtils } from '@/pkg/integrations/mixpanel'
 
 // interface
 interface IProps {
@@ -54,12 +54,7 @@ const CardComponent: FC<Readonly<IProps>> = (props) => {
 
   // return
   return id ? (
-    <Link
-      href={{ pathname: '/book/[id]', params: { id } }}
-      className='block'
-      aria-label={`Open ${title}`}
-      onClick={handleBookClick}
-    >
+    <Link href={`/book/${id}`} className='block' aria-label={`Open ${title}`} onClick={handleBookClick}>
       {content}
     </Link>
   ) : (

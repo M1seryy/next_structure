@@ -1,10 +1,10 @@
 import { type FC } from 'react'
 import Image from 'next/image'
-import { type OpenLibraryBook } from '@/app/entities/models'
+import { type IOpenLibraryBook } from '@/app/entities/models'
 
 // interface
 interface IProps {
-  book: OpenLibraryBook
+  book: IOpenLibraryBook
   isLoading?: boolean
 }
 
