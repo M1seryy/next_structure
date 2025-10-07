@@ -1,9 +1,17 @@
-// Books sort store state interface
-export interface IBooksSortState {
-    sortOrder: 'newest' | 'oldest' | 'default'
+// Sort order enum
+export enum SortOrder {
+    DEFAULT = 'default',
+    NEWEST = 'newest',
+    OLDEST = 'oldest'
 }
 
-// Books sort store actions interface
+// Books sort store state 
+export interface IBooksSortState {
+    sortOrder: SortOrder
+    filters: Record<string, any>
+}
+
+// Books sort 
 export interface IBooksSortStore extends IBooksSortState {
-    setSortOrder: (order: 'newest' | 'oldest' | 'default') => void
+    updateState: (updates: Partial<IBooksSortState>) => void
 }
