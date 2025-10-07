@@ -9,7 +9,7 @@ export const booksQueryKeys = {
     search: (title: string) => [...booksQueryKeys.all, 'search', title] as const,
 }
 
-// query options
+
 export const booksListQueryOptions = (q: string) => ({
     queryKey: ['books', q],
     queryFn: () => searchBooksByTitle(q),
@@ -17,7 +17,7 @@ export const booksListQueryOptions = (q: string) => ({
     refetchOnMount: 'always' as const,
 })
 
-// query functions
+
 export const useBookByWorkId = (workId: string) => {
     return useQuery({
         queryKey: booksQueryKeys.byWorkId(workId),
