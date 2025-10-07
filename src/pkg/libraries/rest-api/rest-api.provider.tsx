@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { getQueryClient } from './service'
 
-// interface for rest api provider props
+// interface
 interface IProps {
   children: ReactNode
 }
