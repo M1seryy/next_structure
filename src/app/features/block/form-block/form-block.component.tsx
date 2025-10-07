@@ -26,8 +26,8 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
   const t = useTranslations()
 
-  const searchButtonColor = useFeatureFlag('search-button-color', 'primary')
-  const cancelButtonColor = useFeatureFlag('cancel-button-color', 'danger')
+  const searchButtonColor = useFeatureFlag('search-button-color')
+  const cancelButtonColor = useFeatureFlag('cancel-button-color')
 
   const onSubmit = (data: SearchFormData) => {
     onSearch(data.query)

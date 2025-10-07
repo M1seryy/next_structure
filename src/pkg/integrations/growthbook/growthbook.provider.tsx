@@ -22,10 +22,19 @@ const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
     })
 
     try {
+      const getUserBrowser = () => {
+        const userAgent = navigator.userAgent.toLowerCase()
+        if (userAgent.includes('chrome')) return 'chrome'
+        if (userAgent.includes('firefox')) return 'firefox'
+        if (userAgent.includes('safari')) return 'safari'
+        if (userAgent.includes('edge')) return 'edge'
+        return 'chrome'
+      }
+
       growthbook.setAttributes({
         id: 'user-123',
         country: 'UK',
-        browser: 'chrome',
+        browser: getUserBrowser(),
         locale: locale,
       })
 
@@ -34,12 +43,20 @@ const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
           defaultValue: 'primary',
           rules: [
             {
-              condition: { locale: 'en' },
+              condition: { browser: 'chrome' },
               force: 'primary',
             },
             {
-              condition: { locale: 'uk' },
+              condition: { browser: 'firefox' },
               force: 'success',
+            },
+            {
+              condition: { browser: 'safari' },
+              force: 'warning',
+            },
+            {
+              condition: { browser: 'edge' },
+              force: 'info',
             },
           ],
         },
@@ -47,12 +64,20 @@ const GrowthBookProvider: FC<Readonly<IProps>> = (props) => {
           defaultValue: 'default',
           rules: [
             {
-              condition: { locale: 'en' },
+              condition: { browser: 'chrome' },
               force: 'secondary',
             },
             {
-              condition: { locale: 'uk' },
+              condition: { browser: 'firefox' },
               force: 'danger',
+            },
+            {
+              condition: { browser: 'safari' },
+              force: 'warning',
+            },
+            {
+              condition: { browser: 'edge' },
+              force: 'info',
             },
           ],
         },
