@@ -13,10 +13,10 @@ export async function GET(request: NextRequest) {
 
         const response = await fetch(openLibraryUrl, {
             next: { revalidate: 3600 },
-
         })
 
         if (!response.ok) {
+            console.error('Open Library API error:', response.status, response.statusText)
             return NextResponse.json({ items: [] }, { status: 200 })
         }
 
@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
             }
         )
     } catch (error) {
-        console.error('Books search error:', error)
+        console.error('API route error:', error)
         return NextResponse.json({ items: [] }, { status: 200 })
     }
 }
