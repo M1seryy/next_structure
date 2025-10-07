@@ -2,9 +2,9 @@ import { type FC } from 'react'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { HomeModule } from '@/app/modules/home'
-import { fetchPopularBooks } from '@/app/entities'
+import { fetchPopularBooks } from '@/app/entities/api'
 
-// interface for page props
+// interface
 interface IProps {
   params: Promise<{ locale: string }>
 }
@@ -15,7 +15,6 @@ export const dynamic = 'force-static'
 // component
 const HomePage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
-  const { locale } = await params
 
   const queryClient = getQueryClient()
 
