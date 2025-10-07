@@ -103,3 +103,6 @@ Thumbs.db
 # Test results
 test-results/
 playwright-report/
+
+# Git configuration files
+.gitmessage
