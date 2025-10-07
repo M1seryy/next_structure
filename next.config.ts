@@ -8,6 +8,7 @@ const withNextIntl = createNextIntlPlugin('./src/pkg/libraries/locale/request.ts
 // next config
 const nextConfig: NextConfig = {
   output: 'standalone',
+  instrumentationHook: './src/pkg/integrations/sentry/instrumentation.ts',
 
   poweredByHeader: false,
   cacheMaxMemorySize: 100 * 1024 * 1024,

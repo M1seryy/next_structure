@@ -90,7 +90,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
 
       <Button
         type='submit'
-        color={getSearchButtonColor() as any}
+        color={getSearchButtonColor()}
         size='lg'
         radius='lg'
         className='px-8 font-medium'
@@ -102,7 +102,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
 
       <Button
         type='button'
-        color={getCancelButtonColor() as any}
+        color={getCancelButtonColor()}
         variant='bordered'
         size='lg'
         radius='lg'
