@@ -40,6 +40,10 @@ jspm_packages/
 
 # TypeScript cache
 *.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Next.js generated files
+next-env.d.ts
 
 # Optional npm cache directory
 .npm
@@ -76,9 +80,6 @@ dist
 # Gatsby files
 .cache/
 
-# Storybook build outputs
-.out
-.storybook-out
 
 # Temporary folders
 tmp/
@@ -87,6 +88,7 @@ temp/
 # Editor directories and files
 .vscode/
 .idea/
+.cursor/
 *.swp
 *.swo
 *~
