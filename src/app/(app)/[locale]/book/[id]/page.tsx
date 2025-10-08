@@ -10,6 +10,7 @@ interface IProps {
 }
 
 export const revalidate = 30
+export const dynamic = 'force-static'
 
 // generate static params for books
 export async function generateStaticParams() {

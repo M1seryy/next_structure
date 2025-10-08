@@ -16,10 +16,10 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = (props) => {
     return (
       <div className='rounded-lg border bg-white p-6 shadow-sm'>
         <div className='animate-pulse'>
-          <div className='mb-4 h-8 rounded bg-gray-200'></div>
-          <div className='mb-2 h-4 rounded bg-gray-200'></div>
-          <div className='mb-4 h-4 rounded bg-gray-200'></div>
-          <div className='h-64 rounded bg-gray-200'></div>
+          <div className='mb-4 h-8 rounded bg-gray-200' />
+          <div className='mb-2 h-4 rounded bg-gray-200' />
+          <div className='mb-4 h-4 rounded bg-gray-200' />
+          <div className='h-64 rounded bg-gray-200' />
         </div>
       </div>
     )

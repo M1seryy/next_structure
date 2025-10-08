@@ -15,8 +15,7 @@ export const booksListQueryOptions = (q: string) => ({
     queryFn: () => searchBooksByTitle(q),
     staleTime: 30_000,
     gcTime: 5 * 60 * 1000,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
+
 })
 
 
@@ -27,8 +26,7 @@ export const useBookByWorkId = (workId: string) => {
         enabled: !!workId,
         staleTime: 30_000,
         gcTime: 5 * 60 * 1000,
-        refetchOnMount: false,
-        refetchOnWindowFocus: false,
+
     })
 }
 

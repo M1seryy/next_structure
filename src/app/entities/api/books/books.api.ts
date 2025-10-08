@@ -1,18 +1,22 @@
 
-import ky from 'ky'
 import { type IBooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
 import { sentryUtils } from '@/pkg/integrations/sentry'
-
-// constants
-const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
 
 export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBook> {
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
     try {
-        const data = await ky.get(`${OPEN_LIBRARY_BASE_URL}/works/${cleanWorkId}.json`).json()
-        return data as IOpenLibraryBook
+        const res = await restApiFetcher.get<IOpenLibraryBook>(`api/books/${cleanWorkId}`, {
+            cache: 'force-cache',
+            next: { revalidate: 30 },
+        }).json()
+
+        if (!res) {
+            throw new Error('Error occurred, book not found')
+        }
+
+        return res
     } catch (error) {
         sentryUtils.captureError(error as Error, {
             function: 'fetchBookByWorkId',
@@ -24,7 +28,7 @@ export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBoo
 
 export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
     try {
-        const data = await restApiFetcher.get('api/books/search').json() as { items: IBooksListItem[] }
+        const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search').json()
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({
@@ -45,9 +49,9 @@ export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
 export async function searchBooksByTitle(title: string): Promise<IBooksListItem[]> {
     try {
         const searchQuery = (title && title.trim()) || 'popular books'
-        const data = await restApiFetcher.get('api/books/search', {
+        const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search', {
             searchParams: { q: searchQuery }
-        }).json() as { items: IBooksListItem[] }
+        }).json()
 
         const items = Array.isArray(data.items) ? data.items : []
         return items.map((item) => ({
