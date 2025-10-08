@@ -14,7 +14,9 @@ export const booksListQueryOptions = (q: string) => ({
     queryKey: ['books', q],
     queryFn: () => searchBooksByTitle(q),
     staleTime: 30_000,
-    refetchOnMount: 'always' as const,
+    gcTime: 5 * 60 * 1000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
 })
 
 
@@ -23,6 +25,10 @@ export const useBookByWorkId = (workId: string) => {
         queryKey: booksQueryKeys.byWorkId(workId),
         queryFn: () => fetchBookByWorkId(workId),
         enabled: !!workId,
+        staleTime: 30_000,
+        gcTime: 5 * 60 * 1000,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
     })
 }
 
