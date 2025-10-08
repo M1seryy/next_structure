@@ -8,7 +8,6 @@ interface IProps {
 }
 
 export const revalidate = 30
-export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'uk' }]
@@ -19,7 +18,6 @@ const BooksPage: FC<Readonly<IProps>> = async (props) => {
   const { params } = props
   const { locale } = await params
 
-  // Fetch books from database on server side
   const books = await fetchBooksFromDatabase()
 
   // return
