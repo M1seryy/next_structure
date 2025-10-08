@@ -1,23 +1,20 @@
-'use client'
-
-import { type FC, useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { type FC } from 'react'
+import { getTranslations } from 'next-intl/server'
 import { FormBlockComponent } from '@/app/features/block/form-block'
 import { SortBlockComponent } from '@/app/features/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
 import { Banner } from '@/app/shared/ui/banner'
 
 // interface
-interface IProps {}
+interface IProps {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
 
 // component
-const HomeModule: FC<Readonly<IProps>> = (props) => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const t = useTranslations()
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query)
-  }
+const HomeModule: FC<Readonly<IProps>> = async (props) => {
+  const { searchParams } = props
+  const t = await getTranslations()
+  const searchQuery = (searchParams?.q as string) || ''
 
   // return
   return (
@@ -28,7 +25,7 @@ const HomeModule: FC<Readonly<IProps>> = (props) => {
         <p>{t('home.subtitle')}</p>
       </div>
 
-      <FormBlockComponent onSearch={handleSearch} />
+      <FormBlockComponent />
 
       <SortBlockComponent />
 

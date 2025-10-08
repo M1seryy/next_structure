@@ -3,6 +3,7 @@
 import { type FC } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
@@ -10,7 +11,7 @@ import { useFeatureFlag } from '@/pkg/integrations/growthbook'
 
 // interface
 interface IProps {
-  onSearch: (query: string) => void
+  onSearch?: (query: string) => void
   isLoading?: boolean
 }
 
@@ -25,17 +26,31 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const isLoading = props.isLoading || false
   const { register, handleSubmit, reset } = useForm<SearchFormData>()
   const t = useTranslations()
+  const router = useRouter()
 
   const searchButtonColor = useFeatureFlag('search-button-color')
   const cancelButtonColor = useFeatureFlag('cancel-button-color')
 
   const onSubmit = (data: SearchFormData) => {
-    onSearch(data.query)
+    if (onSearch) {
+      onSearch(data.query)
+    } else {
+      // Fallback to URL navigation if no onSearch callback
+      const params = new URLSearchParams()
+      if (data.query) {
+        params.set('q', data.query)
+      }
+      router.push(`?${params.toString()}`)
+    }
   }
 
   const handleClear = () => {
     reset()
-    onSearch('')
+    if (onSearch) {
+      onSearch('')
+    } else {
+      router.push('?')
+    }
   }
 
   const getSearchButtonColor = () => {

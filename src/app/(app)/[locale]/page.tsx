@@ -7,14 +7,14 @@ import { fetchPopularBooks } from '@/app/entities/api'
 // interface
 interface IProps {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export const revalidate = 30
-export const dynamic = 'force-static'
 
 // component
 const HomePage: FC<Readonly<IProps>> = async (props) => {
-  const { params } = props
+  const { params, searchParams } = props
 
   const queryClient = getQueryClient()
 
@@ -26,7 +26,7 @@ const HomePage: FC<Readonly<IProps>> = async (props) => {
   // return
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <HomeModule />
+      <HomeModule searchParams={await searchParams} />
     </HydrationBoundary>
   )
 }
