@@ -25,13 +25,11 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = (props) => {
     )
   }
 
-  // get cover image URL
   const coverUrl =
     book.covers && book.covers.length > 0
       ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`
       : 'https://placehold.co/400x600/jpg?text=No+Cover'
 
-  // get author names
   const authors =
     book.authors
       ?.map((author) => {
@@ -41,7 +39,6 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = (props) => {
       })
       .join(', ') || 'Unknown Author'
 
-  // get subjects as tags
   const subjects = book.subjects?.slice(0, 5) || []
 
   // return

@@ -15,7 +15,6 @@ interface IProps {
   isLoading?: boolean
 }
 
-// interface for search form data
 interface SearchFormData {
   query: string
 }
@@ -35,7 +34,6 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
     if (onSearch) {
       onSearch(data.query)
     } else {
-      // Fallback to URL navigation if no onSearch callback
       const params = new URLSearchParams()
       if (data.query) {
         params.set('q', data.query)

@@ -4,7 +4,7 @@ import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { BookModule } from '@/app/modules/book'
 import { fetchBookByWorkId, fetchPopularBooks } from '@/app/entities/api'
 
-// interface for page props
+// interface
 interface IProps {
   params: Promise<{ locale: string; id: string }>
 }
