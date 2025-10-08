@@ -15,7 +15,7 @@ interface IProps {
   isLoading?: boolean
 }
 
-interface SearchFormData {
+interface ISearchFormData {
   query: string
 }
 
@@ -23,14 +23,14 @@ interface SearchFormData {
 const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const onSearch = props.onSearch
   const isLoading = props.isLoading || false
-  const { register, handleSubmit, reset } = useForm<SearchFormData>()
+  const { register, handleSubmit, reset } = useForm<ISearchFormData>()
   const t = useTranslations()
   const router = useRouter()
 
   const searchButtonColor = useFeatureFlag('search-button-color')
   const cancelButtonColor = useFeatureFlag('cancel-button-color')
 
-  const onSubmit = (data: SearchFormData) => {
+  const onSubmit = (data: ISearchFormData) => {
     if (onSearch) {
       onSearch(data.query)
     } else {
