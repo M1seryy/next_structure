@@ -31,6 +31,7 @@ export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
         const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search').json()
 
         const items = Array.isArray(data.items) ? data.items : []
+        
         return items.map((item) => ({
             id: item.id,
             title: item.title,
@@ -49,11 +50,13 @@ export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
 export async function searchBooksByTitle(title: string): Promise<IBooksListItem[]> {
     try {
         const searchQuery = (title && title.trim()) || 'popular books'
+        
         const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search', {
             searchParams: { q: searchQuery }
         }).json()
 
         const items = Array.isArray(data.items) ? data.items : []
+        
         return items.map((item) => ({
             id: item.id,
             title: item.title,
