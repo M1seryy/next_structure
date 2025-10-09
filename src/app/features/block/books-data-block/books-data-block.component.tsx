@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC, useMemo } from 'react'
+import { type FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { ListBlockComponent } from '@/app/features/block/list-block'
@@ -37,7 +37,7 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
     staleTime: 30000,
   })
 
-  const data = useMemo(() => {
+  const data = (() => {
     if (!rawData) return undefined
 
     if (sortOrder === SortOrder.NEWEST) {
@@ -47,7 +47,7 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
     }
 
     return rawData
-  }, [rawData, sortOrder])
+  })()
 
   const getTitle = () => {
     if (searchQuery) {

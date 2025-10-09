@@ -1,4 +1,7 @@
+import 'server-only'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { envServer } from '@/config/env/env.server'
+import { envClient } from '@/config/env/env.client'
 
 // Supabase manager for centralized connection
 class SupabaseManager {
@@ -7,8 +10,8 @@ class SupabaseManager {
     static getClient(): SupabaseClient {
         if (!SupabaseManager.instance) {
             SupabaseManager.instance = createClient(
-                process.env.NEXT_PUBLIC_SUPABASE_URL!,
-                process.env.SUPABASE_SERVICE_ROLE_KEY!
+                envClient.NEXT_PUBLIC_SUPABASE_URL,
+                envServer.SUPABASE_SERVICE_ROLE_KEY
             )
         }
         return SupabaseManager.instance

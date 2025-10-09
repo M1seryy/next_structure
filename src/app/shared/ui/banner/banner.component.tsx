@@ -5,7 +5,7 @@ import Image from 'next/image'
 interface IProps {}
 
 // banner component
-const Banner: FC<Readonly<IProps>> = () => {
+const BannerComponent: FC<Readonly<IProps>> = () => {
   return (
     <div className='relative mt-3.5 mb-3.5 h-[400px] max-w-[1200px] overflow-hidden rounded-2xl'>
       <Image
@@ -21,4 +21,4 @@ const Banner: FC<Readonly<IProps>> = () => {
   )
 }
 
-export default Banner
+export default BannerComponent

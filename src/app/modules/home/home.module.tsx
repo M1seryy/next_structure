@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { FormBlockComponent } from '@/app/features/block/form-block'
 import { SortBlockComponent } from '@/app/features/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
-import { Banner } from '@/app/shared/ui/banner'
+import { BannerComponent } from '@/app/shared/ui/banner'
 
 // interface
 interface IProps {
@@ -20,7 +20,7 @@ const HomeModule: FC<Readonly<IProps>> = async (props) => {
   return (
     <div className='space-y-6'>
       <div>
-        <Banner />
+        <BannerComponent />
         <h1 className='text-2xl font-bold'>{t('home.title')}</h1>
         <p>{t('home.subtitle')}</p>
       </div>
