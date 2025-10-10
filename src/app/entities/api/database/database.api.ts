@@ -1,5 +1,5 @@
-import { db } from '@/pkg/integrations/drizzle/drizzle.server'
-import { books as booksTable, type BookRow } from '@/pkg/integrations/drizzle/schemas/books.schema'
+import { db } from '@/pkg/integrations/supabase/drizzle.server'
+import { books as booksTable, type BookRow } from '@/pkg/integrations/supabase/schemas/books.schema'
 import { desc } from 'drizzle-orm'
 
 export interface IDatabaseBook {

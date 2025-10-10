@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { db } from '@/pkg/integrations/drizzle/drizzle.server'
-import { books } from '@/pkg/integrations/drizzle/schemas/books.schema'
+import { db } from '@/pkg/integrations/supabase/drizzle.server'
+import { books } from '@/pkg/integrations/supabase/schemas/books.schema'
 import { desc } from 'drizzle-orm'
 
 export async function GET(_request: NextRequest) {
