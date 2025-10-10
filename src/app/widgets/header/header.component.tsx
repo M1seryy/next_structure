@@ -3,8 +3,10 @@
 import { type FC } from 'react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+
 //interface
 interface IProps {}
+
 //component
 const HeaderComponent: FC<Readonly<IProps>> = () => {
   const t = useTranslations()

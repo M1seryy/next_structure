@@ -1,8 +1,8 @@
 import { type FC, type ReactNode } from 'react'
 import { type Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { hasLocale } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import '@/config/styles/global.css'
 import { LayoutModule } from '../../modules/layout'
@@ -54,8 +54,7 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
-
-  const messages = await getMessages({ locale })
+  setRequestLocale(locale)
 
   // return
   return (
@@ -64,7 +63,7 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
         <SentryProvider>
           <MixpanelProvider>
             <GrowthBookProvider locale={locale}>
-              <NextIntlClientProvider messages={messages}>
+              <NextIntlClientProvider>
                 <UiProvider locale={locale}>
                   <RestApiProvider>
                     <LayoutModule>{children}</LayoutModule>

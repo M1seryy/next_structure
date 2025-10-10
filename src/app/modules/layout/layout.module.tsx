@@ -13,7 +13,7 @@ interface IProps {
 const LayoutModule: FC<Readonly<IProps>> = (props) => {
   const { children } = props
 
-  // return layout with header, banner, content and footer
+  // return
   return (
     <ContainerComponent variant='main'>
       <HeaderComponent />

@@ -5,10 +5,12 @@ import { createEnv } from '@t3-oss/env-nextjs'
 export const envServer = createEnv({
     server: {
         SUPABASE_SERVICE_ROLE_KEY: z.string().min(1, 'SUPABASE_SERVICE_ROLE_KEY is required'),
+        DATABASE_URL: z.string().min(1, 'DATABASE_URL is required'),
         OPEN_LIBRARY_BASE_URL: z.string().optional(),
     },
     runtimeEnv: {
         SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
+        DATABASE_URL: process.env.DATABASE_URL,
         OPEN_LIBRARY_BASE_URL: process.env.OPEN_LIBRARY_BASE_URL,
     },
 })

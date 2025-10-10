@@ -1,16 +1,29 @@
 
 import { type IBooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
+import { externalRestApiFetcher } from '@/pkg/libraries/rest-api/fetcher'
+import { env } from '@/config/env'
 import { sentryUtils } from '@/pkg/integrations/sentry'
 
 export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBook> {
     const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
 
     try {
-        const res = await restApiFetcher.get<IOpenLibraryBook>(`api/books/${cleanWorkId}`, {
+        const url = `${env.OPEN_LIBRARY_BASE_URL}/works/${encodeURIComponent(cleanWorkId)}.json`
+        const response = await externalRestApiFetcher.get(url, {
             cache: 'force-cache',
             next: { revalidate: 30 },
-        }).json()
+        })
+
+        if (response.status === 404) {
+            throw new Error('Book not found')
+        }
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch from Open Library')
+        }
+
+        const res = await response.json() as IOpenLibraryBook
 
         if (!res) {
             throw new Error('Error occurred, book not found')
