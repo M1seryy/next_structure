@@ -1,10 +1,12 @@
 'use client'
 
-import { type FC } from 'react'
+import { type FC, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { useBooksSortStore } from '@/app/shared/store/global.store'
 import { SortOrder } from '@/app/entities/models'
 import { mixpanelUtils } from '@/pkg/integrations/mixpanel'
+import { usePathname } from '@/pkg/libraries/locale/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 // interface
 interface IProps {}
@@ -14,16 +16,33 @@ const SortBlockComponent: FC<Readonly<IProps>> = () => {
   const { sortOrder, updateState } = useBooksSortStore()
   const t = useTranslations()
 
-  // Handle sort change with tracking
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const handleSortChange = (newSortOrder: SortOrder) => {
     updateState({ sortOrder: newSortOrder })
 
-    // Track sorting event in Mixpanel
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('sort', newSortOrder.toLowerCase())
+    const newUrl = `${pathname}?${params.toString()}`
+    window.history.replaceState(null, '', newUrl)
+
     mixpanelUtils.trackSorting(newSortOrder, {
       previous_sort: sortOrder,
       timestamp: new Date().toISOString(),
     })
   }
+
+  useEffect(() => {
+    if (!searchParams.has('sort')) return
+    const raw = (searchParams.get('sort') || 'default').toLowerCase()
+    const allowed = ['default', 'newest', 'oldest'] as const
+    const next = (allowed.includes(raw as any) ? raw : 'default') as SortOrder
+    if (next !== sortOrder) {
+      updateState({ sortOrder: next })
+    }
+  }, [searchParams])
 
   // return
   return (

@@ -3,7 +3,7 @@
 import { type FC } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
@@ -21,11 +21,14 @@ interface ISearchFormData {
 
 // component
 const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
-  const onSearch = props.onSearch
-  const isLoading = props.isLoading || false
   const { register, handleSubmit, reset } = useForm<ISearchFormData>()
+
+  const isLoading = props.isLoading || false
   const t = useTranslations()
+
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const onSearch = props.onSearch
 
   const searchButtonColor = useFeatureFlag('search-button-color')
   const cancelButtonColor = useFeatureFlag('cancel-button-color')
@@ -34,7 +37,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
     if (onSearch) {
       onSearch(data.query)
     } else {
-      const params = new URLSearchParams()
+      const params = new URLSearchParams(searchParams.toString())
       if (data.query) {
         params.set('q', data.query)
       }
@@ -47,7 +50,9 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
     if (onSearch) {
       onSearch('')
     } else {
-      router.push('?')
+      const params = new URLSearchParams(searchParams.toString())
+      params.delete('q')
+      router.push(params.toString() ? `?${params.toString()}` : '?')
     }
   }
 
