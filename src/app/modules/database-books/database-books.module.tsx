@@ -31,7 +31,9 @@ const DatabaseBooksModule: FC<Readonly<IProps>> = (props) => {
               <div key={book.id} className='rounded-lg border border-gray-200 bg-white p-4 shadow-sm'>
                 <h3 className='mb-2 text-lg font-semibold'>{book.title}</h3>
                 <p className='mb-2 text-gray-600'>by {book.author}</p>
-                <p className='text-sm text-gray-500'>Added: {new Date(book.created_at).toLocaleDateString()}</p>
+                <p className='text-sm text-gray-500'>
+                  Added: {typeof book.created_at === 'string' ? new Date(book.created_at).toLocaleDateString() : '—'}
+                </p>
               </div>
             ))}
           </div>

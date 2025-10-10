@@ -1,18 +1,29 @@
-import { supabase } from '@/pkg/integrations/supabase'
+import { db } from '@/pkg/integrations/drizzle/drizzle.server'
+import { books as booksTable, type BookRow } from '@/pkg/integrations/drizzle/schemas/books.schema'
+import { desc } from 'drizzle-orm'
 
 export interface IDatabaseBook {
     id: string
     title: string
-    author: string
-    created_at: string
+    author: string | null
+    created_at: string | null
 }
 
 export async function fetchBooksFromDatabase(): Promise<IDatabaseBook[]> {
-    const { data: books, error } = await supabase
-        .from('books')
-        .select('*')
-        .order('created_at', { ascending: false })
+    try {
+        const rows: BookRow[] = await db
+            .select()
+            .from(booksTable)
+            .orderBy(desc(booksTable.createdAt))
 
-    if (error) throw new Error(`Database error: ${error.message}`)
-    return books || []
+        return (rows || []).map((row) => ({
+            id: row.id,
+            title: row.title,
+            author: row.author ?? null,
+            created_at: row.createdAt ? row.createdAt.toISOString() : null,
+        }))
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err)
+        throw new Error(`Database query failed: ${message}`)
+    }
 }
