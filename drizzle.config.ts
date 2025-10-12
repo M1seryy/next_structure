@@ -7,8 +7,8 @@ loadEnv()
 loadEnv({ path: '.env.local' })
 
 export default {
-    out: './drizzle',
-    schema: './src/pkg/integrations/drizzle/schemas/**/*.ts',
+    out: './src/pkg/integrations/supabase/drizzle',
+    schema: './src/pkg/integrations/supabase/schemas/**/*.ts',
     dialect: 'postgresql',
     dbCredentials: {
         url: process.env.DATABASE_URL as string,

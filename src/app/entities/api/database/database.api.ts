@@ -6,6 +6,7 @@ export interface IDatabaseBook {
     id: string
     title: string
     author: string | null
+    description: string | null
     created_at: string | null
 }
 
@@ -20,6 +21,7 @@ export async function fetchBooksFromDatabase(): Promise<IDatabaseBook[]> {
             id: row.id,
             title: row.title,
             author: row.author ?? null,
+            description: row.description ?? null,
             created_at: row.createdAt ? row.createdAt.toISOString() : null,
         }))
     } catch (err: unknown) {

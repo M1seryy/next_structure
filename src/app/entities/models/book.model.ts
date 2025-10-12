@@ -2,6 +2,7 @@ export interface IBooksListItem {
     id: string;
     title: string;
     author?: string;
+    description?: string;
     coverUrl?: string;
     year?: number;
 }
