@@ -10,6 +10,7 @@ interface IProps {}
 //component
 const HeaderComponent: FC<Readonly<IProps>> = () => {
   const t = useTranslations()
+
   //return
   return (
     <div className='mt-3.5 flex flex-col'>

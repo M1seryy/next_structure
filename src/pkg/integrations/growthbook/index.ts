@@ -1,2 +1,2 @@
 // Server SDK exports
-export { initGrowthBook, getFeatureFlag, getExperiment, getAllFeatures } from './growthbook.server'
+export { initGrowthBook, getFeatureFlag, } from './growthbook.server'

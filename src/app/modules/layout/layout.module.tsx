@@ -1,7 +1,11 @@
+'use client'
 import { type FC, type ReactNode } from 'react'
+import { usePathname } from 'next/navigation'
 
 import { HeaderComponent } from '@/app/widgets/header'
+import { HeaderComponent as MyIqHeaderComponent } from '@/app/widgets/my-iq/header'
 import { FooterComponent } from '@/app/widgets/footer'
+import { FooterComponent as MyIqFooterComponent } from '@/app/widgets/my-iq/footer'
 import { ContainerComponent } from '@/app/shared/ui/container'
 
 // interface
@@ -12,16 +16,20 @@ interface IProps {
 //component
 const LayoutModule: FC<Readonly<IProps>> = (props) => {
   const { children } = props
+  const pathname = usePathname()
+  const isIq = pathname?.startsWith('/iq')
 
   // return
   return (
-    <ContainerComponent variant='main'>
-      <HeaderComponent />
+    <>
+      {/* Full-width header with border */}
+      {isIq ? <MyIqHeaderComponent /> : <HeaderComponent />}
 
-      {children}
+      <ContainerComponent variant='main'>{children}</ContainerComponent>
 
-      <FooterComponent />
-    </ContainerComponent>
+      {/* Full-width footer: switch per section */}
+      {isIq ? <MyIqFooterComponent /> : <FooterComponent />}
+    </>
   )
 }
 
