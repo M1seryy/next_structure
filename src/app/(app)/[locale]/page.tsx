@@ -24,9 +24,12 @@ const HomePage: FC<Readonly<IProps>> = async (props) => {
   })
 
   // return
+  const sp = await searchParams
+  const searchQuery = (sp?.q as string) || ''
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <HomeModule searchParams={await searchParams} />
+      <HomeModule searchQuery={searchQuery} />
     </HydrationBoundary>
   )
 }

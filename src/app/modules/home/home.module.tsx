@@ -7,14 +7,14 @@ import { BannerComponent } from '@/app/shared/ui/banner'
 
 // interface
 interface IProps {
-  searchParams?: { [key: string]: string | string[] | undefined }
+  searchQuery?: string
 }
 
 // component
 const HomeModule: FC<Readonly<IProps>> = async (props) => {
-  const { searchParams } = props
+  const { searchQuery = '' } = props
+
   const t = await getTranslations()
-  const searchQuery = (searchParams?.q as string) || ''
 
   // return
   return (

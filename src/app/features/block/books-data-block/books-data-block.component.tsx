@@ -5,8 +5,9 @@ import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { ListBlockComponent } from '@/app/features/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
-import { useBooksSortStore } from '@/app/shared/store/global.store'
+// import { useBooksSortStore } from '@/app/shared/store/global.store'
 import { SortOrder } from '@/app/entities/models'
+import { useSearchParams } from 'next/navigation'
 
 // interface
 interface IProps {
@@ -16,15 +17,19 @@ interface IProps {
 // component
 const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
   const { searchQuery } = props
-  const { sortOrder } = useBooksSortStore()
   const t = useTranslations()
+  const searchParams = useSearchParams()
+
+  const currentRaw = (searchParams.get('sort') || 'default').toLowerCase()
+  const allowed = ['default', 'newest', 'oldest'] as const
+  const sortOrder = (allowed.includes(currentRaw as any) ? currentRaw : 'default') as SortOrder
 
   const {
     data: rawData,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['books', searchQuery],
+    queryKey: ['books', searchQuery, sortOrder],
     queryFn: async () => {
       let books = []
       if (searchQuery) {
@@ -40,12 +45,13 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
   const data = (() => {
     if (!rawData) return undefined
 
+    // Apply sorting on the client based on sortOrder
     if (sortOrder === SortOrder.NEWEST) {
-      return [...rawData].sort((a, b) => (b.year || 0) - (a.year || 0))
-    } else if (sortOrder === SortOrder.OLDEST) {
-      return [...rawData].sort((a, b) => (a.year || 0) - (b.year || 0))
+      return [...rawData].sort((a: any, b: any) => (b.year || 0) - (a.year || 0))
     }
-
+    if (sortOrder === SortOrder.OLDEST) {
+      return [...rawData].sort((a: any, b: any) => (a.year || 0) - (b.year || 0))
+    }
     return rawData
   })()
 
