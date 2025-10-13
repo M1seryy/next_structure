@@ -7,7 +7,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Input } from '@heroui/input'
 import { Button } from '@heroui/button'
 import { Search } from 'lucide-react'
-import { useFeatureFlag } from '@/pkg/integrations/growthbook'
 
 // interface
 interface IProps {
@@ -29,9 +28,6 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const onSearch = props.onSearch
-
-  const searchButtonColor = useFeatureFlag('search-button-color')
-  const cancelButtonColor = useFeatureFlag('cancel-button-color')
 
   const onSubmit = (data: ISearchFormData) => {
     if (onSearch) {
@@ -56,35 +52,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
     }
   }
 
-  const getSearchButtonColor = () => {
-    switch (searchButtonColor) {
-      case 'success':
-        return 'success'
-      case 'warning':
-        return 'warning'
-      case 'danger':
-        return 'danger'
-      case 'secondary':
-        return 'secondary'
-      default:
-        return 'primary'
-    }
-  }
-
-  const getCancelButtonColor = () => {
-    switch (cancelButtonColor) {
-      case 'success':
-        return 'success'
-      case 'warning':
-        return 'warning'
-      case 'danger':
-        return 'danger'
-      case 'secondary':
-        return 'secondary'
-      default:
-        return 'default'
-    }
-  }
+  // default styling only (no dynamic colors)
 
   // return
   return (
@@ -108,7 +76,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
 
       <Button
         type='submit'
-        color={getSearchButtonColor()}
+        color='primary'
         size='lg'
         radius='lg'
         className='px-8 font-medium'
@@ -120,7 +88,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
 
       <Button
         type='button'
-        color={getCancelButtonColor()}
+        color='default'
         variant='bordered'
         size='lg'
         radius='lg'

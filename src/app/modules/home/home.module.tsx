@@ -4,6 +4,7 @@ import { FormBlockComponent } from '@/app/features/block/form-block'
 import { SortBlockComponent } from '@/app/features/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
 import { BannerComponent } from '@/app/shared/ui/banner'
+import { getFeatureFlag } from '@/pkg/integrations/growthbook'
 
 // interface
 interface IProps {
@@ -12,6 +13,8 @@ interface IProps {
 
 // component
 const HomeModule: FC<Readonly<IProps>> = async (props) => {
+  const isBannerOn = await getFeatureFlag('banner-toggle')
+
   const { searchQuery = '' } = props
 
   const t = await getTranslations()
@@ -20,7 +23,7 @@ const HomeModule: FC<Readonly<IProps>> = async (props) => {
   return (
     <div className='space-y-6'>
       <div>
-        <BannerComponent />
+        {isBannerOn ? <BannerComponent /> : null}
         <h1 className='text-2xl font-bold'>{t('home.title')}</h1>
         <p>{t('home.subtitle')}</p>
       </div>

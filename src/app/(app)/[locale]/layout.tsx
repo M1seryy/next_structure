@@ -10,7 +10,6 @@ import { RestApiProvider } from '@/pkg/libraries/rest-api'
 import { UiProvider } from '@/pkg/libraries/ui'
 import { SentryProvider } from '@/pkg/integrations/sentry'
 import { MixpanelProvider } from '@/pkg/integrations/mixpanel'
-import { GrowthBookProvider } from '@/pkg/integrations/growthbook'
 import { routing } from '@/pkg/libraries/locale'
 
 // interface
@@ -62,15 +61,13 @@ const LocaleLayout: FC<Readonly<IProps>> = async (props) => {
       <body>
         <SentryProvider>
           <MixpanelProvider>
-            <GrowthBookProvider locale={locale}>
-              <NextIntlClientProvider>
-                <UiProvider locale={locale}>
-                  <RestApiProvider>
-                    <LayoutModule>{children}</LayoutModule>
-                  </RestApiProvider>
-                </UiProvider>
-              </NextIntlClientProvider>
-            </GrowthBookProvider>
+            <NextIntlClientProvider>
+              <UiProvider>
+                <RestApiProvider>
+                  <LayoutModule>{children}</LayoutModule>
+                </RestApiProvider>
+              </UiProvider>
+            </NextIntlClientProvider>
           </MixpanelProvider>
         </SentryProvider>
       </body>
