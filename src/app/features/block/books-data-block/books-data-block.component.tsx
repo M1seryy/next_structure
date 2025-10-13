@@ -8,6 +8,7 @@ import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 // import { useBooksSortStore } from '@/app/shared/store/global.store'
 import { SortOrder } from '@/app/entities/models'
 import { useSearchParams } from 'next/navigation'
+import { type IBooksListItem } from '@/app/entities/models'
 
 // interface
 interface IProps {
@@ -28,10 +29,10 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
     data: rawData,
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<IBooksListItem[]>({
     queryKey: ['books', searchQuery, sortOrder],
-    queryFn: async () => {
-      let books = []
+    queryFn: async (): Promise<IBooksListItem[]> => {
+      let books: IBooksListItem[] = []
       if (searchQuery) {
         books = await searchBooksByTitle(searchQuery)
       } else {
@@ -42,16 +43,21 @@ const BooksDataBlockComponent: FC<Readonly<IProps>> = (props) => {
     staleTime: 30000,
   })
 
+  const sortBy = <T, K extends keyof T>(items: T[], key: K, direction: 'asc' | 'desc'): T[] => {
+    const factor = direction === 'asc' ? 1 : -1
+    return [...items].sort((a, b) => {
+      const av = (a[key] as unknown as number) ?? 0
+      const bv = (b[key] as unknown as number) ?? 0
+      if (av === bv) return 0
+      return av > bv ? factor : -factor
+    })
+  }
+
   const data = (() => {
     if (!rawData) return undefined
 
-    // Apply sorting on the client based on sortOrder
-    if (sortOrder === SortOrder.NEWEST) {
-      return [...rawData].sort((a: any, b: any) => (b.year || 0) - (a.year || 0))
-    }
-    if (sortOrder === SortOrder.OLDEST) {
-      return [...rawData].sort((a: any, b: any) => (a.year || 0) - (b.year || 0))
-    }
+    if (sortOrder === SortOrder.NEWEST) return sortBy(rawData, 'year', 'desc')
+    if (sortOrder === SortOrder.OLDEST) return sortBy(rawData, 'year', 'asc')
     return rawData
   })()
 
