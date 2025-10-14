@@ -3,7 +3,7 @@
 import { type FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
-import { ListBlockComponent } from '@/app/features/block/list-block'
+import { ListBlockComponent } from '@/app/features/book/block/list-block'
 import { fetchPopularBooks, searchBooksByTitle } from '@/app/entities/api/books'
 // import { useBooksSortStore } from '@/app/shared/store/global.store'
 import { SortOrder } from '@/app/entities/models'

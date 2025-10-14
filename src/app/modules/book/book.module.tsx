@@ -3,7 +3,7 @@
 import { type FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchBookByWorkId } from '@/app/entities/api/books'
-import { DetailsBlockComponent } from '@/app/features/block/details-block'
+import { DetailsBlockComponent } from '@/app/features/book/block/details-block'
 
 // interface
 interface IProps {

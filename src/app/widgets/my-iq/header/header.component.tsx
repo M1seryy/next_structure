@@ -12,23 +12,23 @@ const HeaderComponent: React.FC = () => {
       <div className='mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8'>
         {/* Left: Logo */}
         <a href='#' className='inline-flex items-center gap-2'>
-          <Image src='/images/logo.png' alt='myIQ logo' width={24} height={24} priority />
-          <span className='text-xl font-extrabold tracking-tight text-slate-800'>
-            <span className='italic'>my</span>
-            <span className='ml-0.5'>IQ</span>
+          <Image src='/images/logo.png' alt='myIQ logo' width={28} height={28} priority />
+          <span className='leading-none tracking-tight text-[#2A3342]'>
+            <span className='align-baseline text-[20px] font-medium italic md:text-[22px]'>my</span>
+            <span className='ml-1 align-baseline text-[22px] font-extrabold md:text-[24px]'>IQ</span>
           </span>
         </a>
 
         <div className='hidden items-center gap-3 md:flex'>
           <a
             href='#login'
-            className='inline-flex items-center rounded-lg border border-[#0E7C66] px-4 py-1.5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66]/5'
+            className='inline-flex h-[42px] items-center rounded-lg border border-[#0E7C66] px-5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66] hover:text-white'
           >
             Log In
           </a>
           <a
             href='#start'
-            className='inline-flex items-center rounded-lg bg-[#0E7C66] px-4 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-95'
+            className='inline-flex h-[42px] items-center rounded-lg bg-[#0E7C66] px-5 text-sm font-semibold text-white shadow-sm transition hover:opacity-95'
           >
             Start Test
           </a>

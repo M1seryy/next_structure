@@ -1,3 +1,3 @@
-export { default as IqLandingModule } from './iq-landing.module'
+export { default } from './my-iq.module'
 
 

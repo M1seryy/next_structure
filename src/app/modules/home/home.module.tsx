@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 import { getTranslations } from 'next-intl/server'
-import { FormBlockComponent } from '@/app/features/block/form-block'
-import { SortBlockComponent } from '@/app/features/block/sort-block'
-import { BooksDataBlockComponent } from '@/app/features/block/books-data-block'
+import { FormBlockComponent } from '@/app/features/book/block/form-block'
+import { SortBlockComponent } from '@/app/features/book/block/sort-block'
+import { BooksDataBlockComponent } from '@/app/features/book/block/books-data-block'
 import { BannerComponent } from '@/app/shared/ui/banner'
 import { getFeatureFlag } from '@/pkg/integrations/growthbook'
 
