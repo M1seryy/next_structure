@@ -1,5 +1,6 @@
 import { IqHeroComponent } from '@/app/features/myiq/block/hero'
 import { IqOverviewComponent } from '@/app/features/myiq/block/overview'
+import { IqAvailableTestsComponent } from '@/app/features/myiq/block/available-tests'
 import { type FC } from 'react'
 
 // interface
@@ -12,6 +13,7 @@ const MyIqModule: FC<Readonly<IProps>> = () => {
     <div>
       <IqHeroComponent />
       <IqOverviewComponent />
+      <IqAvailableTestsComponent />
     </div>
   )
 }
