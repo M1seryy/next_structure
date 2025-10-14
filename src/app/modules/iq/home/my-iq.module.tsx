@@ -6,6 +6,8 @@ import { type FC } from 'react'
 import { IqBenefitsComponent } from '@/app/features/myiq/block/benefits-block'
 import { IqCommunityComponent } from '@/app/features/myiq/block/community-block'
 import { IqPricingComponent } from '@/app/features/myiq/block/pricing-block'
+import { IqFaqComponent } from '@/app/features/myiq/block/faq-block'
+import { IqResultsComponent } from '@/app/features/myiq/block/results-block'
 
 // interface
 interface IProps {}
@@ -22,6 +24,8 @@ const MyIqModule: FC<Readonly<IProps>> = () => {
       <IqBenefitsComponent />
       <IqCommunityComponent />
       <IqPricingComponent />
+      <IqFaqComponent />
+      <IqResultsComponent />
     </div>
   )
 }
