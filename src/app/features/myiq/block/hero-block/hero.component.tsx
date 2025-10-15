@@ -1,6 +1,8 @@
 import type { FC } from 'react'
 import Link from 'next/link'
 import { Button } from '@heroui/button'
+import { Image } from '@heroui/image'
+import { Link as HeroUILink } from '@heroui/link'
 import { HeroGraphSvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
 
@@ -21,41 +23,31 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
       <div className='flex h-full w-full flex-col items-center gap-5 lg:flex-row lg:justify-between'>
         <div className='order-2 flex w-full max-w-[630px] flex-col gap-3 text-center lg:order-1 lg:gap-4 lg:text-left'>
           <h1 className='text-[32px] leading-[40px] font-extrabold text-[#2A3342] lg:text-[48px] lg:leading-[62px]'>
-            <span className='inline-block bg-gradient-to-r from-[#2C3345] to-[#424D6A] bg-clip-text text-transparent'>
+            <span className='from-primary-dark to-secondary-dark inline-block bg-gradient-to-r bg-clip-text text-transparent'>
               Want to Know Your&nbsp;
             </span>
             <br className='max-lg:hidden' />
-            <span className='inline-block bg-gradient-to-r from-[#27415F] via-[#007AFF] to-[#007AFF] bg-clip-text pr-2 text-transparent'>
+            <span className='from-secondary-blue via-primary-blue to-primary-blue inline-block bg-gradient-to-r bg-clip-text pr-2 text-transparent'>
               Real IQ Score?
             </span>
           </h1>
-          <p className='text-base leading-[25px] text-[#2B2D42] lg:max-w-[325px] lg:text-[18px]'>
+          <p className='text-primary-text text-base leading-[25px] lg:max-w-[325px] lg:text-[18px]'>
             Take our IQ test and unlock your path to self-discovery and development
           </p>
 
-          <div className='mt-2 flex items-center justify-center gap-3 max-sm:flex-wrap lg:mt-4 lg:justify-start lg:gap-6'>
-            <div className='w-full sm:w-auto'>
-              <Button
-                as={Link}
-                href='#start'
-                radius='lg'
-                className='h-12 w-full bg-[#0E7C66] px-6 !text-base whitespace-nowrap text-white shadow-sm hover:opacity-95 sm:w-auto md:px-8 lg:gap-6'
-              >
-                Start IQ Test Now
-                <span className='ml-2 inline-block'>→</span>
-              </Button>
-            </div>
-            <div className='w-full sm:w-auto'>
-              <Button
-                as={Link}
-                href='#how'
-                radius='lg'
-                variant='bordered'
-                className='h-12 w-full border-[#0E7C66] !px-6 whitespace-nowrap text-[#0E7C66] hover:bg-[#0E7C66] hover:text-white sm:w-auto md:px-8'
-              >
-                How It Works
-              </Button>
-            </div>
+          <div className='mt-2 flex gap-3 max-sm:flex-wrap lg:mt-4 lg:gap-6'>
+            <Button className='text-medium bg-primary-green flex w-full gap-2 text-white lg:w-auto lg:gap-6 lg:px-8'>
+              Start IQ Test Now
+              <span className='ml-2 inline-block'>→</span>
+            </Button>
+
+            <Button
+              href=''
+              as={HeroUILink}
+              className='text-medium border-primary-green text-primary-green w-full border-2 bg-transparent lg:w-auto lg:px-8'
+            >
+              How It Works
+            </Button>
           </div>
 
           <div className='mt-[11px] flex items-center md:mt-4'>
