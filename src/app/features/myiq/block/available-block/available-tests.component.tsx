@@ -20,7 +20,7 @@ const IqAvailableTestsComponent: FC<Readonly<IProps>> = () => {
         Each test reveals a new part of you. Start with intelligence, with more tests coming soon
       </p>
 
-      <div className='mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6'>
+      <div className='mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-6'>
         {AVAILABLE_TESTS.map((t) => (
           <Card
             key={t.key}

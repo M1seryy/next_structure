@@ -13,7 +13,7 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
       <h2 className='mb-6 text-center text-3xl font-extrabold tracking-tight text-[#2A3342] sm:text-4xl'>
         How it Works
       </h2>
-      <div className='grid gap-4 sm:gap-5 md:grid-cols-3'>
+      <div className='grid gap-4 sm:grid-cols-3 sm:gap-5'>
         <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
           <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
             <ClipboardCheckSvg className='h-[38px] w-[38px]' />
