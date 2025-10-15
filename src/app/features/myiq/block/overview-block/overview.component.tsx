@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { Card, CardBody, CardHeader } from '@heroui/card'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
 
 // interface
 interface IProps {}
@@ -7,7 +8,7 @@ interface IProps {}
 // component
 const IqOverviewComponent: FC<Readonly<IProps>> = () => {
   return (
-    <section className='mx-auto max-w-7xl px-4 py-8 sm:py-12'>
+    <MyIqSection innerClassName='py-8 sm:py-12'>
       <h2 className='mb-6 text-center text-3xl font-extrabold tracking-tight text-[#2A3342] sm:text-4xl'>
         How it Works
       </h2>
@@ -46,7 +47,7 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
           </CardBody>
         </Card>
       </div>
-    </section>
+    </MyIqSection>
   )
 }
 

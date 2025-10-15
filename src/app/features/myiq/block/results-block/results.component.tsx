@@ -1,38 +1,17 @@
 import type { FC } from 'react'
-import { MyIqSection } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
 import { Card, CardBody } from '@heroui/card'
+import { RESULTS_LEFT, RESULTS_RIGHT, type Result } from '.'
 
 // props
 interface IProps {}
 
-type Result = {
-  flag: string
-  name: string
-  score: number
-}
-
-const left: Result[] = [
-  { flag: '🇧🇾', name: 'Кузнецов Андрей', score: 90 },
-  { flag: '🇧🇾', name: 'Иванов Андрей', score: 92 },
-  { flag: '🇺🇦', name: 'Коваленко Данило', score: 107 },
-  { flag: '🇷🇺', name: 'Соколов Александр', score: 102 },
-]
-
-const right: Result[] = [
-  { flag: '🇵🇱', name: 'Wójcik Antoni', score: 87 },
-  { flag: '🇷🇺', name: 'Кузнецов Дмитрий', score: 95 },
-  { flag: '🇵🇱', name: 'Nowak Jakub', score: 86 },
-  { flag: '🇵🇱', name: 'Kowalski Franciszek', score: 87 },
-]
+const left = RESULTS_LEFT
+const right = RESULTS_RIGHT
 //Card-row
 const Row: FC<{ item: Result }> = ({ item }) => (
-  <Card
-    shadow='none'
-    radius='lg'
-    className='rounded-[18px] bg-white'
-    classNames={{ base: 'px-6 py-[23px] lg:py-[28px]' }}
-  >
-    <CardBody className='flex flex-row items-center justify-between p-0'>
+  <Card shadow='none' radius='lg' className='rounded-[18px] bg-white' classNames={{ base: ' py-[23px] lg:py-[28px]' }}>
+    <CardBody className='flex flex-row items-center justify-between p-0 px-5 md:px-6'>
       <div className='flex items-center gap-4'>
         <span className='text-[20px] lg:text-[24px]'>{item.flag}</span>
         <span className='text-base font-medium text-[#2A3342] md:text-lg'>{item.name}</span>

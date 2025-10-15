@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { MyIqSection } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
 
 // props
 interface IProps {}

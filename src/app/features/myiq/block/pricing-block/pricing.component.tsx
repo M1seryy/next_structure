@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { MyIqSection } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
 
 // props
 interface IProps {}
@@ -14,7 +14,7 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
         Discover our flexible offers and choose the one that best suits your learning and personal development journey.
       </p>
 
-      <div className='mx-auto mt-8 grid max-w-5xl gap-6 sm:grid-cols-2'>
+      <div className='mt-8 grid gap-6 sm:grid-cols-2'>
         {/* Bi-weekly */}
         <div className='rounded-2xl border border-[#E2EDF6] bg-white p-6 text-left shadow-[0_8px_30px_rgba(20,58,94,0.08)]'>
           <h3 className='text-[16px] font-semibold tracking-wide text-[#2A3342]'>BI-WEEKLY SUBSCRIPTION</h3>

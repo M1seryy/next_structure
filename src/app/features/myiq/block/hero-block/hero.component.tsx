@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import Link from 'next/link'
 import { Button } from '@heroui/button'
 import { IqCurveSvg } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
 
 // interface
 interface IProps {}
@@ -16,7 +17,7 @@ const avatars = [
 
 const IqHeroComponent: FC<Readonly<IProps>> = () => {
   return (
-    <section className='relative mx-auto max-w-7xl px-4 py-10 sm:py-12 lg:py-20'>
+    <MyIqSection innerClassName='py-10 sm:py-12 lg:py-20'>
       <div className='grid items-center gap-8 sm:gap-10 lg:grid-cols-2'>
         <div className='order-2 lg:order-1'>
           <h1 className='text-4xl font-extrabold tracking-tight text-[#2A3342] sm:text-5xl lg:text-6xl'>
@@ -76,7 +77,7 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
           </div>
         </div>
       </div>
-    </section>
+    </MyIqSection>
   )
 }
 

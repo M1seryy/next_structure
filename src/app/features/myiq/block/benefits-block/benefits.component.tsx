@@ -1,27 +1,12 @@
 import type { FC } from 'react'
-import { MyIqSection } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui/my-iq/section'
+import { BENEFITS } from '.'
 
 // props
 interface IProps {}
 // benefits
 
-const benefits = [
-  {
-    title: 'Authenticated intelligence certification validated by cognitive science experts',
-  },
-  {
-    title: 'Deep-dive analysis revealing your complete cognitive potential and capabilities',
-  },
-  {
-    title: 'Scientifically-calibrated training tools designed by neuroscience specialists',
-  },
-  {
-    title: 'Expert-crafted educational content based on leading cognitive research',
-  },
-  {
-    title: 'Advanced reasoning exercises designed by neural specialists',
-  },
-]
+const benefits = BENEFITS
 // component
 const IqBenefitsComponent: FC<Readonly<IProps>> = () => {
   // return
