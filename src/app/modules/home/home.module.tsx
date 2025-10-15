@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { FormBlockComponent } from '@/app/features/book/block/form-block'
 import { SortBlockComponent } from '@/app/features/book/block/sort-block'
 import { BooksDataBlockComponent } from '@/app/features/book/block/books-data-block'
-import { BannerComponent } from '@/app/shared/ui/banner'
+import { BannerComponent } from '@/app/shared/ui/book/banner'
 import { getFeatureFlag } from '@/pkg/integrations/growthbook'
 
 // interface

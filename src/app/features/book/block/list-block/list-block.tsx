@@ -1,4 +1,4 @@
-import { CardComponent } from '@/app/shared/ui/card'
+import { CardComponent } from '@/app/shared/ui/book/card'
 import { type FC } from 'react'
 import { IBooksListItem } from '@/app/entities/models'
 

@@ -6,7 +6,7 @@ import { HeaderComponent } from '@/app/widgets/header'
 import { HeaderComponent as MyIqHeaderComponent } from '@/app/widgets/my-iq/header'
 import { FooterComponent } from '@/app/widgets/footer'
 import { FooterComponent as MyIqFooterComponent } from '@/app/widgets/my-iq/footer'
-import { ContainerComponent } from '@/app/shared/ui/container'
+import { ContainerComponent } from '@/app/shared/ui/book/container'
 
 // interface
 interface IProps {

@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 import { useTranslations } from 'next-intl'
 import { type IDatabaseBook } from '@/app/entities/api/database'
-import { CardComponent } from '@/app/shared/ui/card'
-import { ContainerComponent } from '@/app/shared/ui/container'
+import { CardComponent } from '@/app/shared/ui/book/card'
+import { ContainerComponent } from '@/app/shared/ui/book/container'
 
 // interface
 interface IProps {

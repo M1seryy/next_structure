@@ -1,3 +1,4 @@
-export * from './banner'
-export * from './card'
-export * from './container'
+export * from './book'
+export * from './my-iq'
+
+
