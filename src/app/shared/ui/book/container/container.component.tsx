@@ -19,14 +19,14 @@ const ContainerComponent: FC<Readonly<IProps>> = (props) => {
       {variant === 'main' ? (
         <main
           className={cn(
-            `mx-auto flex min-h-[calc(100vh-60px)] w-full max-w-[1200px] flex-col gap-6 px-4 pt-4 pb-8 md:px-6`,
+            `mx-auto flex min-h-[calc(100vh-60px)] w-full max-w-[1280px] flex-col gap-6 pt-4 pb-8`,
             className,
           )}
         >
           {children}
         </main>
       ) : (
-        <div className={cn(`mx-auto flex w-full max-w-[1200px] flex-col gap-4`, className)}>{children}</div>
+        <div className={cn(`mx-auto flex w-full max-w-[1280px] flex-col gap-4`, className)}>{children}</div>
       )}
     </>
   )

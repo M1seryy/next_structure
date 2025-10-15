@@ -17,67 +17,226 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
       </p>
 
       <div className='mt-8 grid gap-6 md:grid-cols-3'>
-        <div className='rounded-xl border border-[#E2EDF6] bg-white p-6'>
-          <div className='flex items-center gap-3'>
-            <span className='inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1D63F0] text-[16px] font-semibold text-[#1D63F0]'>
-              1
-            </span>
-            <div className='text-[18px] font-semibold text-[#2A3342]'>Expert Video Courses</div>
+        <div className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
+          <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
+            <div className='h-[42px] w-[42px] rounded-full bg-gradient-to-r from-[#007AFF] to-[#7CB7F8] p-[3px]'>
+              <div className='flex h-full w-full items-center justify-center rounded-full bg-white text-[20px] font-semibold text-[#2B2D42]'>
+                1
+              </div>
+            </div>
+            <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Expert Video Courses</p>
+            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>20+ hours of expert training</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Easy-to-follow lessons</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Learn at your own pace</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Track your progress</p>
+              </li>
+            </ul>
           </div>
-          <ul className='mt-4 space-y-2 text-[14px] text-slate-700'>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>20+ hours of expert training
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Easy-to-follow lessons
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Learn at your own pace
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Track your progress
-            </li>
-          </ul>
         </div>
-        <div className='rounded-xl border border-[#E2EDF6] bg-white p-6'>
-          <div className='flex items-center gap-3'>
-            <span className='inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1D63F0] text-[16px] font-semibold text-[#1D63F0]'>
-              2
-            </span>
-            <div className='text-[18px] font-semibold text-[#2A3342]'>Brain Training Games</div>
+        <div className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
+          <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
+            <div className='h-[42px] w-[42px] rounded-full bg-gradient-to-r from-[#007AFF] to-[#7CB7F8] p-[3px]'>
+              <div className='flex h-full w-full items-center justify-center rounded-full bg-white text-[20px] font-semibold text-[#2B2D42]'>
+                2
+              </div>
+            </div>
+            <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Brain Training Games</p>
+            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Diverse cognitive training exercises</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Progressive difficulty levels</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>
+                  Enhance 5 core mental skills: Memory, Logical reasoning, problem‑solving mastery, focus and
+                  concentration.
+                </p>
+              </li>
+            </ul>
           </div>
-          <ul className='mt-4 space-y-2 text-[14px] text-slate-700'>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Diverse cognitive training exercises
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Progressive difficulty levels
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Enhance 5 core mental skills: Memory, Logical reasoning,
-              problem‑solving mastery, focus and concentration.
-            </li>
-          </ul>
         </div>
-        <div className='rounded-xl border border-[#E2EDF6] bg-white p-6'>
-          <div className='flex items-center gap-3'>
-            <span className='inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1D63F0] text-[16px] font-semibold text-[#1D63F0]'>
-              3
-            </span>
-            <div className='text-[18px] font-semibold text-[#2A3342]'>Puzzles</div>
+        <div className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
+          <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
+            <div className='h-[42px] w-[42px] rounded-full bg-gradient-to-r from-[#007AFF] to-[#7CB7F8] p-[3px]'>
+              <div className='flex h-full w-full items-center justify-center rounded-full bg-white text-[20px] font-semibold text-[#2B2D42]'>
+                3
+              </div>
+            </div>
+            <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Puzzles</p>
+            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>150+ Intelligence‑Boosting Puzzles</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>Smart Difficulty Progression</p>
+              </li>
+              <li className='flex items-start gap-1.5'>
+                <div className='p-1'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 14 10'
+                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
+                  >
+                    <path
+                      fill='currentColor'
+                      fillRule='evenodd'
+                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </div>
+                <p className='text-start text-sm'>
+                  Master essential brain functions: Pattern Recognition, Strategic Thinking, Analytical Reasoning.
+                </p>
+              </li>
+            </ul>
           </div>
-          <ul className='mt-4 space-y-2 text-[14px] text-slate-700'>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>150+ Intelligence‑Boosting Puzzles
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Smart Difficulty Progression
-            </li>
-            <li className='flex items-start gap-2'>
-              <span className='text-[#1D63F0]'>✓</span>Master essential brain functions: Pattern Recognition, Strategic
-              Thinking, Analytical Reasoning.
-            </li>
-          </ul>
         </div>
       </div>
     </MyIqSection>

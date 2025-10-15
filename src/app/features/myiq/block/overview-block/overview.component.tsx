@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { Card, CardBody, CardHeader } from '@heroui/card'
+import { ClipboardCheckSvg, DetailedReportSvg, BeginJourneySvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
 
 // interface
@@ -15,7 +16,7 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
       <div className='grid gap-4 sm:gap-5 md:grid-cols-3'>
         <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
           <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <div className='text-[28px] leading-none text-[#1D63F0]'>📋</div>
+            <ClipboardCheckSvg className='h-[38px] w-[38px]' />
           </CardHeader>
           <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
             <h3 className='text-[17px] font-semibold text-[#2A3342]'>Take a Test</h3>
@@ -25,7 +26,7 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
 
         <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
           <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <div className='text-[28px] leading-none text-[#1D63F0]'>🧩</div>
+            <DetailedReportSvg className='h-[38px] w-[38px]' />
           </CardHeader>
           <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
             <h3 className='text-[17px] font-semibold text-[#2A3342]'>Get Your Detailed Report</h3>
@@ -37,7 +38,7 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
 
         <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
           <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <div className='text-[28px] leading-none text-[#1D63F0]'>🚀</div>
+            <BeginJourneySvg className='h-[38px] w-[38px]' />
           </CardHeader>
           <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
             <h3 className='text-[17px] font-semibold text-[#2A3342]'>Begin Your Journey</h3>

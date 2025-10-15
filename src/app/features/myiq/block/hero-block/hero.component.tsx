@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import Link from 'next/link'
 import { Button } from '@heroui/button'
-import { IqCurveSvg } from '@/app/shared'
+import { HeroGraphSvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
 
 // interface
@@ -17,7 +17,7 @@ const avatars = [
 
 const IqHeroComponent: FC<Readonly<IProps>> = () => {
   return (
-    <MyIqSection innerClassName='py-10 sm:py-12 lg:py-20'>
+    <MyIqSection innerClassName=''>
       <div className='grid items-center gap-8 sm:gap-10 lg:grid-cols-2'>
         <div className='order-2 lg:order-1'>
           <h1 className='text-4xl font-extrabold tracking-tight text-[#2A3342] sm:text-5xl lg:text-6xl'>
@@ -71,9 +71,9 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
           </div>
         </div>
 
-        <div className='order-1 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:order-2'>
-          <div className='mx-auto w-full max-w-[620px]'>
-            <IqCurveSvg />
+        <div className='order-1 rounded-2xl bg-white p-4 sm:p-6 lg:order-2'>
+          <div className='relative mx-auto flex aspect-[517/296] h-full w-full max-w-[517px] items-center justify-center max-lg:mt-[-28px]'>
+            <HeroGraphSvg className='h-full w-full scale-[1.2]' />
           </div>
         </div>
       </div>

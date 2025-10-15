@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
+import { MyIqLogoSvg } from '@/app/shared'
+import { MyIqSection } from '@/app/shared/ui'
 
 //interface
 interface IProps {}
@@ -9,14 +11,19 @@ const HeaderComponent: React.FC = () => {
   //return
   return (
     <header className='sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60'>
-      <div className='mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8'>
+      <MyIqSection innerClassName='flex h-14 items-center justify-between sm:h-16'>
         {/* Left: Logo */}
-        <a href='#' className='inline-flex items-center gap-2'>
-          <Image src='/images/logo.png' alt='myIQ logo' width={28} height={28} priority />
-          <span className='leading-none tracking-tight text-[#2A3342]'>
+        <a href='#' className='inline-flex items-center gap-2 text-[#2A3342]'>
+          <MyIqLogoSvg width={30} height={30} className='relative top-[1px] shrink-0' />
+          <span className='leading-none tracking-tight'>
             <span className='align-baseline text-[20px] font-medium italic md:text-[22px]'>my</span>
             <span className='ml-1 align-baseline text-[22px] font-extrabold md:text-[24px]'>IQ</span>
           </span>
+          <MyIqLogoSvg
+            className='ml-2 !h-[24px] !w-[27px] shrink-0 text-gray-700 min-[361px]:hidden'
+            viewBox='0 0 28 25'
+            aria-label='Logo'
+          />
         </a>
 
         <div className='hidden items-center gap-3 md:flex'>
@@ -55,7 +62,7 @@ const HeaderComponent: React.FC = () => {
             <line x1='3' y1='18' x2='21' y2='18'></line>
           </svg>
         </button>
-      </div>
+      </MyIqSection>
     </header>
   )
 }
