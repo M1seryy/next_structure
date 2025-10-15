@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, useState } from 'react'
-import { MyIqSection } from '@/app/shared/ui/my-iq/section'
+import { MyIqSection } from '@/app/shared/ui'
 import { FAQ_ITEMS } from '.'
 
 // props

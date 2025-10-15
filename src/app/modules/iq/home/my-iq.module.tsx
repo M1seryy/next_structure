@@ -8,7 +8,7 @@ import { IqCommunityComponent } from '@/app/features/myiq/block/community-block'
 import { IqPricingComponent } from '@/app/features/myiq/block/pricing-block'
 import { IqFaqComponent } from '@/app/features/myiq/block/faq-block'
 import { IqResultsComponent } from '@/app/features/myiq/block/results-block'
-import { MyIqContainer } from '@/app/shared/ui/my-iq/container'
+import { MyIqContainer } from '@/app/shared/ui'
 
 // interface
 interface IProps {}
@@ -19,13 +19,21 @@ const MyIqModule: FC<Readonly<IProps>> = () => {
   return (
     <MyIqContainer>
       <IqHeroComponent />
+
       <IqOverviewComponent />
+
       <IqAvailableTestsComponent />
+
       <IqAbilitiesComponent />
+
       <IqBenefitsComponent />
+
       <IqCommunityComponent />
+
       <IqPricingComponent />
+
       <IqFaqComponent />
+
       <IqResultsComponent />
     </MyIqContainer>
   )

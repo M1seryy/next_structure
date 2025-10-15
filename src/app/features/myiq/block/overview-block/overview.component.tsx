@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { Card, CardBody, CardHeader } from '@heroui/card'
-import { MyIqSection } from '@/app/shared/ui/my-iq/section'
+import { MyIqSection } from '@/app/shared/ui'
 
 // interface
 interface IProps {}

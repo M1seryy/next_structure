@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import Link from 'next/link'
 import { Button } from '@heroui/button'
 import { IqCurveSvg } from '@/app/shared'
-import { MyIqSection } from '@/app/shared/ui/my-iq/section'
+import { MyIqSection } from '@/app/shared/ui'
 
 // interface
 interface IProps {}

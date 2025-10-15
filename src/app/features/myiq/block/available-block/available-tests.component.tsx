@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { MyIqSection } from '@/app/shared/ui/my-iq/section'
+import { MyIqSection } from '@/app/shared/ui'
 import { Card, CardBody, CardHeader } from '@heroui/card'
 import { AVAILABLE_TESTS } from '.'
 import { Button } from '@heroui/button'
