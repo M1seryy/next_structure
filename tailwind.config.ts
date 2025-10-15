@@ -9,7 +9,7 @@ const config: Config = {
     './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    screens: { sm: '768px', md: '1024px', lg: '1360px' },
+    screens: { sm: '640px', md: '1025px', lg: '1324px' },
 
   },
   darkMode: 'class',
