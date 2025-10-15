@@ -16,9 +16,14 @@ const IqBenefitsComponent: FC<Readonly<IProps>> = () => {
         What Will You Get
       </h2>
 
-      <div className='mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-5'>
+      <div className='mt-8 flex gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0'>
         {benefits.map((b, idx) => (
-          <Card key={idx} shadow='none' radius='lg' className='rounded-xl border border-[#E2EDF6] bg-white'>
+          <Card
+            key={idx}
+            shadow='none'
+            radius='lg'
+            className='w-[260px] flex-none rounded-xl border border-[#E2EDF6] bg-white sm:w-[280px] lg:w-auto lg:flex-initial'
+          >
             <CardBody className='p-6'>
               <div className='flex items-start gap-3'>
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' className='mt-0.5 h-5 w-5 flex-shrink-0'>

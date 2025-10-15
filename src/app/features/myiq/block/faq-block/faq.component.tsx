@@ -16,9 +16,9 @@ const IqFaqComponent: FC<Readonly<IProps>> = () => {
 
   return (
     <MyIqSection innerClassName='py-8'>
-      <div className='grid gap-3 md:[grid-template-columns:360px_1fr]'>
-        <div className='max-w-[360px]'>
-          <h2 className='text-[36px] leading-tight font-extrabold tracking-tight text-[#2A3342] lg:text-[40px]'>
+      <div className='grid gap-3 sm:[grid-template-columns:360px_1fr]'>
+        <div className='w-full text-center sm:text-left'>
+          <h2 className='text-center text-[36px] leading-tight font-extrabold tracking-tight text-[#2A3342] sm:text-left lg:text-[40px]'>
             Frequently
             <br />
             Asked
