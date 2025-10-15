@@ -31,24 +31,24 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
           </p>
 
           <div className='mt-6 flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4'>
-            <div className='w-full sm:flex-1'>
+            <div className='w-full sm:w-auto'>
               <Button
                 as={Link}
                 href='#start'
                 radius='lg'
-                className='h-[46px] w-full bg-[#0E7C66] px-5 text-base font-semibold text-white shadow-sm hover:opacity-95'
+                className='h-[40px] w-full bg-[#0E7C66] px-4 text-[15px] font-semibold text-white shadow-sm hover:opacity-95 sm:w-auto'
               >
                 Start IQ Test Now
                 <span className='ml-2 inline-block'>→</span>
               </Button>
             </div>
-            <div className='w-full sm:flex-1'>
+            <div className='w-full sm:w-auto'>
               <Button
                 as={Link}
                 href='#how'
                 radius='lg'
                 variant='bordered'
-                className='h-[46px] w-full border-[#0E7C66] px-5 text-base font-semibold text-[#0E7C66] hover:bg-[#0E7C66]/10'
+                className='h-[40px] w-full border-[#0E7C66] px-4 text-[15px] font-semibold text-[#0E7C66] hover:bg-[#0E7C66]/10 sm:w-auto'
               >
                 How It Works
               </Button>

@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { Card, CardBody } from '@heroui/card'
 import { MyIqSection } from '@/app/shared/ui'
 
 // props
@@ -17,8 +18,8 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
       </p>
 
       <div className='mt-8 grid gap-6 md:grid-cols-3'>
-        <div className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
-          <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
+        <Card shadow='none' radius='lg' className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
+          <CardBody className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
             <div className='h-[42px] w-[42px] rounded-full bg-gradient-to-r from-[#007AFF] to-[#7CB7F8] p-[3px]'>
               <div className='flex h-full w-full items-center justify-center rounded-full bg-white text-[20px] font-semibold text-[#2B2D42]'>
                 1
@@ -99,8 +100,8 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
                 <p className='text-start text-sm'>Track your progress</p>
               </li>
             </ul>
-          </div>
-        </div>
+          </CardBody>
+        </Card>
         <div className='rounded-xl border border-[#E2EDF6] bg-white p-0'>
           <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-3 overflow-y-auto p-4 text-left break-words antialiased md:py-6'>
             <div className='h-[42px] w-[42px] rounded-full bg-gradient-to-r from-[#007AFF] to-[#7CB7F8] p-[3px]'>

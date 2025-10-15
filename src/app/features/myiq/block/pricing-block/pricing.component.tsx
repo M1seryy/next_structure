@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { Button } from '@heroui/button'
 import { MyIqSection } from '@/app/shared/ui'
 
 // props
@@ -40,9 +41,12 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
             </li>
           </ul>
 
-          <button className='mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-[#0E7C66] px-6 text-[15px] font-semibold text-white shadow-sm transition hover:opacity-95'>
+          <Button
+            radius='lg'
+            className='mt-6 h-11 w-full rounded-xl bg-[#0E7C66] px-6 text-[15px] font-semibold text-white shadow-sm hover:opacity-95'
+          >
             Get started
-          </button>
+          </Button>
         </div>
 
         {/* Monthly */}
@@ -70,9 +74,12 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
             </li>
           </ul>
 
-          <button className='mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-[#0E7C66] px-6 text-[15px] font-semibold text-white shadow-sm transition hover:opacity-95'>
+          <Button
+            radius='lg'
+            className='mt-6 h-11 w-full rounded-xl bg-[#0E7C66] px-6 text-[15px] font-semibold text-white shadow-sm hover:opacity-95'
+          >
             Get started
-          </button>
+          </Button>
         </div>
       </div>
 

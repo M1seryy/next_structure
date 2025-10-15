@@ -9,4 +9,12 @@ export { default as AvailableHandsSvg } from './available-hands.svg'
 export { default as AvailableLightbulbSvg } from './available-lightbulb.svg'
 export { default as HeroGraphSvg } from './hero-graph.svg'
 
+export { default as RedditSvg } from './reddit.svg'
+export { default as XTwitterSvg } from './x-twitter.svg'
+export { default as InstagramSvg } from './instagram.svg'
+export { default as FacebookSvg } from './facebook.svg'
+export { default as VisaSvg } from './visa.svg'
+export { default as MastercardSvg } from './mastercard.svg'
+export { default as PaypalSvg } from './paypal.svg'
+
 
