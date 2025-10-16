@@ -1,6 +1,10 @@
 import { type FC } from 'react'
 import Image from 'next/image'
 import { type IOpenLibraryBook } from '@/app/entities/models'
+import { envClient } from '@/config/env/env.client'
+
+// constants
+const COVERS_BASE_URL = envClient.NEXT_PUBLIC_COVERS_BASE_URL
 
 // interface
 interface IProps {
@@ -28,7 +32,7 @@ const DetailsBlockComponent: FC<Readonly<IProps>> = (props) => {
 
   const coverUrl =
     book.covers && book.covers.length > 0
-      ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`
+      ? `${COVERS_BASE_URL}/b/id/${book.covers[0]}-L.jpg`
       : 'https://placehold.co/400x600/jpg?text=No+Cover'
 
   const authors =

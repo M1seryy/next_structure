@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { envServer } from '@/config/env/env.server'
 
 // constants
-const OPEN_LIBRARY_BASE_URL = 'https://openlibrary.org'
+const OPEN_LIBRARY_BASE_URL = envServer.OPEN_LIBRARY_BASE_URL
+const COVERS_BASE_URL = envServer.COVERS_BASE_URL
 
 // GET /api/books/search?q=
 export async function GET(request: NextRequest) {
@@ -31,7 +33,7 @@ export async function GET(request: NextRequest) {
                 title: doc.title || 'No Title',
                 author: doc.author_name?.[0] || 'Unknown Author',
                 coverUrl: doc.cover_i
-                    ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
+                    ? `${COVERS_BASE_URL}/b/id/${doc.cover_i}-M.jpg`
                     : undefined,
                 year: doc.first_publish_year || undefined,
             }
