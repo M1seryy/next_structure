@@ -1,13 +1,15 @@
 import { type FC } from 'react'
-import { IqHeroComponent } from '@/app/features/myiq/block/hero-block'
-import { IqOverviewComponent } from '@/app/features/myiq/block/overview-block'
-import { IqAvailableTestsComponent } from '@/app/features/myiq/block/available-block'
-import { IqAbilitiesComponent } from '@/app/features/myiq/block/abiliti-block'
-import { IqBenefitsComponent } from '@/app/features/myiq/block/benefits-block'
-import { IqCommunityComponent } from '@/app/features/myiq/block/community-block'
-import { IqPricingComponent } from '@/app/features/myiq/block/pricing-block'
-import { IqFaqComponent } from '@/app/features/myiq/block/faq-block'
-import { IqResultsComponent } from '@/app/features/myiq/block/results-block'
+import {
+  IqHeroComponent,
+  IqOverviewComponent,
+  IqAvailableTestsComponent,
+  IqAbilitiesComponent,
+  IqBenefitsComponent,
+  IqCommunityComponent,
+  IqPricingComponent,
+  IqFaqComponent,
+  IqResultsComponent,
+} from '@/app/features/myiq/block'
 import { MyIqContainer } from '@/app/shared/ui'
 
 // interface

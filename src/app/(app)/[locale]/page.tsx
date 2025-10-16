@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { HomeModule } from '@/app/modules/home'
-import { fetchPopularBooks } from '@/app/entities/api'
+import { popularBooksQueryApi } from '@/app/entities/api'
 
 // interface
 interface IProps {
@@ -20,7 +20,7 @@ const HomePage: FC<Readonly<IProps>> = async (props) => {
 
   await queryClient.prefetchQuery({
     queryKey: ['books', ''],
-    queryFn: () => fetchPopularBooks(),
+    queryFn: (opt) => popularBooksQueryApi(opt),
   })
 
   // return

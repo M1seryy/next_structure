@@ -1,49 +1,59 @@
 
+import { notFound } from 'next/navigation'
+import * as Sentry from '@sentry/nextjs'
+import { QueryFunctionContext } from '@tanstack/react-query'
+
 import { type IBooksListItem, type IOpenLibraryBook } from '../../models/book.model'
 import { restApiFetcher } from '@/pkg/libraries/rest-api'
 import { externalRestApiFetcher } from '@/pkg/libraries/rest-api/fetcher'
 import { env } from '@/config/env'
-import { sentryUtils } from '@/pkg/integrations/sentry'
 
-export async function fetchBookByWorkId(workId: string): Promise<IOpenLibraryBook> {
-    const cleanWorkId = workId.startsWith('/works/') ? workId.replace('/works/', '') : workId
+// api book by id
+export const bookByIdQueryApi = async (opt: QueryFunctionContext, queryParams: { id: string }) => {
+    const { id } = queryParams
+    const cleanWorkId = id.startsWith('/works/') ? id.replace('/works/', '') : id
 
     try {
         const url = `${env.OPEN_LIBRARY_BASE_URL}/works/${encodeURIComponent(cleanWorkId)}.json`
-        const response = await externalRestApiFetcher.get(url, {
-            cache: 'force-cache',
-            next: { revalidate: 30 },
-        })
-
-        if (response.status === 404) {
-            throw new Error('Book not found')
-        }
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch from Open Library')
-        }
-
-        const res = await response.json() as IOpenLibraryBook
+        const res = await externalRestApiFetcher
+            .get<IOpenLibraryBook>(url, {
+                signal: opt.signal,
+                cache: 'force-cache',
+                next: { revalidate: 30 },
+            })
+            .json()
 
         if (!res) {
-            throw new Error('Error occurred, book not found')
+            throw new Error(`Book not found: id=${cleanWorkId}`)
         }
 
         return res
     } catch (error) {
-        sentryUtils.captureError(error as Error, {
-            function: 'fetchBookByWorkId',
-            workId: cleanWorkId
+        Sentry.withScope((scope) => {
+            scope.setTag('api', 'bookByIdQueryApi')
+            Sentry.captureException(error)
         })
-        throw new Error(`Failed to fetch book: ${error}`)
+
+        return notFound()
     }
 }
 
-export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
+// api search 
+export const popularBooksQueryApi = async (opt: QueryFunctionContext) => {
     try {
-        const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search').json()
+        const res = await restApiFetcher
+            .get<{ items: IBooksListItem[] }>('api/books/search', {
+                signal: opt.signal,
+                cache: 'force-cache',
+                next: { revalidate: 30 },
+            })
+            .json()
 
-        const items = Array.isArray(data.items) ? data.items : []
+        if (!res) {
+            throw new Error(`Error occurred, popular books not found`)
+        }
+
+        const items = Array.isArray(res.items) ? res.items : []
 
         return items.map((item) => ({
             id: item.id,
@@ -53,22 +63,35 @@ export async function fetchPopularBooks(): Promise<IBooksListItem[]> {
             year: item.year,
         }))
     } catch (error) {
-        sentryUtils.captureError(error as Error, {
-            function: 'fetchPopularBooks'
+        Sentry.withScope((scope) => {
+            scope.setTag('api', 'popularBooksQueryApi')
+            Sentry.captureException(error)
         })
-        return []
+
+        return notFound()
     }
 }
 
-export async function searchBooksByTitle(title: string): Promise<IBooksListItem[]> {
+// api popular books
+export const searchBooksQueryApi = async (opt: QueryFunctionContext, queryParams: { q: string }) => {
+    const { q } = queryParams
+    const searchQuery = (q && q.trim()) || 'popular books'
+
     try {
-        const searchQuery = (title && title.trim()) || 'popular books'
+        const res = await restApiFetcher
+            .get<{ items: IBooksListItem[] }>('api/books/search', {
+                signal: opt.signal,
+                searchParams: { q: searchQuery },
+                cache: 'force-cache',
+                next: { revalidate: 30 },
+            })
+            .json()
 
-        const data = await restApiFetcher.get<{ items: IBooksListItem[] }>('api/books/search', {
-            searchParams: { q: searchQuery }
-        }).json()
+        if (!res) {
+            throw new Error(`Error occurred, search results not found`)
+        }
 
-        const items = Array.isArray(data.items) ? data.items : []
+        const items = Array.isArray(res.items) ? res.items : []
 
         return items.map((item) => ({
             id: item.id,
@@ -78,10 +101,11 @@ export async function searchBooksByTitle(title: string): Promise<IBooksListItem[
             year: item.year,
         }))
     } catch (error) {
-        sentryUtils.captureError(error as Error, {
-            function: 'searchBooksByTitle',
-            searchQuery: title
+        Sentry.withScope((scope) => {
+            scope.setTag('api', 'searchBooksQueryApi')
+            Sentry.captureException(error)
         })
-        return []
+
+        return notFound()
     }
 }

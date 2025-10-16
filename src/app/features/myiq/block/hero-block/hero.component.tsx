@@ -19,8 +19,8 @@ const avatars = [
 
 const IqHeroComponent: FC<Readonly<IProps>> = () => {
   return (
-    <MyIqSection innerClassName='lg:pt-[84px]'>
-      <div className='flex h-full w-full flex-col items-center gap-5 lg:flex-row lg:justify-between'>
+    <MyIqSection>
+      <div className='flex min-h-[461px] w-full flex-col items-center gap-5 lg:flex-row lg:justify-between'>
         <div className='order-2 flex w-full max-w-[630px] flex-col gap-3 text-center lg:order-1 lg:gap-4 lg:text-left'>
           <h1 className='text-[32px] leading-[40px] font-extrabold text-[#2A3342] lg:text-[48px] lg:leading-[62px]'>
             <span className='from-primary-dark to-secondary-dark inline-block bg-gradient-to-r bg-clip-text text-transparent'>
@@ -76,7 +76,7 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
         </div>
 
         <div className='order-1 w-full lg:order-2'>
-          <div className='relative mx-auto flex aspect-[517/296] h-full w-full max-w-[517px] items-center justify-center max-lg:mt-[-28px]'>
+          <div className='relative mx-auto flex aspect-[517/296] w-full max-w-[517px] items-center justify-center max-lg:mt-[-28px]'>
             <HeroGraphSvg className='h-full w-full scale-[1.2]' />
           </div>
         </div>

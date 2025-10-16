@@ -1,8 +1,7 @@
 import { type FC } from 'react'
-import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { BookModule } from '@/app/modules/book'
-import { fetchBookByWorkId, fetchPopularBooks } from '@/app/entities/api'
+import { bookByIdQueryApi, popularBooksQueryApi } from '@/app/entities/api'
 
 // interface
 interface IProps {
@@ -15,7 +14,11 @@ export const dynamic = 'force-static'
 // generate static params for books
 export async function generateStaticParams() {
   try {
-    const popularBooks = await fetchPopularBooks()
+    const clientQuery = getQueryClient()
+    const popularBooks = await clientQuery.fetchQuery({
+      queryKey: ['popular-books'],
+      queryFn: (opt) => popularBooksQueryApi(opt),
+    })
 
     return popularBooks
       .slice(0, 10)
@@ -37,22 +40,16 @@ export async function generateStaticParams() {
 
 // component
 const BookPage: FC<Readonly<IProps>> = async (props) => {
-  const { params } = props
-  const { id } = await params
+  const { id } = await props.params
 
-  const queryClient = getQueryClient()
-
-  await queryClient.prefetchQuery({
+  const clientQuery = getQueryClient()
+  const bookData = await clientQuery.fetchQuery({
     queryKey: ['book', id],
-    queryFn: () => fetchBookByWorkId(id),
+    queryFn: (opt) => bookByIdQueryApi(opt, { id }),
   })
 
   // return
-  return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <BookModule bookId={id} />
-    </HydrationBoundary>
-  )
+  return <BookModule data={bookData} />
 }
 
 export default BookPage

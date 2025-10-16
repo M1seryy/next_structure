@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
+import { QueryFunctionContext } from '@tanstack/react-query'
 
-import { fetchBookByWorkId, searchBooksByTitle } from './books.api'
+import { bookByIdQueryApi, searchBooksQueryApi } from './books.api'
 
 // query keys
 export const booksQueryKeys = {
@@ -12,7 +13,7 @@ export const booksQueryKeys = {
 
 export const booksListQueryOptions = (q: string) => ({
     queryKey: ['books', q],
-    queryFn: () => searchBooksByTitle(q),
+    queryFn: (opt: QueryFunctionContext) => searchBooksQueryApi(opt, { q }),
     staleTime: 30_000,
     gcTime: 5 * 60 * 1000,
     refetchOnMount: false,
@@ -23,7 +24,7 @@ export const booksListQueryOptions = (q: string) => ({
 export const useBookByWorkId = (workId: string) => {
     return useQuery({
         queryKey: booksQueryKeys.byWorkId(workId),
-        queryFn: () => fetchBookByWorkId(workId),
+        queryFn: (opt: QueryFunctionContext) => bookByIdQueryApi(opt, { id: workId }),
         enabled: !!workId,
         staleTime: 30_000,
         gcTime: 5 * 60 * 1000,
