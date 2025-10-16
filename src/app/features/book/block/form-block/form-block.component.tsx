@@ -79,7 +79,7 @@ const FormBlockComponent: FC<Readonly<IProps>> = (props) => {
         color='primary'
         size='lg'
         radius='lg'
-        className='px-8 font-medium'
+        className='border-0 bg-blue-600 px-8 font-medium text-white hover:bg-blue-700'
         isLoading={isLoading}
         startContent={!isLoading && <Search className='h-4 w-4' />}
       >

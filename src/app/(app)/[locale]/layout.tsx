@@ -1,16 +1,18 @@
+import '@/config/styles/global.css'
 import { type FC, type ReactNode } from 'react'
 import { type Metadata } from 'next'
+
 import { NextIntlClientProvider } from 'next-intl'
 import { hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
+import { routing } from '@/pkg/libraries/locale'
+
 import { notFound } from 'next/navigation'
-import '@/config/styles/global.css'
 import { LayoutModule } from '../../modules/layout'
 import { RestApiProvider } from '@/pkg/libraries/rest-api'
 import { UiProvider } from '@/pkg/libraries/ui'
-import { SentryProvider } from '@/pkg/integrations/sentry'
 import { MixpanelProvider } from '@/pkg/integrations/mixpanel'
-import { routing } from '@/pkg/libraries/locale'
+import { SentryProvider } from '@/pkg/integrations/sentry'
 
 // interface
 interface IProps {

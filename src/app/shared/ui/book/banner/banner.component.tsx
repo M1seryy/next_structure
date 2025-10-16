@@ -7,11 +7,11 @@ interface IProps {}
 // banner component
 const BannerComponent: FC<Readonly<IProps>> = () => {
   return (
-    <div className='relative mt-3.5 mb-3.5 h-[400px] max-w-[1200px] overflow-hidden rounded-2xl'>
+    <div className='relative mt-3.5 mb-3.5 h-[400px] max-w-[1280px] overflow-hidden rounded-2xl'>
       <Image
         src={'/images/banner.jpg'}
         alt={'Banner'}
-        width={1200}
+        width={1280}
         height={400}
         sizes='100vw'
         className='object-cover'
