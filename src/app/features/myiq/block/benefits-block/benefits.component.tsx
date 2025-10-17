@@ -1,9 +1,8 @@
 import type { FC } from 'react'
-import { Card, CardBody } from '@heroui/card'
 import { MyIqSection } from '@/app/shared/ui'
 import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
 import { ScrollShadow } from '@heroui/scroll-shadow'
-import { CheckSvg } from '@/app/shared/svg'
+import { MyIqBenefitCard } from '@/app/shared/ui/my-iq/benefit-card'
 import { BENEFITS } from '.'
 
 // props
@@ -15,7 +14,7 @@ const IqBenefitsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection fullBleedBgClassName='bg-support-surface py-10 sm:py-12'>
-      <MyIqSectionHeading center>What Will You Get</MyIqSectionHeading>
+      <MyIqSectionHeading title='What Will You Get' />
 
       <div className='-mx-4 mt-8 sm:-mx-6 lg:mx-0'>
         <ScrollShadow
@@ -23,31 +22,14 @@ const IqBenefitsComponent: FC<Readonly<IProps>> = () => {
           className='flex snap-x snap-mandatory gap-5 ps-4 pe-0 pb-2 sm:ps-6 sm:pe-0 lg:hidden'
         >
           {benefits.map((b, idx) => (
-            <Card
-              key={idx}
-              shadow='none'
-              radius='lg'
-              className='border-support-border w-[260px] flex-none snap-start rounded-xl border bg-white sm:w-[280px]'
-            >
-              <CardBody className='p-6'>
-                <div className='flex items-start gap-3'>
-                  <CheckSvg className='mt-0.5 h-5 w-5 flex-shrink-0 text-[#007AFF]' />
-                  <p className='text-[14px] leading-6 text-[#2A3342]'>{b.title}</p>
-                </div>
-              </CardBody>
-            </Card>
+            <div key={idx} className='w-[260px] flex-none snap-start sm:w-[280px]'>
+              <MyIqBenefitCard>{b.title}</MyIqBenefitCard>
+            </div>
           ))}
         </ScrollShadow>
         <div className='hidden grid-cols-5 gap-5 lg:grid lg:overflow-visible lg:px-0 lg:pb-0'>
           {benefits.map((b, idx) => (
-            <Card key={idx} shadow='none' radius='lg' className='border-support-border rounded-xl border bg-white'>
-              <CardBody className='p-6'>
-                <div className='flex items-start gap-3'>
-                  <CheckSvg className='mt-0.5 h-5 w-5 flex-shrink-0 text-[#007AFF]' />
-                  <p className='text-[14px] leading-6 text-[#2A3342]'>{b.title}</p>
-                </div>
-              </CardBody>
-            </Card>
+            <MyIqBenefitCard key={idx}>{b.title}</MyIqBenefitCard>
           ))}
         </div>
       </div>

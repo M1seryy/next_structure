@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { MyIqSection } from '@/app/shared/ui'
 import { InstagramSvg, FacebookSvg, XTwitterSvg } from '@/app/shared/svg'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
 
 // props
 interface IProps {}
@@ -11,10 +12,12 @@ const IqCommunityComponent: FC<Readonly<IProps>> = () => {
   return (
     <MyIqSection innerClassName='flex items-center justify-between gap-6 py-8'>
       <div>
-        <h2 className='text-brand-ink text-[36px] font-extrabold tracking-tight lg:text-[40px]'>Community</h2>
-        <p className='mt-2 max-w-2xl text-[16px] text-slate-600'>
-          Follow us on social media for daily quizzes, challenges and brain teasers to keep your mind sharp
-        </p>
+        <MyIqSectionHeading
+          title='Community'
+          description='Follow us on social media for daily quizzes, challenges and brain teasers to keep your mind sharp'
+          titleClassName='text-[36px] font-extrabold tracking-tight lg:text-[40px]'
+          descriptionClassName='mt-2 max-w-2xl text-[16px] text-slate-600'
+        />
       </div>
 
       <div className='flex items-center gap-4'>

@@ -4,6 +4,7 @@ import { type FC } from 'react'
 import { MyIqSection } from '@/app/shared/ui'
 import { FAQ_ITEMS } from '.'
 import { Accordion, AccordionItem } from '@heroui/accordion'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
 
 // props
 interface IProps {}
@@ -17,13 +18,11 @@ const IqFaqComponent: FC<Readonly<IProps>> = () => {
     <MyIqSection innerClassName='py-8'>
       <div className='grid gap-3 sm:[grid-template-columns:360px_1fr]'>
         <div className='w-full text-center sm:text-left'>
-          <h2 className='text-brand-ink text-center text-[36px] leading-tight font-extrabold tracking-tight sm:text-left lg:text-[40px]'>
-            Frequently
-            <br />
-            Asked
-            <br />
-            Questions
-          </h2>
+          <MyIqSectionHeading
+            title='Frequently Asked Questions'
+            className='text-center sm:text-left'
+            titleClassName='text-[36px] leading-tight font-extrabold tracking-tight lg:text-[40px]'
+          />
         </div>
 
         <div className='w-full'>

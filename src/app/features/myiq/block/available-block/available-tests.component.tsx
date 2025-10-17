@@ -4,6 +4,7 @@ import { Card, CardBody, CardHeader } from '@heroui/card'
 import { AVAILABLE_TESTS } from '.'
 import { Button } from '@heroui/button'
 import { Clock, FileText, ArrowRight } from 'lucide-react'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
 
 // props
 interface IProps {}
@@ -13,13 +14,12 @@ const IqAvailableTestsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection fullBleedBgClassName='bg-support-surface py-12'>
-      <h2 className='text-center text-[32px] font-extrabold tracking-tight text-[#2A3342] sm:text-[36px] lg:text-[40px]'>
-        Available Tests
-      </h2>
-
-      <p className='mx-auto mt-2 max-w-4xl text-center text-[14px] text-slate-600'>
-        Each test reveals a new part of you. Start with intelligence, with more tests coming soon
-      </p>
+      <MyIqSectionHeading
+        title='Available Tests'
+        description='Each test reveals a new part of you. Start with intelligence, with more tests coming soon'
+        titleClassName='text-[32px] font-extrabold tracking-tight sm:text-[36px] lg:text-[40px]'
+        descriptionClassName='mx-auto mt-2 max-w-4xl text-[14px] text-slate-600'
+      />
 
       <div className='mt-6 grid gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-6'>
         {AVAILABLE_TESTS.map((t) => (

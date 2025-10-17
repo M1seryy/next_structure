@@ -15,9 +15,7 @@ const IqResultsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection fullBleedBgClassName='bg-support-surface py-10 sm:py-12'>
-      <MyIqSectionHeading center className='text-[32px] sm:text-[36px]'>
-        Latest results
-      </MyIqSectionHeading>
+      <MyIqSectionHeading title='Latest results' titleClassName='text-[32px] sm:text-[36px]' />
 
       <div className='mt-8 grid gap-6 md:grid-cols-2'>
         <div className='space-y-4'>
