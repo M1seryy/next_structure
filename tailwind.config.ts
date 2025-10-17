@@ -37,7 +37,33 @@ const config: Config = {
     }
   },
   darkMode: 'class',
-  plugins: [heroui()],
+  plugins: [
+    heroui({
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: '#007AFF',
+              foreground: '#ffffff',
+            },
+            secondary: {
+              DEFAULT: '#2C3345',
+              foreground: '#ffffff',
+            },
+            success: {
+              DEFAULT: '#0E7C66',
+              foreground: '#ffffff',
+            },
+            background: '#ffffff',
+            foreground: '#2A3342',
+            content1: '#F5FAFF',
+            content2: '#EEF6FB',
+            content3: '#E2EDF6',
+          },
+        },
+      },
+    }),
+  ],
 }
 
 export default config
