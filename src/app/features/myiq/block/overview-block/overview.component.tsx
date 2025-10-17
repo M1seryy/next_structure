@@ -1,7 +1,7 @@
 import type { FC } from 'react'
-import { Card, CardBody, CardHeader } from '@heroui/card'
 import { ClipboardCheckSvg, DetailedReportSvg, BeginJourneySvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
+import { MyIqInfoCard } from '@/app/shared/ui/my-iq/info-card'
 
 // interface
 interface IProps {}
@@ -14,39 +14,17 @@ const IqOverviewComponent: FC<Readonly<IProps>> = () => {
         How it Works
       </h2>
       <div className='grid gap-4 sm:grid-cols-3 sm:gap-5'>
-        <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
-          <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <ClipboardCheckSvg className='h-[38px] w-[38px]' />
-          </CardHeader>
-          <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
-            <h3 className='text-[17px] font-semibold text-[#2A3342]'>Take a Test</h3>
-            <p className='mt-2 text-[14px] leading-6 text-slate-600'>Get an unbiased view of yourself</p>
-          </CardBody>
-        </Card>
+        <MyIqInfoCard icon={<ClipboardCheckSvg className='h-[38px] w-[38px]' />} title='Take a Test'>
+          Get an unbiased view of yourself
+        </MyIqInfoCard>
 
-        <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
-          <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <DetailedReportSvg className='h-[38px] w-[38px]' />
-          </CardHeader>
-          <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
-            <h3 className='text-[17px] font-semibold text-[#2A3342]'>Get Your Detailed Report</h3>
-            <p className='mt-2 text-[14px] leading-6 text-slate-600'>
-              Learn your strengths and discover areas for growth
-            </p>
-          </CardBody>
-        </Card>
+        <MyIqInfoCard icon={<DetailedReportSvg className='h-[38px] w-[38px]' />} title='Get Your Detailed Report'>
+          Learn your strengths and discover areas for growth
+        </MyIqInfoCard>
 
-        <Card shadow='none' radius='lg' className='min-h-[191px] border border-[#E6EEF9]'>
-          <CardHeader className='p-4 pb-0 md:px-8 md:pt-[42px]'>
-            <BeginJourneySvg className='h-[38px] w-[38px]' />
-          </CardHeader>
-          <CardBody className='p-4 pt-2 pb-8 md:px-8 md:pt-3'>
-            <h3 className='text-[17px] font-semibold text-[#2A3342]'>Begin Your Journey</h3>
-            <p className='mt-2 text-[14px] leading-6 text-slate-600'>
-              Start improving with expert courses and brain training
-            </p>
-          </CardBody>
-        </Card>
+        <MyIqInfoCard icon={<BeginJourneySvg className='h-[38px] w-[38px]' />} title='Begin Your Journey'>
+          Start improving with expert courses and brain training
+        </MyIqInfoCard>
       </div>
     </MyIqSection>
   )

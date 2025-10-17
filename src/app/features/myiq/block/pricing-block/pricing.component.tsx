@@ -1,7 +1,8 @@
 import type { FC } from 'react'
 import { Button } from '@heroui/button'
 import { MyIqSection } from '@/app/shared/ui'
-import { CheckSvg } from '@/app/shared/svg'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
+import { MyIqCheckListItem } from '@/app/shared/ui/my-iq/check-list-item'
 
 // props
 interface IProps {}
@@ -11,7 +12,7 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection fullBleedBgClassName='bg-support-surface py-12' innerClassName='text-center'>
-      <h2 className='text-[36px] font-extrabold tracking-tight text-[#2A3342] lg:text-[40px]'>Explore our plans</h2>
+      <MyIqSectionHeading center>Explore our plans</MyIqSectionHeading>
       <p className='mx-auto mt-2 max-w-3xl text-[16px] text-slate-600'>
         Discover our flexible offers and choose the one that best suits your learning and personal development journey.
       </p>
@@ -28,22 +29,10 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
           </div>
 
           <ul className='text-brand-ink mt-4 space-y-3 text-[15px]'>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>7‑day trial, auto‑renews to bi‑weekly plan thereafter</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Personalized IQ Certificate</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Comprehensive Cognitive Analysis</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Full Access to Development Tools</span>
-            </li>
+            <MyIqCheckListItem>7‑day trial, auto‑renews to bi‑weekly plan thereafter</MyIqCheckListItem>
+            <MyIqCheckListItem>Personalized IQ Certificate</MyIqCheckListItem>
+            <MyIqCheckListItem>Comprehensive Cognitive Analysis</MyIqCheckListItem>
+            <MyIqCheckListItem>Full Access to Development Tools</MyIqCheckListItem>
           </ul>
 
           <Button
@@ -65,22 +54,10 @@ const IqPricingComponent: FC<Readonly<IProps>> = () => {
           </div>
 
           <ul className='text-brand-ink mt-4 space-y-3 text-[15px]'>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Maximum Savings on Long‑Term Growth</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Complete Cognitive Assessment Suite</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>20+ Hours of Expert‑Led Courses</span>
-            </li>
-            <li className='flex items-start gap-2'>
-              <CheckSvg className='mt-0.5 h-4 w-4 min-w-4 text-[#007AFF]' />
-              <span>Personalized Development Path</span>
-            </li>
+            <MyIqCheckListItem>Maximum Savings on Long‑Term Growth</MyIqCheckListItem>
+            <MyIqCheckListItem>Complete Cognitive Assessment Suite</MyIqCheckListItem>
+            <MyIqCheckListItem>20+ Hours of Expert‑Led Courses</MyIqCheckListItem>
+            <MyIqCheckListItem>Personalized Development Path</MyIqCheckListItem>
           </ul>
 
           <Button

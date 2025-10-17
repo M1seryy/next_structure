@@ -2,6 +2,8 @@ import type { FC } from 'react'
 import { Card, CardBody } from '@heroui/card'
 import { MyIqSection } from '@/app/shared/ui'
 import { CheckSvg } from '@/app/shared/svg'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
+import { MyIqCheckListItem } from '@/app/shared/ui/my-iq/check-list-item'
 
 // props
 interface IProps {}
@@ -11,9 +13,7 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection innerClassName='py-12'>
-      <h2 className='text-center text-[36px] font-extrabold tracking-tight text-[#2A3342] lg:text-[40px]'>
-        Boost Your Abilities
-      </h2>
+      <MyIqSectionHeading center>Boost Your Abilities</MyIqSectionHeading>
       <p className='mx-auto mt-2 max-w-3xl text-center text-[16px] text-slate-600'>
         Unlock your potential with our comprehensive training package
       </p>
@@ -27,31 +27,11 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
               </div>
             </div>
             <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Expert Video Courses</p>
-            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>20+ hours of expert training</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Easy-to-follow lessons</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Learn at your own pace</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Track your progress</p>
-              </li>
+            <ul className='flex flex-col gap-2 text-sm max-md:pt-0.5'>
+              <MyIqCheckListItem>20+ hours of expert training</MyIqCheckListItem>
+              <MyIqCheckListItem>Easy-to-follow lessons</MyIqCheckListItem>
+              <MyIqCheckListItem>Learn at your own pace</MyIqCheckListItem>
+              <MyIqCheckListItem>Track your progress</MyIqCheckListItem>
             </ul>
           </CardBody>
         </Card>
@@ -63,28 +43,13 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
               </div>
             </div>
             <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Brain Training Games</p>
-            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Diverse cognitive training exercises</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Progressive difficulty levels</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>
-                  Enhance 5 core mental skills: Memory, Logical reasoning, problem‑solving mastery, focus and
-                  concentration.
-                </p>
-              </li>
+            <ul className='flex flex-col gap-2 text-sm max-md:pt-0.5'>
+              <MyIqCheckListItem>Diverse cognitive training exercises</MyIqCheckListItem>
+              <MyIqCheckListItem>Progressive difficulty levels</MyIqCheckListItem>
+              <MyIqCheckListItem>
+                Enhance 5 core mental skills: Memory, Logical reasoning, problem‑solving mastery, focus and
+                concentration.
+              </MyIqCheckListItem>
             </ul>
           </div>
         </div>
@@ -96,27 +61,12 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
               </div>
             </div>
             <p className='text-start text-[18px] font-semibold text-[#2C3345]'>Puzzles</p>
-            <ul className='flex flex-col gap-2 max-md:pt-0.5'>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>150+ Intelligence‑Boosting Puzzles</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>Smart Difficulty Progression</p>
-              </li>
-              <li className='flex items-start gap-1.5'>
-                <div className='p-1'>
-                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
-                </div>
-                <p className='text-start text-sm'>
-                  Master essential brain functions: Pattern Recognition, Strategic Thinking, Analytical Reasoning.
-                </p>
-              </li>
+            <ul className='flex flex-col gap-2 text-sm max-md:pt-0.5'>
+              <MyIqCheckListItem>150+ Intelligence‑Boosting Puzzles</MyIqCheckListItem>
+              <MyIqCheckListItem>Smart Difficulty Progression</MyIqCheckListItem>
+              <MyIqCheckListItem>
+                Master essential brain functions: Pattern Recognition, Strategic Thinking, Analytical Reasoning.
+              </MyIqCheckListItem>
             </ul>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { Card, CardBody } from '@heroui/card'
 import { MyIqSection } from '@/app/shared/ui'
+import { MyIqSectionHeading } from '@/app/shared/ui/my-iq/section-heading'
 import { ScrollShadow } from '@heroui/scroll-shadow'
 import { CheckSvg } from '@/app/shared/svg'
 import { BENEFITS } from '.'
@@ -14,9 +15,7 @@ const IqBenefitsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <MyIqSection fullBleedBgClassName='bg-support-surface py-10 sm:py-12'>
-      <h2 className='text-center text-[36px] font-extrabold tracking-tight text-[#2A3342] lg:text-[40px]'>
-        What Will You Get
-      </h2>
+      <MyIqSectionHeading center>What Will You Get</MyIqSectionHeading>
 
       <div className='-mx-4 mt-8 sm:-mx-6 lg:mx-0'>
         <ScrollShadow
