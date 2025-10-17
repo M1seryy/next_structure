@@ -1,4 +1,5 @@
 import { type FC } from 'react'
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { getQueryClient } from '@/pkg/libraries/rest-api/service'
 import { BookModule } from '@/app/modules/book'
 import { bookByIdQueryApi, popularBooksQueryApi } from '@/app/entities/api'
@@ -43,13 +44,24 @@ const BookPage: FC<Readonly<IProps>> = async (props) => {
   const { id } = await props.params
 
   const clientQuery = getQueryClient()
+
+  await clientQuery.prefetchQuery({
+    queryKey: ['book', id],
+    queryFn: (opt) => bookByIdQueryApi(opt, { id }),
+  })
+
+  const dehydratedState = dehydrate(clientQuery)
   const bookData = await clientQuery.fetchQuery({
     queryKey: ['book', id],
     queryFn: (opt) => bookByIdQueryApi(opt, { id }),
   })
 
   // return
-  return <BookModule data={bookData} />
+  return (
+    <HydrationBoundary state={dehydratedState}>
+      <BookModule data={bookData} />
+    </HydrationBoundary>
+  )
 }
 
 export default BookPage
