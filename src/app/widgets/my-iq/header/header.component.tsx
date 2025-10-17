@@ -7,7 +7,7 @@ import { MyIqSection } from '@/app/shared/ui'
 interface IProps {}
 
 //component
-const HeaderComponent: React.FC = () => {
+const MyIqHeaderComponent: React.FC = () => {
   //return
   return (
     <header className='sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60'>
@@ -67,4 +67,4 @@ const HeaderComponent: React.FC = () => {
   )
 }
 
-export default HeaderComponent
+export default MyIqHeaderComponent

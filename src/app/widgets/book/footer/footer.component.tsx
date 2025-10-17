@@ -4,7 +4,7 @@ import { type FC } from 'react'
 interface IProps {}
 
 // component
-const FooterComponent: FC<Readonly<IProps>> = () => {
+const BookFooterComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
     <footer className='mt-auto bg-gray-100 py-8'>
@@ -57,4 +57,4 @@ const FooterComponent: FC<Readonly<IProps>> = () => {
   )
 }
 
-export default FooterComponent
+export default BookFooterComponent

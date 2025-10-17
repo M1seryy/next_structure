@@ -8,7 +8,7 @@ import Link from 'next/link'
 interface IProps {}
 
 //component
-const HeaderComponent: FC<Readonly<IProps>> = () => {
+const BookHeaderComponent: FC<Readonly<IProps>> = () => {
   const t = useTranslations()
 
   //return
@@ -36,4 +36,4 @@ const HeaderComponent: FC<Readonly<IProps>> = () => {
   )
 }
 
-export default HeaderComponent
+export default BookHeaderComponent

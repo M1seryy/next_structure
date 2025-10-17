@@ -7,7 +7,7 @@ import { FacebookSvg, InstagramSvg, MastercardSvg, PaypalSvg, RedditSvg, VisaSvg
 interface IProps {}
 
 //component
-const FooterComponent: FC<Readonly<IProps>> = () => {
+const MyIqFooterComponent: FC<Readonly<IProps>> = () => {
   //return
   return (
     <MyIqSection fullBleedBgClassName='bg-[#001B36] text-white' innerClassName='py-8 sm:py-10'>
@@ -187,4 +187,4 @@ const FooterComponent: FC<Readonly<IProps>> = () => {
   )
 }
 
-export default FooterComponent
+export default MyIqFooterComponent
