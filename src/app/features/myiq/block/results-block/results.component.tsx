@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { MyIqSection } from '@/app/shared/ui'
 import { Card, CardBody } from '@heroui/card'
+import { Chip } from '@heroui/chip'
 import { RESULTS_LEFT, RESULTS_RIGHT, type Result } from '.'
 
 // props
@@ -14,11 +15,11 @@ const Row: FC<{ item: Result }> = ({ item }) => (
     <CardBody className='flex flex-row items-center justify-between p-0 px-5 md:px-6'>
       <div className='flex items-center gap-4'>
         <span className='text-[20px] lg:text-[24px]'>{item.flag}</span>
-        <span className='text-base font-medium text-[#2A3342] md:text-lg'>{item.name}</span>
+        <span className='text-brand-ink text-base font-medium md:text-lg'>{item.name}</span>
       </div>
-      <span className='rounded-small px-2 py-1 text-center text-base text-[#006FEE] md:text-[20px]'>
+      <Chip color='primary' variant='flat' className='text-base md:text-[20px]'>
         IQ {item.score}
-      </span>
+      </Chip>
     </CardBody>
   </Card>
 )
@@ -27,8 +28,8 @@ const Row: FC<{ item: Result }> = ({ item }) => (
 const IqResultsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
-    <MyIqSection fullBleedBgClassName='bg-[#F5FAFF] py-12'>
-      <h2 className='text-center text-[32px] font-extrabold tracking-tight text-[#2A3342] sm:text-[36px]'>
+    <MyIqSection fullBleedBgClassName='bg-support-surface py-10 sm:py-12'>
+      <h2 className='text-brand-ink text-center text-[32px] font-extrabold tracking-tight sm:text-[36px]'>
         Latest results
       </h2>
 

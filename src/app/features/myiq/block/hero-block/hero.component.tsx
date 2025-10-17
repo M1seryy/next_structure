@@ -22,7 +22,7 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
     <MyIqSection>
       <div className='flex min-h-[461px] w-full flex-col items-center gap-5 lg:flex-row lg:justify-between'>
         <div className='order-2 flex w-full max-w-[630px] flex-col gap-3 text-center lg:order-1 lg:gap-4 lg:text-left'>
-          <h1 className='text-[32px] leading-[40px] font-extrabold text-[#2A3342] lg:text-[48px] lg:leading-[62px]'>
+          <h1 className='text-brand-ink text-[32px] leading-[40px] font-extrabold lg:text-[48px] lg:leading-[62px]'>
             <span className='from-primary-dark to-secondary-dark inline-block bg-gradient-to-r bg-clip-text text-transparent'>
               Want to Know Your&nbsp;
             </span>
@@ -53,15 +53,17 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
           <div className='mt-[11px] flex items-center md:mt-4'>
             <div className='relative mr-6 flex md:mr-12'>
               {avatars.map((src, i) => (
-                <img
+                <Image
                   key={i}
                   src={src}
-                  alt=''
+                  alt='avatar'
+                  width={50}
+                  height={50}
                   className={`h-10 w-10 rounded-full border-[3px] border-white object-cover md:h-[50px] md:w-[50px] md:border-4 ${i > 0 ? (i === 3 ? '-ml-9 max-md:hidden md:-ml-6' : '-ml-5 md:-ml-6') : ''}`}
                 />
               ))}
             </div>
-            <div className='-ml-4 flex flex-col text-sm text-[#2B2D42] md:-ml-8 md:text-base md:leading-6'>
+            <div className='text-primary-text -ml-4 flex flex-col text-sm md:-ml-8 md:text-base md:leading-6'>
               <div className='flex flex-wrap max-md:flex-col md:items-center md:gap-1'>
                 <p>Excellent user reviews</p>
                 <div className='relative flex text-gray-300'>

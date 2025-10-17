@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import { MyIqSection } from '@/app/shared/ui'
-import { Instagram, Facebook } from 'lucide-react'
+import { InstagramSvg, FacebookSvg, XTwitterSvg } from '@/app/shared/svg'
 
 // props
 interface IProps {}
@@ -11,7 +11,7 @@ const IqCommunityComponent: FC<Readonly<IProps>> = () => {
   return (
     <MyIqSection innerClassName='flex items-center justify-between gap-6 py-8'>
       <div>
-        <h2 className='text-[36px] font-extrabold tracking-tight text-[#2A3342] lg:text-[40px]'>Community</h2>
+        <h2 className='text-brand-ink text-[36px] font-extrabold tracking-tight lg:text-[40px]'>Community</h2>
         <p className='mt-2 max-w-2xl text-[16px] text-slate-600'>
           Follow us on social media for daily quizzes, challenges and brain teasers to keep your mind sharp
         </p>
@@ -20,24 +20,24 @@ const IqCommunityComponent: FC<Readonly<IProps>> = () => {
       <div className='flex items-center gap-4'>
         <a
           href='#'
-          className='inline-flex h-12 w-20 items-center justify-center rounded-xl border border-[#1D63F0] text-[22px] font-semibold text-[#2A3342] shadow-sm transition hover:bg-[#EEF6FB]'
+          className='border-link text-brand-ink hover:bg-support-surfaceAlt inline-flex h-12 w-20 items-center justify-center rounded-xl border text-[22px] font-semibold shadow-sm transition'
           aria-label='X / Twitter'
         >
-          X
+          <XTwitterSvg className='h-6 w-6' />
         </a>
         <a
           href='#'
-          className='inline-flex h-12 w-20 items-center justify-center rounded-xl border border-[#1D63F0] text-[#2A3342] shadow-sm transition hover:bg-[#EEF6FB]'
+          className='border-link text-brand-ink hover:bg-support-surfaceAlt inline-flex h-12 w-20 items-center justify-center rounded-xl border shadow-sm transition'
           aria-label='Instagram'
         >
-          <Instagram className='h-6 w-6' />
+          <InstagramSvg className='h-6 w-6' />
         </a>
         <a
           href='#'
-          className='inline-flex h-12 w-20 items-center justify-center rounded-xl border border-[#1D63F0] text-[#2A3342] shadow-sm transition hover:bg-[#EEF6FB]'
+          className='border-link text-brand-ink hover:bg-support-surfaceAlt inline-flex h-12 w-20 items-center justify-center rounded-xl border shadow-sm transition'
           aria-label='Facebook'
         >
-          <Facebook className='h-6 w-6' />
+          <FacebookSvg className='h-6 w-6' />
         </a>
       </div>
     </MyIqSection>

@@ -16,5 +16,6 @@ export { default as FacebookSvg } from './facebook.svg'
 export { default as VisaSvg } from './visa.svg'
 export { default as MastercardSvg } from './mastercard.svg'
 export { default as PaypalSvg } from './paypal.svg'
+export { default as CheckSvg } from './check.svg'
 
 

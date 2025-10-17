@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { Card, CardBody } from '@heroui/card'
 import { MyIqSection } from '@/app/shared/ui'
+import { CheckSvg } from '@/app/shared/svg'
 
 // props
 interface IProps {}
@@ -29,73 +30,25 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
             <ul className='flex flex-col gap-2 max-md:pt-0.5'>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>20+ hours of expert training</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Easy-to-follow lessons</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Learn at your own pace</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Track your progress</p>
               </li>
@@ -113,55 +66,19 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
             <ul className='flex flex-col gap-2 max-md:pt-0.5'>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Diverse cognitive training exercises</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Progressive difficulty levels</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>
                   Enhance 5 core mental skills: Memory, Logical reasoning, problem‑solving mastery, focus and
@@ -182,55 +99,19 @@ const IqAbilitiesComponent: FC<Readonly<IProps>> = () => {
             <ul className='flex flex-col gap-2 max-md:pt-0.5'>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>150+ Intelligence‑Boosting Puzzles</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>Smart Difficulty Progression</p>
               </li>
               <li className='flex items-start gap-1.5'>
                 <div className='p-1'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 14 10'
-                    className='h-3.5 w-4 min-w-4 text-[#007AFF]'
-                  >
-                    <path
-                      fill='currentColor'
-                      fillRule='evenodd'
-                      d='M13.22.21a.714.714 0 0 1 0 1.01L5.361 9.076a.714.714 0 0 1-1.01 0L.781 5.505a.714.714 0 0 1 1.01-1.01L4.857 7.56 12.21.21a.714.714 0 0 1 1.01 0'
-                      clipRule='evenodd'
-                    />
-                  </svg>
+                  <CheckSvg className='h-3.5 w-4 min-w-4 text-[#007AFF]' />
                 </div>
                 <p className='text-start text-sm'>
                   Master essential brain functions: Pattern Recognition, Strategic Thinking, Analytical Reasoning.

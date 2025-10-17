@@ -1,8 +1,9 @@
 'use client'
 
-import { type FC, useState } from 'react'
+import { type FC } from 'react'
 import { MyIqSection } from '@/app/shared/ui'
 import { FAQ_ITEMS } from '.'
+import { Accordion, AccordionItem } from '@heroui/accordion'
 
 // props
 interface IProps {}
@@ -12,13 +13,11 @@ const faqs = FAQ_ITEMS
 // component
 const IqFaqComponent: FC<Readonly<IProps>> = () => {
   // return
-  const [open, setOpen] = useState<number | null>(null)
-
   return (
     <MyIqSection innerClassName='py-8'>
       <div className='grid gap-3 sm:[grid-template-columns:360px_1fr]'>
         <div className='w-full text-center sm:text-left'>
-          <h2 className='text-center text-[36px] leading-tight font-extrabold tracking-tight text-[#2A3342] sm:text-left lg:text-[40px]'>
+          <h2 className='text-brand-ink text-center text-[36px] leading-tight font-extrabold tracking-tight sm:text-left lg:text-[40px]'>
             Frequently
             <br />
             Asked
@@ -28,23 +27,13 @@ const IqFaqComponent: FC<Readonly<IProps>> = () => {
         </div>
 
         <div className='w-full'>
-          {faqs.map((item, idx) => {
-            const isOpen = open === idx
-            const isLast = idx === faqs.length - 1
-            return (
-              <div key={idx} className={!isLast ? 'border-b border-[#E6EEF9]' : ''}>
-                <button
-                  type='button'
-                  className='flex w-full items-center justify-between px-6 py-5 text-left text-[16px] font-medium text-[#2A3342]'
-                  onClick={() => setOpen((prev) => (prev === idx ? null : idx))}
-                >
-                  <span className='pr-2'>{item.q}</span>
-                  <span className='pl-2 text-[20px] text-slate-400 md:text-[22px]'>{isOpen ? '‹' : '›'}</span>
-                </button>
-                {isOpen && <div className='px-6 pt-1 pb-6 text-[14px] leading-6 text-slate-600'>{item.a}</div>}
-              </div>
-            )
-          })}
+          <Accordion variant='splitted' selectionMode='single'>
+            {faqs.map((item, idx) => (
+              <AccordionItem key={idx} aria-label={item.q} title={item.q} className='px-2'>
+                <div className='px-4 pt-1 pb-4 text-[14px] leading-6 text-slate-600'>{item.a}</div>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </MyIqSection>

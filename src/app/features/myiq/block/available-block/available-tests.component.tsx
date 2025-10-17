@@ -12,10 +12,11 @@ interface IProps {}
 const IqAvailableTestsComponent: FC<Readonly<IProps>> = () => {
   // return
   return (
-    <MyIqSection fullBleedBgClassName='bg-[#EEF6FB] py-[100px]'>
+    <MyIqSection fullBleedBgClassName='bg-support-surface py-12'>
       <h2 className='text-center text-[32px] font-extrabold tracking-tight text-[#2A3342] sm:text-[36px] lg:text-[40px]'>
         Available Tests
       </h2>
+
       <p className='mx-auto mt-2 max-w-4xl text-center text-[14px] text-slate-600'>
         Each test reveals a new part of you. Start with intelligence, with more tests coming soon
       </p>
@@ -26,15 +27,15 @@ const IqAvailableTestsComponent: FC<Readonly<IProps>> = () => {
             key={t.key}
             shadow='sm'
             radius='lg'
-            className='relative min-h-[218px] w-full rounded-xl border border-[#E2EDF6] bg-white shadow-[0_4px_14px_rgba(20,58,94,0.06)]'
+            className='border-support-border relative min-h-[218px] w-full rounded-xl border bg-white shadow-[0_4px_14px_rgba(20,58,94,0.06)]'
           >
             <CardBody className='p-0'>
               <div className='place-content-inherit align-items-inherit relative flex h-auto w-full flex-auto flex-col gap-2.5 overflow-y-auto p-3 px-4 py-6 text-left break-words antialiased md:gap-3'>
                 <span className='h-[38px] w-[38px] text-[#1D63F0]' aria-hidden>
                   {t.icon}
                 </span>
-                <p className='text-start text-[18px] font-semibold text-[#2C3345]'>{t.title}</p>
-                <div className='flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#454F69]'>
+                <p className='text-primary-dark text-start text-[18px] font-semibold'>{t.title}</p>
+                <div className='text-support-muted flex flex-wrap gap-x-4 gap-y-2 text-sm'>
                   <span className='inline-flex items-center gap-1.5'>
                     <Clock className='h-4 w-4' />
                     <span>{t.minutes} minutes</span>
@@ -50,7 +51,7 @@ const IqAvailableTestsComponent: FC<Readonly<IProps>> = () => {
                     <Button
                       radius='lg'
                       size='md'
-                      className='z-0 h-12 w-full rounded-xl bg-[#0E7C66] px-6 text-sm font-semibold text-white shadow-sm transition hover:opacity-95'
+                      className='bg-primary-green z-0 h-12 w-full rounded-xl px-6 text-sm font-semibold text-white shadow-sm transition hover:opacity-95'
                     >
                       {t.cta}
                       <ArrowRight className='ml-2 h-3.5 w-3.5' />

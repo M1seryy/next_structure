@@ -21,7 +21,18 @@ const config: Config = {
         secondary: {
           dark: '#424D6A',
           blue: '#27415F',
-        }
+        },
+        brand: {
+          ink: '#2A3342',
+        },
+        support: {
+          border: '#E2EDF6',
+          divider: '#E6EEF9',
+          surface: '#F5FAFF',
+          surfaceAlt: '#EEF6FB',
+          muted: '#454F69',
+        },
+        link: '#1D63F0',
       }
     }
   },
