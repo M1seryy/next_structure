@@ -21,7 +21,7 @@ const IqHeroComponent: FC<Readonly<IProps>> = () => {
   return (
     <MyIqSection>
       <div className='flex min-h-[461px] w-full flex-col items-center gap-5 lg:flex-row lg:justify-between'>
-        <div className='order-2 flex w-full max-w-[630px] flex-col gap-3 text-center lg:order-1 lg:gap-4 lg:text-left'>
+        <div className='order-2 flex w-full flex-col gap-3 text-center lg:order-1 lg:gap-4 lg:text-left'>
           <h1 className='text-brand-ink text-[32px] leading-[40px] font-extrabold lg:text-[48px] lg:leading-[62px]'>
             <span className='from-primary-dark to-secondary-dark inline-block bg-gradient-to-r bg-clip-text text-transparent'>
               Want to Know Your&nbsp;
