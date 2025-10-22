@@ -24,7 +24,9 @@ const BookHeaderComponent: FC<Readonly<IProps>> = () => {
               <Link href={'/'}>{t('navigation.home')}</Link>
             </li>
             <li className='text-xl'>
-              <Link href={'/book-list'}>{t('navigation.books')}</Link>
+              <Link href={'/book-list'} prefetch>
+                {t('navigation.books')}
+              </Link>
             </li>
             <li className='text-xl'>
               <Link href={'/about'}>{t('navigation.about')}</Link>
