@@ -11,6 +11,8 @@ export const envServer = createEnv({
         GROWTHBOOK_API_HOST: z.string().optional(),
         GROWTHBOOK_SERVER_KEY: z.string().optional(),
         GROWTHBOOK_CLIENT_KEY: z.string().optional(),
+        GOOGLE_CLIENT_ID: z.string().optional(),
+        GOOGLE_CLIENT_SECRET: z.string().optional(),
     },
     runtimeEnv: {
         SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
@@ -20,6 +22,8 @@ export const envServer = createEnv({
         GROWTHBOOK_API_HOST: process.env.GROWTHBOOK_API_HOST,
         GROWTHBOOK_SERVER_KEY: process.env.GROWTHBOOK_SERVER_KEY,
         GROWTHBOOK_CLIENT_KEY: process.env.GROWTHBOOK_CLIENT_KEY,
+        GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     },
 })
 

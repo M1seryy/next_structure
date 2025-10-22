@@ -15,6 +15,13 @@
       "when": 1760269864158,
       "tag": "0001_lowly_the_order",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1761139578053,
+      "tag": "0002_tired_unus",
+      "breakpoints": true
     }
   ]
 }

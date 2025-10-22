@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { MyIqLogoSvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
+import { useAuthSession, authApi } from '@/app/entities/api/auth'
 
 //interface
 interface IProps {}
@@ -27,12 +28,9 @@ const MyIqHeaderComponent: React.FC = () => {
         </a>
 
         <div className='hidden items-center gap-3 md:flex'>
-          <a
-            href='#login'
-            className='inline-flex h-[42px] items-center rounded-lg border border-[#0E7C66] px-5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66] hover:text-white'
-          >
-            Log In
-          </a>
+          <button className='inline-flex h-[42px] items-center rounded-lg border border-[#0E7C66] px-5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66] hover:text-white'>
+            Log In with Google
+          </button>
           <a
             href='#start'
             className='inline-flex h-[42px] items-center rounded-lg bg-[#0E7C66] px-5 text-sm font-semibold text-white shadow-sm transition hover:opacity-95'

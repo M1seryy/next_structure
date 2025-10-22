@@ -9,6 +9,7 @@ export const envClient = createEnv({
         NEXT_PUBLIC_SUPABASE_URL: z.string().min(1, "NEXT_PUBLIC_SUPABASE_URL is required"),
         NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1, "NEXT_PUBLIC_SUPABASE_ANON_KEY is required"),
         NEXT_PUBLIC_COVERS_BASE_URL: z.string().min(1, 'NEXT_PUBLIC_COVERS_BASE_URL is required'),
+        NEXT_PUBLIC_APP_URL: z.string().optional(),
     },
     emptyStringAsUndefined: true,
     runtimeEnv: {
@@ -17,5 +18,6 @@ export const envClient = createEnv({
         NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
         NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
         NEXT_PUBLIC_COVERS_BASE_URL: process.env.NEXT_PUBLIC_COVERS_BASE_URL,
+        NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     },
 })
