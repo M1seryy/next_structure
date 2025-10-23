@@ -1,7 +1,6 @@
 import '@/config/styles/global.css'
 import { type FC, type ReactNode } from 'react'
 import { type Metadata } from 'next'
-
 import { NextIntlClientProvider } from 'next-intl'
 import { hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'

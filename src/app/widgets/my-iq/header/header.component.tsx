@@ -2,13 +2,20 @@ import React from 'react'
 import Image from 'next/image'
 import { MyIqLogoSvg } from '@/app/shared'
 import { MyIqSection } from '@/app/shared/ui'
-import { useAuthSession, authApi } from '@/app/entities/api/auth'
+import { authClient } from '@/app/entities/auth/authClient'
 
 //interface
 interface IProps {}
 
 //component
 const MyIqHeaderComponent: React.FC = () => {
+  const handleLogin = async () => {
+    try {
+      await authClient.signIn.social({ provider: 'google' })
+    } catch (err) {
+      console.error(err)
+    }
+  }
   //return
   return (
     <header className='sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60'>
@@ -28,7 +35,10 @@ const MyIqHeaderComponent: React.FC = () => {
         </a>
 
         <div className='hidden items-center gap-3 md:flex'>
-          <button className='inline-flex h-[42px] items-center rounded-lg border border-[#0E7C66] px-5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66] hover:text-white'>
+          <button
+            onClick={handleLogin}
+            className='inline-flex h-[42px] items-center rounded-lg border border-[#0E7C66] px-5 text-sm font-semibold text-[#0E7C66] transition hover:bg-[#0E7C66] hover:text-white'
+          >
             Log In with Google
           </button>
           <a
